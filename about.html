@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>About Us - Team TechPro</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="css/magnific-popup.css" rel="stylesheet">
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #14b789;
+            --secondary-color: #535da1;
+            --light-bg: #ffffff;
+            --light-gray: #f8f9fa;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--light-bg);
+            color: var(--text-dark);
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            transition: var(--transition);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            transition: var(--transition);
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link.active,
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .about-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .about-section .image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-section .image-wrapper:hover {
+            transform: scale(1.02);
+        }
+
+        .about-section .about-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .about-section .avatar-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .about-section .avatar-image:hover {
+            transform: scale(1.1);
+        }
+
+        .about-section .about-thumb {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .about-section .about-thumb:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-section .section-title-wrap {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-section .section-title-wrap h2 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-right: 1rem;
+            margin-bottom: 0;
+        }
+
+        .about-section .founder-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-dark);
+            margin-bottom: 0;
+        }
+
+        .about-section:nth-child(odd) {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .about-section:nth-child(even) {
+            background: linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%);
+        }
+
+        .section-title-wrap {
+            margin-bottom: 3rem;
+        }
+
+        .text-white {
+            color: var(--text-dark) !important;
+        }
+
+        .section-title {
+            color: var(--text-dark);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .site-footer {
+            background: var(--light-gray);
+            padding: 50px 0;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+        }
+
+        @media (max-width: 992px) {
+            .navbar-expand-lg .navbar-nav .nav-link {
+                padding: 0.5rem 0 !important;
+            }
+
+            .navbar-collapse {
+                text-align: center;
+            }
+
+            .navbar .d-lg-flex {
+                display: none !important;
+            }
+
+            .about-section .about-image {
+                max-width: 100%;
+                margin-bottom: 2rem;
+            }
+            
+            .about-section .avatar-image {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 60px 0;
+            }
+            
+            .about-section .about-thumb {
+                padding: 1.5rem;
+            }
+            
+            .about-section .founder-text {
+                font-size: 1rem;
+            }
+            .avatar-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-section .avatar-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .about-section .section-title-wrap h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        #founder, #co-founder, #techpro {
+            margin-bottom: 1rem;
+        }
+
+        .bi-lightbulb, .bi-gem, .bi-people, .bi-award {
+            font-size: 2rem !important;
+        }
+
+        .section-title-wrap img {
+            width: 80px !important;
+            height: auto;
+        }
+
+        #techpro .section-title-wrap h2 {
+            color: var(--text-dark) !important;
+        }
+
+        #techpro .row img {
+            background-color: transparent;
+            padding: 5px;
+            box-shadow: none;
+        }
+
+        #techpro .section-title-wrap img {
+            width: 60px !important;
+            height: auto;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        #techpro .row .d-flex.align-items-start img {
+            /* Specific styles moved inline to ensure equal sizing */
+        }
+
+        #techpro .row .d-flex.align-items-start i {
+            max-width: none !important;
+            height: auto !important;
+        }
+
+        @media (max-width: 768px) {
+            #techpro .section-title-wrap img {
+                width: 50px !important;
+                margin-right: 10px;
+            }
+
+            #techpro .row .d-flex.align-items-start img {
+                width: 120px !important;
+                margin-top: 8px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            #techpro .section-title-wrap img {
+                width: 40px !important;
+            }
+
+            #techpro .row .d-flex.align-items-start img {
+                width: 100px !important;
+                margin-top: 6px;
+            }
+        }
+
+        img:hover {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .about-section .about-image:hover {
+            transform: scale(1.05) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .team-card {
+            transition: all 0.3s ease;
+            padding: 2rem;
+            height: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-image-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .avatar-image {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .team-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(20, 183, 137, 0.9);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-image-wrapper:hover .team-overlay {
+            opacity: 1;
+        }
+
+        .team-social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: scale(1.2);
+            color: white;
+        }
+
+        .team-description {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+
+        .team-expertise {
+            margin-top: 1.5rem;
+        }
+
+        .expertise-item {
+            margin-bottom: 1rem;
+        }
+
+        .expertise-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .progress {
+            height: 6px;
+            background-color: var(--light-gray);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background-color: var(--primary-color);
+            transition: width 1s ease;
+        }
+
+        @media (max-width: 768px) {
+            .team-card {
+                margin-bottom: 2rem;
+            }
+            
+            .avatar-image {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--Nav bar-->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a href="index.html" class="navbar-brand mx-auto mx-lg-0">
+                <i class="bi bi-code-square me-2"></i>TechPro
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-lg-5">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house-door me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">
+                            <i class="bi bi-person me-1"></i>About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">
+                            <i class="bi bi-gear me-1"></i>Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">
+                            <i class="bi bi-briefcase me-1"></i>Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="form.html">
+                            <i class="bi bi-file-earmark-text me-1"></i>Quote Form
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactus.html">
+                            <i class="bi bi-envelope me-1"></i>Contact
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="d-lg-flex align-items-center d-none ms-auto">
+                    <a class="custom-btn btn" href="tel:+919695167669">
+                        <i class="bi bi-telephone me-2"></i>+91 9695167669
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--Nav bar Ends -->
+    <!--About Tech Pro Section-->
+    <section class="about-section" id="techpro">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mx-auto">
+                    <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
+                        <img src="images/aboutus1.avif" alt="TechPro Logo"
+                            style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;">
+                        <h2 class="text-white ms-3 mb-0" style="font-size: 3rem;">About TechPro</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12 mb-4">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-lightbulb me-3" style="color: var(--primary-color); font-size: 4rem !important;"></i>
+                                <div>
+                                    <h4 style="color: var(--text-dark);">Innovation</h4>
+                                    <p style="font-size: 1rem; line-height: 1.8; color: var(--text-dark);">TechPro is an
+                                        innovative web development company and digital solutions provider dedicated to
+                                        crafting cutting-edge websites, web applications, and digital services that meet
+                                        the ever-changing demands of modern businesses.</p>
+                                    <img src="images/innovation.avif" alt="Innovation graphic"
+                                        style="width: 150px !important; height: 150px !important; border-radius: 8px; margin-top: 10px; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 mb-4">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-gem me-3" style="color: var(--secondary-color); font-size: 4rem !important;"></i>
+                                <div>
+                                    <h4 style="color: var(--text-dark);">Quality & Efficiency</h4>
+                                    <p style="font-size: 1rem; line-height: 1.8; color: var(--text-dark);">Founded by
+                                        Surya Prakash Singh, TechPro was established with the mission to deliver
+                                        seamless, efficient, and visually stunning digital experiences. Our core focus
+                                        lies in blending creativity with functionality to build solutions that stand
+                                        out.</p>
+                                    <img src="images/quality-icon-logo-illustration-approval-check-symbol-template-for-graphic-and-web-design-collection-free-vector.jpg"
+                                        alt="Quality graphic" style="width: 150px !important; height: 150px !important; border-radius: 8px; margin-top: 10px; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 mb-4">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-people me-3" style="color: var(--primary-color); font-size: 4rem !important;"></i>
+                                <div>
+                                    <h4 style="color: var(--text-dark);">Collaborative Approach</h4>
+                                    <p style="font-size: 1rem; line-height: 1.8; color: var(--text-dark);">Our approach
+                                        is centered around collaboration and understanding your unique needs. We work
+                                        closely with clients from concept to deployment, ensuring every project is
+                                        delivered with precision, transparency, and a focus on achieving your business
+                                        goals.</p>
+                                    <img src="images/collaboration.jpg" alt="Collaboration graphic"
+                                        style="width: 150px !important; height: 150px !important; border-radius: 8px; margin-top: 10px; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 mb-4">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-award me-3" style="color: var(--secondary-color); font-size: 4rem !important;"></i>
+                                <div>
+                                    <h4 style="color: var(--text-dark);">Commitment to Excellence</h4>
+                                    <p style="font-size: 1rem; line-height: 1.8; color: var(--text-dark);">At TechPro,
+                                        we are driven by a team of passionate professionals who continuously strive to
+                                        exceed client expectations. With a commitment to quality, performance, and
+                                        innovation, TechPro is your trusted partner in the journey toward digital
+                                        excellence.</p>
+                                    <img src="images/images.png" alt="Excellence graphic"
+                                        style="width: 150px !important; height: 150px !important; border-radius: 8px; margin-top: 10px; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--About Tech Pro Section ends-->
+
+    <!-- Our Values Section -->
+    <section class="about-section" id="values">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mx-auto">
+                    <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
+                        <i class="bi bi-heart me-3" style="color: var(--primary-color); font-size: 3rem !important;"></i>
+                        <h2 class="text-white mb-0">Our Core Values</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="about-thumb text-center">
+                                <i class="bi bi-shield-check mb-3" style="color: var(--primary-color); font-size: 2.5rem !important;"></i>
+                                <h4>Integrity</h4>
+                                <p>We believe in honest and transparent communication with our clients and team members.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="about-thumb text-center">
+                                <i class="bi bi-lightning-charge mb-3" style="color: var(--primary-color); font-size: 2.5rem !important;"></i>
+                                <h4>Innovation</h4>
+                                <p>Constantly pushing boundaries and exploring new technologies to deliver cutting-edge solutions.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="about-thumb text-center">
+                                <i class="bi bi-people-fill mb-3" style="color: var(--primary-color); font-size: 2.5rem !important;"></i>
+                                <h4>Collaboration</h4>
+                                <p>Working together as a team and with our clients to achieve the best possible outcomes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="about-section" id="team">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mx-auto">
+                    <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
+                        <i class="bi bi-people-fill me-3" style="color: var(--primary-color); font-size: 3rem !important;"></i>
+                        <h2 class="text-white mb-0">Meet Our Team</h2>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="about-thumb text-center team-card">
+                                <div class="team-image-wrapper mb-3">
+                                    <img src="images/mypicnewcroped-removebg-preview.png" alt="Team Member" class="avatar-image">
+                                    <div class="team-overlay">
+                                        <div class="team-social-links">
+                                            <a href="http://www.linkedin.com/in/surya-prakash-singh-211a5a251" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                            <a href="https://github.com/suryaprakash9695" class="social-link"><i class="bi bi-github"></i></a>
+                                            <a href="mailto:surya9792844645@gmail.com" class="social-link"><i class="bi bi-envelope"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4>Surya Prakash Singh</h4>
+                                <p class="text-muted">Founder</p>
+                                <p class="team-description">Visionary leader with expertise in web development and digital solutions. Passionate about creating innovative technology solutions that drive business growth.</p>
+                                <div class="team-expertise">
+                                    <div class="expertise-item">
+                                        <span class="expertise-label">Web Development</span>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 95%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="expertise-item">
+                                        <span class="expertise-label">Leadership</span>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="about-thumb text-center team-card">
+                                <div class="team-image-wrapper mb-3">
+                                    <img src="images/sawan-removebg-preview.png" alt="Team Member" class="avatar-image">
+                                    <div class="team-overlay">
+                                        <div class="team-social-links">
+                                            <a href="https://www.linkedin.com/in/saavanx/" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                            <a href="https://github.com/Saavanx" class="social-link"><i class="bi bi-github"></i></a>
+                                            <a href="mailto:sawan9793711154@gmail.com" class="social-link"><i class="bi bi-envelope"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4>Sawan Singh</h4>
+                                <p class="text-muted">Technical Lead</p>
+                                <p class="team-description">Full-stack developer with a passion for clean code and system architecture. Expert in building scalable and efficient web applications.</p>
+                                <div class="team-expertise">
+                                    <div class="expertise-item">
+                                        <span class="expertise-label">Full Stack</span>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 92%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="expertise-item">
+                                        <span class="expertise-label">System Design</span>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 88%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="about-thumb text-center team-card">
+                                <div class="team-image-wrapper mb-3">
+                                    <img src="images/Screenshot_20250601_014117_WhatsApp-removebg-preview.png" alt="Team Member" class="avatar-image">
+                                    <div class="team-overlay">
+                                        <div class="team-social-links">
+                                            <a href="https://www.linkedin.com/in/aman-singh-91a719201" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                            <a href="http://github.com/l1ack3riron1" class="social-link"><i class="bi bi-github"></i></a>
+                                            <a href="mailto:aman9506852825@gmail.com" class="social-link"><i class="bi bi-envelope"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4>Aman Singh</h4>
+                                <p class="text-muted">Security Researcher / Bug Hunter</p>
+                                <p class="team-description">Security expert specializing in identifying and resolving vulnerabilities. Dedicated to ensuring robust and secure applications.</p>
+                                <div class="team-expertise">
+                                    <div class="expertise-item">
+                                        <span class="expertise-label">Security</span>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 94%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="expertise-item">
+                                        <span class="expertise-label">Testing</span>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 89%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Footer Section-->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-12">
+                    <div class="copyright-text-wrap">
+                        <h6 class="mb-0">
+                            <span class="copyright-text">Copyright © 2025 Designed & Developed by :-
+                                <a href="#" style="color: black;">Team TechPro</a></span>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Footer Section Ends-->
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/click-scroll.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/magnific-popup-options.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.05)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
