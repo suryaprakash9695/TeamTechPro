@@ -354,6 +354,36 @@
             .navbar .d-lg-flex {
                 display: none !important;
             }
+
+            /* Adjust About TechPro Section Images */
+            .services.section-padding#section_2 .row img {
+                width: 80px;
+                height: 80px;
+            }
+
+            /* Adjust Stat Item Icon Wrapper */
+            .stat-item .stat-icon-wrapper {
+                width: 60px;
+                height: 60px;
+            }
+
+            /* Adjust Mission/Vision Card Icon Wrapper */
+            .mission-vision-card .icon-wrapper {
+                width: 50px;
+                height: 50px;
+            }
+
+            /* Adjust Value Card Icon Wrapper */
+            .value-card .icon-wrapper {
+                width: 50px;
+                height: 50px;
+            }
+
+             /* Adjust Contact Info Icon Wrapper */
+             .contact-info li .icon-wrapper {
+                width: 40px;
+                height: 40px;
+             }
         }
 
         @media (max-width: 768px) {
@@ -447,6 +477,36 @@
             strong {
                 font-size: 1rem;
             }
+
+             /* Adjust About TechPro Section Images */
+             .services.section-padding#section_2 .row img {
+                width: 60px;
+                height: 60px;
+             }
+
+             /* Adjust Stat Item Icon Wrapper */
+             .stat-item .stat-icon-wrapper {
+                width: 50px;
+                height: 50px;
+             }
+
+             /* Adjust Mission/Vision Card Icon Wrapper */
+            .mission-vision-card .icon-wrapper {
+                width: 40px;
+                height: 40px;
+            }
+
+            /* Adjust Value Card Icon Wrapper */
+            .value-card .icon-wrapper {
+                width: 40px;
+                height: 40px;
+            }
+
+             /* Adjust Contact Info Icon Wrapper */
+             .contact-info li .icon-wrapper {
+                width: 35px;
+                height: 35px;
+             }
         }
 
         @media (max-width: 576px) {
@@ -520,6 +580,36 @@
             strong {
                 font-size: 0.9rem;
             }
+
+            /* Adjust About TechPro Section Images */
+            .services.section-padding#section_2 .row img {
+                width: 50px;
+                height: 50px;
+            }
+
+            /* Adjust Stat Item Icon Wrapper */
+            .stat-item .stat-icon-wrapper {
+                width: 40px;
+                height: 40px;
+            }
+
+            /* Adjust Mission/Vision Card Icon Wrapper */
+            .mission-vision-card .icon-wrapper {
+                width: 35px;
+                height: 35px;
+            }
+
+            /* Adjust Value Card Icon Wrapper */
+            .value-card .icon-wrapper {
+                width: 35px;
+                height: 35px;
+            }
+
+            /* Adjust Contact Info Icon Wrapper */
+            .contact-info li .icon-wrapper {
+                width: 30px;
+                height: 30px;
+            }
         }
 
         /* Navbar Phone Number */
@@ -579,6 +669,146 @@
             object-fit: cover;
             /* Ensure images cover the fixed size without distortion */
         }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        /* Enhanced Card Hover Effects */
+        .services-thumb,
+        .testimonial-item,
+        .stat-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .services-thumb:hover,
+        .testimonial-item:hover,
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Enhanced Button Styles */
+        .custom-btn {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .custom-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .custom-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Enhanced Section Transitions */
+        .section-padding {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-padding::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(20, 183, 137, 0.05) 0%, rgba(83, 93, 161, 0.05) 100%);
+            z-index: -1;
+        }
+
+        /* Testimonial Carousel Styles */
+        .carousel-control-prev,
+        .carousel-control-next {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel:hover .carousel-control-prev,
+        .carousel:hover .carousel-control-next {
+            opacity: 1;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            padding: 20px;
+            background-size: 50%;
+        }
+
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicators button.active {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .testimonial-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .carousel-item.active .testimonial-item {
+            animation: fadeInUp 0.5s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 
@@ -611,7 +841,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="about.html">
+                        <a class="nav-link " href="aboutus.html">
                             <i class="bi bi-person me-1"></i>About
                         </a>
                     </li>
@@ -656,7 +886,7 @@
                         <div class="hero-text">
                             <div class="d-flex align-items-center mb-4">
                                 <h1 class="hero-title mb-0 animate__animated animate__fadeInDown">
-                                    <i class="bi bi-code-slash me-2"></i>Hello
+                                    <i class="bi bi-code-slash me-2"></i>Welcome to
                                 </h1>
                             </div>
                             <h2 class="mb-4 animate__animated animate__fadeInUp"
@@ -665,16 +895,17 @@
                             </h2>
                             <p class="mb-4 animate__animated animate__fadeInUp"
                                 style="font-size: 1.2rem; color: var(--text-dark); line-height: 1.8;">
-                                We create innovative digital solutions that transform ideas into reality.
-                                Let's build something amazing together!
+                                We are a team of passionate developers and designers dedicated to creating innovative
+                                digital solutions. From web development to mobile apps, we bring your ideas to life with
+                                cutting-edge technology and creative excellence.
                             </p>
                             <div class="d-flex gap-3 animate__animated animate__fadeInUp">
                                 <a class="custom-btn btn custom-link" href="form/regform.html" target="_blank">
-                                    <i class="bi bi-arrow-right-circle me-2"></i>Get Started
+                                    <i class="bi bi-arrow-right-circle me-2"></i>Start Your Project
                                 </a>
                                 <a class="custom-btn btn custom-link" href="#section_3"
                                     style="background: transparent; border: 2px solid var(--primary-color); color: var(--primary-color);">
-                                    <i class="bi bi-eye me-2"></i>Our Services
+                                    <i class="bi bi-eye me-2"></i>Explore Services
                                 </a>
                             </div>
                         </div>
@@ -687,6 +918,10 @@
                             <div class="hero-image-wrapper" style="position: relative; padding: 20px;">
                                 <img src="images/webd.avif" class="hero-image img-fluid" alt="Team TechPro"
                                     style="border-radius: 20px; box-shadow: 0 20px 40px rgba(20, 183, 137, 0.3); transform: perspective(1000px) rotateY(-5deg);">
+                                <div class="floating-icons" style="position: absolute; top: 20px; right: 20px;">
+                                    <i class="bi bi-code-square"
+                                        style="font-size: 2rem; color: var(--primary-color);"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -696,78 +931,193 @@
     </main>
     <!--Main Page Section-->
     <!--About Tech Pro Section-->
-    <section class="about-section" id="techpro">
+    <section class="about-section" id="techpro" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
         <div class="container">
-            <div class="row">
-                <div class="col-12 mx-auto">
-                    <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
-                        <img src="images/aboutus1.avif" alt="TechPro Logo"
-                            style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;">
-                        <h2 class="text-white ms-3 mb-0" style="font-size: 3rem;">About TechPro</h2>
+            <!-- Hero Section -->
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4">
+                        <h2 class="mb-0" style="font-size: 3.5rem; color: var(--text-dark);">About TechPro</h2>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12 mb-4">
-                            <div class="d-flex align-items-start">
-                                <i class="bi bi-lightbulb me-3"
-                                    style="color: var(--primary-color); font-size: 4rem !important;"></i>
-                                <div>
-                                    <h4 style="color: var(--text-dark);">Innovation</h4>
-                                    <p style="font-size: 1rem; line-height: 1.8; color: var(--text-dark);">TechPro is an
-                                        innovative web development company and digital solutions provider dedicated to
-                                        crafting cutting-edge websites, web applications, and digital services that meet
-                                        the ever-changing demands of modern businesses.</p>
-                                    <img src="images/innovation.avif" alt="Innovation graphic"
-                                        style="width: 150px !important; height: 150px !important; border-radius: 8px; margin-top: 10px; object-fit: cover;">
+                    <p class="lead"
+                        style="font-size: 1.4rem; max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--text-dark);">
+                        Transforming ideas into digital excellence through innovative technology solutions and creative
+                        expertise.
+                        We're not just developers; we're digital architects crafting your success story.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="stats-container"
+                        style="background: rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div class="row text-center">
+                            <div class="col-md-3 col-6 mb-4">
+                                <div class="stat-item" style="transition: transform 0.3s ease;">
+                                    <div class="stat-icon-wrapper"
+                                        style="width: 80px; height: 80px; margin: 0 auto; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        <i class="bi bi-code-square"
+                                            style="font-size: 2.5rem; color: var(--primary-color);"></i>
+                                    </div>
+                                    <h3 class="mt-4 mb-2"
+                                        style="font-size: 2.5rem; font-weight: 700; color: var(--text-dark);">100+</h3>
+                                    <p style="font-size: 1.1rem; color: var(--text-light);">Projects Completed</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6 mb-4">
+                                <div class="stat-item" style="transition: transform 0.3s ease;">
+                                    <div class="stat-icon-wrapper"
+                                        style="width: 80px; height: 80px; margin: 0 auto; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        <i class="bi bi-people"
+                                            style="font-size: 2.5rem; color: var(--primary-color);"></i>
+                                    </div>
+                                    <h3 class="mt-4 mb-2"
+                                        style="font-size: 2.5rem; font-weight: 700; color: var(--text-dark);">50+</h3>
+                                    <p style="font-size: 1.1rem; color: var(--text-light);">Happy Clients</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6 mb-4">
+                                <div class="stat-item" style="transition: transform 0.3s ease;">
+                                    <div class="stat-icon-wrapper"
+                                        style="width: 80px; height: 80px; margin: 0 auto; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        <i class="bi bi-award"
+                                            style="font-size: 2.5rem; color: var(--primary-color);"></i>
+                                    </div>
+                                    <h3 class="mt-4 mb-2"
+                                        style="font-size: 2.5rem; font-weight: 700; color: var(--text-dark);">5+</h3>
+                                    <p style="font-size: 1.1rem; color: var(--text-light);">Years Experience</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6 mb-4">
+                                <div class="stat-item" style="transition: transform 0.3s ease;">
+                                    <div class="stat-icon-wrapper"
+                                        style="width: 80px; height: 80px; margin: 0 auto; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        <i class="bi bi-trophy"
+                                            style="font-size: 2.5rem; color: var(--primary-color);"></i>
+                                    </div>
+                                    <h3 class="mt-4 mb-2"
+                                        style="font-size: 2.5rem; font-weight: 700; color: var(--text-dark);">15+</h3>
+                                    <p style="font-size: 1.1rem; color: var(--text-light);">Awards Won</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-12 mb-4">
-                            <div class="d-flex align-items-start">
-                                <i class="bi bi-gem me-3"
-                                    style="color: var(--secondary-color); font-size: 4rem !important;"></i>
-                                <div>
-                                    <h4 style="color: var(--text-dark);">Quality & Efficiency</h4>
-                                    <p style="font-size: 1rem; line-height: 1.8; color: var(--text-dark);">Founded by
-                                        Surya Prakash Singh, TechPro was established with the mission to deliver
-                                        seamless, efficient, and visually stunning digital experiences. Our core focus
-                                        lies in blending creativity with functionality to build solutions that stand
-                                        out.</p>
-                                    <img src="images/quality-icon-logo-illustration-approval-check-symbol-template-for-graphic-and-web-design-collection-free-vector.jpg"
-                                        alt="Quality graphic"
-                                        style="width: 150px !important; height: 150px !important; border-radius: 8px; margin-top: 10px; object-fit: cover;">
-                                </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission & Vision -->
+            <div class="row mb-5">
+                <div class="col-lg-6 col-md-6 col-12 mb-4">
+                    <div class="mission-vision-card"
+                        style="background: rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 40px; height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-wrapper"
+                                style="width: 60px; height: 60px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-bullseye" style="color: var(--primary-color); font-size: 2rem;"></i>
+                            </div>
+                            <h3 class="ms-3 mb-0" style="font-size: 2rem; color: var(--text-dark);">Our Mission</h3>
+                        </div>
+                        <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-light);">
+                            To empower businesses with cutting-edge digital solutions that drive growth, enhance user
+                            experience, and create lasting impact in the digital landscape. We strive to be the catalyst
+                            for digital transformation.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 mb-4">
+                    <div class="mission-vision-card"
+                        style="background: rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 40px; height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-wrapper"
+                                style="width: 60px; height: 60px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-eye" style="color: var(--primary-color); font-size: 2rem;"></i>
+                            </div>
+                            <h3 class="ms-3 mb-0" style="font-size: 2rem; color: var(--text-dark);">Our Vision</h3>
+                        </div>
+                        <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-light);">
+                            To be the leading force in digital innovation, setting new standards in web development and
+                            creating transformative digital experiences that shape the future of technology. We envision
+                            a world where every business thrives in the digital age.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Values -->
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12 mb-4">
+                    <div class="value-card"
+                        style="background: rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 30px; height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                        <div class="d-flex align-items-start">
+                            <div class="icon-wrapper"
+                                style="width: 70px; height: 70px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                                <i class="bi bi-lightbulb" style="color: var(--primary-color); font-size: 2.5rem;"></i>
+                            </div>
+                            <div>
+                                <h4 class="mb-3" style="font-size: 1.5rem; color: var(--text-dark);">Innovation</h4>
+                                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light);">TechPro is an
+                                    innovative web development company and digital solutions provider dedicated to
+                                    crafting cutting-edge websites, web applications, and digital services that meet the
+                                    ever-changing demands of modern businesses.</p>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-12 mb-4">
-                            <div class="d-flex align-items-start">
-                                <i class="bi bi-people me-3"
-                                    style="color: var(--primary-color); font-size: 4rem !important;"></i>
-                                <div>
-                                    <h4 style="color: var(--text-dark);">Collaborative Approach</h4>
-                                    <p style="font-size: 1rem; line-height: 1.8; color: var(--text-dark);">Our approach
-                                        is centered around collaboration and understanding your unique needs. We work
-                                        closely with clients from concept to deployment, ensuring every project is
-                                        delivered with precision, transparency, and a focus on achieving your business
-                                        goals.</p>
-                                    <img src="images/collaboration.jpg" alt="Collaboration graphic"
-                                        style="width: 150px !important; height: 150px !important; border-radius: 8px; margin-top: 10px; object-fit: cover;">
-                                </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 mb-4">
+                    <div class="value-card"
+                        style="background: rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 30px; height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                        <div class="d-flex align-items-start">
+                            <div class="icon-wrapper"
+                                style="width: 70px; height: 70px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                                <i class="bi bi-gem" style="color: var(--primary-color); font-size: 2.5rem;"></i>
+                            </div>
+                            <div>
+                                <h4 class="mb-3" style="font-size: 1.5rem; color: var(--text-dark);">Quality &
+                                    Efficiency</h4>
+                                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light);">Founded by
+                                    Surya Prakash Singh, TechPro was established with the mission to deliver seamless,
+                                    efficient, and visually stunning digital experiences. Our core focus lies in
+                                    blending creativity with functionality to build solutions that stand out.</p>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-12 mb-4">
-                            <div class="d-flex align-items-start">
-                                <i class="bi bi-award me-3"
-                                    style="color: var(--secondary-color); font-size: 4rem !important;"></i>
-                                <div>
-                                    <h4 style="color: var(--text-dark);">Commitment to Excellence</h4>
-                                    <p style="font-size: 1rem; line-height: 1.8; color: var(--text-dark);">At TechPro,
-                                        we are driven by a team of passionate professionals who continuously strive to
-                                        exceed client expectations. With a commitment to quality, performance, and
-                                        innovation, TechPro is your trusted partner in the journey toward digital
-                                        excellence.</p>
-                                    <img src="images/images.png" alt="Excellence graphic"
-                                        style="width: 150px !important; height: 150px !important; border-radius: 8px; margin-top: 10px; object-fit: cover;">
-                                </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 mb-4">
+                    <div class="value-card"
+                        style="background: rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 30px; height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                        <div class="d-flex align-items-start">
+                            <div class="icon-wrapper"
+                                style="width: 70px; height: 70px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                                <i class="bi bi-people" style="color: var(--primary-color); font-size: 2.5rem;"></i>
+                            </div>
+                            <div>
+                                <h4 class="mb-3" style="font-size: 1.5rem; color: var(--text-dark);">Collaborative
+                                    Approach</h4>
+                                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light);">Our approach
+                                    is centered around collaboration and understanding your unique needs. We work
+                                    closely with clients from concept to deployment, ensuring every project is delivered
+                                    with precision, transparency, and a focus on achieving your business goals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 mb-4">
+                    <div class="value-card"
+                        style="background: rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 30px; height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                        <div class="d-flex align-items-start">
+                            <div class="icon-wrapper"
+                                style="width: 70px; height: 70px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                                <i class="bi bi-award" style="color: var(--primary-color); font-size: 2.5rem;"></i>
+                            </div>
+                            <div>
+                                <h4 class="mb-3" style="font-size: 1.5rem; color: var(--text-dark);">Commitment to
+                                    Excellence</h4>
+                                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light);">At TechPro, we
+                                    are driven by a team of passionate professionals who continuously strive to exceed
+                                    client expectations. With a commitment to quality, performance, and innovation,
+                                    TechPro is your trusted partner in the journey toward digital excellence.</p>
                             </div>
                         </div>
                     </div>
@@ -775,7 +1125,48 @@
             </div>
         </div>
     </section>
-    <!--About Tech Pro Section ends-->
+    <!--About Tech Pro Section Ends-->
+
+    <!--Statistics Section -->
+    <section class="statistics-section py-5" style="background: var(--light-gray);">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-3 col-md-6 col-12 mb-4">
+                    <div class="stat-item p-4"
+                        style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <i class="bi bi-code-square" style="font-size: 2.5rem; color: var(--primary-color);"></i>
+                        <h3 class="mt-3 mb-2" style="color: var(--text-dark);">100+</h3>
+                        <p class="mb-0" style="color: var(--text-light);">Projects Completed</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 mb-4">
+                    <div class="stat-item p-4"
+                        style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <i class="bi bi-people" style="font-size: 2.5rem; color: var(--primary-color);"></i>
+                        <h3 class="mt-3 mb-2" style="color: var(--text-dark);">50+</h3>
+                        <p class="mb-0" style="color: var(--text-light);">Happy Clients</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 mb-4">
+                    <div class="stat-item p-4"
+                        style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <i class="bi bi-award" style="font-size: 2.5rem; color: var(--primary-color);"></i>
+                        <h3 class="mt-3 mb-2" style="color: var(--text-dark);">5+</h3>
+                        <p class="mb-0" style="color: var(--text-light);">Years Experience</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 mb-4">
+                    <div class="stat-item p-4"
+                        style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <i class="bi bi-trophy" style="font-size: 2.5rem; color: var(--primary-color);"></i>
+                        <h3 class="mt-3 mb-2" style="color: var(--text-dark);">25+</h3>
+                        <p class="mb-0" style="color: var(--text-light);">Awards Won</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Statistics Section Ends -->
 
     <!--Services Section-->
     <section class="services section-padding" id="section_3" style="padding-top: 20px; padding-bottom: 20px;">
@@ -783,95 +1174,81 @@
             <div class="row">
                 <div class="col-12 mx-auto">
                     <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
-                        <img src="images/services.avif" alt="TechPro Logo"
-                            style="width: 120px; height: auto; border-radius: 50%;">
-                        <h2 class="text-white ms-3 mb-0" style="font-size: 3rem;">Services</h2>
+                        <h2 class="text-white mb-0" style="font-size: 3rem;">Our Services</h2>
                     </div>
                     <div class="row pt-lg-5">
-                        <div class="col-lg-6 col-12">
-                            <div class="services-thumb">
+                        <div class="col-lg-6 col-12 mb-4">
+                            <div class="services-thumb"
+                                style="height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                                 <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                    <h3 class="mb-0">Websites</h3>
-                                    <div class="services-price-wrap ms-auto">
-                                        <p class="services-price-text mb-0"><!--I have to write here price--></p>
-                                        <div class="services-price-overlay"></div>
-                                    </div>
+                                    <h3 class="mb-0">
+                                        <i class="bi bi-globe me-2" style="color: var(--primary-color);"></i>
+                                        Website Development
+                                    </h3>
                                 </div>
-                                <p>Contact TechPro to develop websites.
-                                    <br>
-                                    Fill the form below to get started.
-                                </p>
+                                <p class="mb-4">Create stunning, responsive websites that work perfectly on all devices.
+                                    We focus on user experience and modern design to help your business stand out
+                                    online.</p>
                                 <a href="form/regform.html" target="_blank"
-                                    class="custom-btn custom-border-btn btn mt-3">Form</a>
-                                <div class="services-icon-wrap d-flex justify-content-center align-items-center">
-                                    <i class="services-icon bi-globe"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-12">
-                            <div class="services-thumb services-thumb-up">
-                                <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                    <h3 class="mb-0">Frontend Development</h3>
-                                    <div class="services-price-wrap ms-auto">
-                                        <p class="services-price-text mb-0"></p>
-                                        <div class="services-price-overlay"></div>
-                                    </div>
-                                </div>
-                                <p>
-                                    TechPro offers frontend development services.
-                                    <br>
-                                    Fill the form to get started.
-                                </p>
-                                <a href="form/regform.html" target="_blank"
-                                    class="custom-btn custom-border-btn btn mt-3">Form</a>
-                                <div class="services-icon-wrap d-flex justify-content-center align-items-center">
-                                    <i class="services-icon bi-lightbulb"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-12">
-                            <div class="services-thumb">
-                                <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                    <h3 class="mb-0">Back-end Development</h3>
-                                    <div class="services-price-wrap ms-auto">
-                                        <p class="services-price-text mb-0"></p>
-                                        <div class="services-price-overlay"></div>
-                                    </div>
-                                </div>
-                                <p>
-                                    TechPro offers backend development services.
-                                    <br>
-                                    Fill the form to get started.
-                                </p>
-                                <a href="form/regform.html" target="_blank"
-                                    class="custom-btn custom-border-btn btn mt-3">Form</a>
-                                <div class="services-icon-wrap d-flex justify-content-center align-items-center">
-                                    <i class="services-icon bi-yin-yang"></i>
-                                </div>
+                                    class="custom-btn custom-border-btn btn mt-3">
+                                    <i class="bi bi-arrow-right-circle me-2"></i>Get Started
+                                </a>
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-12">
-                            <div class="services-thumb services-thumb-up">
+                        <div class="col-lg-6 col-12 mb-4">
+                            <div class="services-thumb"
+                                style="height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                                 <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                    <h3 class="mb-0">Project Deployment</h3>
-
-                                    <div class="services-price-wrap ms-auto">
-                                        <p class="services-price-text mb-0"></p>
-                                        <div class="services-price-overlay"></div>
-                                    </div>
+                                    <h3 class="mb-0">
+                                        <i class="bi bi-code-square me-2" style="color: var(--primary-color);"></i>
+                                        Frontend Development
+                                    </h3>
                                 </div>
-                                <p>
-                                    TechPro offers project deployment services.
-                                    <br>
-                                    Fill the form to get started.
-                                </p>
+                                <p class="mb-4">Build powerful, interactive user interfaces with modern frameworks. We
+                                    create smooth, fast-loading applications that provide excellent user experience.</p>
                                 <a href="form/regform.html" target="_blank"
-                                    class="custom-btn custom-border-btn btn mt-3">Form</a>
+                                    class="custom-btn custom-border-btn btn mt-3">
+                                    <i class="bi bi-arrow-right-circle me-2"></i>Get Started
+                                </a>
+                            </div>
+                        </div>
 
-                                <div class="services-icon-wrap d-flex justify-content-center align-items-center">
-                                    <i class="services-icon bi-activity"></i>
+                        <div class="col-lg-6 col-12 mb-4">
+                            <div class="services-thumb"
+                                style="height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
+                                    <h3 class="mb-0">
+                                        <i class="bi bi-server me-2" style="color: var(--primary-color);"></i>
+                                        Backend Development
+                                    </h3>
                                 </div>
+
+                                <p class="mb-4">Develop robust backend systems with secure APIs and efficient databases.
+                                    We ensure your application is scalable, secure, and performs optimally.</p>
+                                <a href="form/regform.html" target="_blank"
+                                    class="custom-btn custom-border-btn btn mt-3">
+                                    <i class="bi bi-arrow-right-circle me-2"></i>Get Started
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12 mb-4">
+                            <div class="services-thumb"
+                                style="height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
+                                    <h3 class="mb-0">
+                                        <i class="bi bi-cloud-upload me-2" style="color: var(--primary-color);"></i>
+                                        Project Deployment
+                                    </h3>
+                                </div>
+
+                                <p class="mb-4">Deploy your projects securely with our professional hosting solutions.
+                                    We handle everything from server setup to ongoing maintenance and monitoring.</p>
+                                <a href="form/regform.html" target="_blank"
+                                    class="custom-btn custom-border-btn btn mt-3">
+                                    <i class="bi bi-arrow-right-circle me-2"></i>Get Started
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -881,330 +1258,333 @@
     </section>
     <!--Services Section Ends -->
 
-    <!--Recent Project Works-->
-    <section class="projects section-padding" id="section_4" style="padding-top: 20px; padding-bottom: 20px;">
+    <!-- Testimonials Section -->
+    <section class="testimonials-section section-padding" style="background: var(--light-gray);">
         <div class="container">
             <div class="row">
-                <div class="ms-auto">
-                    <div class="section-title-wrap d-flex justify-content-center align-items-center ">
-                        <img src="images/services.avif" alt="TechPro Logo"
-                            style="width: 120px; height: auto; border-radius: 50%;">
-                        <h2 class="text-white ms-3 mb-0" style="font-size: 3rem;">Recent Project Works</h2>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-                <div class="col-lg-4 col-12">
-                    <div class="projects-thumb">
-                        <div class="projects-info">
-                            <a href="https://suryaprakashsingh.netlify.app/" target="_blank"><small
-                                    class="projects-tag">Portfolio</small>
-                            </a>
-                        </div>
-                        <a href="#" class="popup-image">
-                            <img src="#" class="projects-image img-fluid" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-12">
-                    <div class="projects-thumb">
-                        <div class="projects-info">
-                            <a href="https://notesxpert.netlify.app/" target="_blank"><small
-                                    class="projects-tag">NotesXpert</small></a>
-                        </div>
-                        <a href="#" class="popup-image">
-                            <img src="#" class="projects-image img-fluid" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-12">
-                    <div class="projects-thumb">
-                        <div class="projects-info">
-                            <a href="https://mandiwala.netlify.app/" target="_blank">
-                                <small class="projects-tag">MandiWala</small>
-                            </a>
-                        </div>
-                        <a href="#" class="popup-image">
-                            <img src="#" class="projects-image img-fluid" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-12">
-                    <div class="projects-thumb">
-                        <div class="projects-info">
-                            <a href="#" target="_blank">
-                                <small class="projects-tag">New Project 1</small>
-                            </a>
-                        </div>
-                        <a href="#" class="popup-image">
-                            <img src="#" class="projects-image img-fluid" alt="Placeholder Project Image">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-12">
-                    <div class="projects-thumb">
-                        <div class="projects-info">
-                            <a href="#" target="_blank">
-                                <small class="projects-tag">New Project 2</small>
-                            </a>
-                        </div>
-                        <a href="#" class="popup-image">
-                            <img src="#" class="projects-image img-fluid" alt="Placeholder Project Image">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-12">
-                    <div class="projects-thumb">
-                        <div class="projects-info">
-                            <a href="#" target="_blank">
-                                <small class="projects-tag">New Project 3</small>
-                            </a>
-                        </div>
-                        <a href="#" class="popup-image">
-                            <img src="#" class="projects-image img-fluid" alt="Placeholder Project Image">
-                        </a>
+                <div class="col-12 mx-auto text-center mb-5">
+                    <div class="section-title-wrap d-flex justify-content-center align-items-center">
+                        <h2 class="text-white ms-3 mb-0" style="font-size: 3rem;">Client Testimonials</h2>
                     </div>
                 </div>
             </div>
-            <div>
-                <h5 style="
-    text-align: center; 
-    font-size: 16px; 
-    color: red; 
-    text-decoration: none; 
-    animation: blow 3s infinite; 
-    @keyframes blow {
-        0% { transform: translateY(0); opacity: 1; }
-        50% { transform: translateY(-10px); opacity: 0.8; }
-        100% { transform: translateY(0); opacity: 1; }
-    }">
-                    <a href="https://liveproject-links.netlify.app/" target="_blank" style="
-        text-decoration: none; 
-        color: inherit;">
-                        You Can Check Out More Projects on Live Project Website
-                    </a>
-                </h5>
-
-            </div>
-        </div>
-    </section>
-    <!--Recent Project Works ends-->
-
-    <!-- Form Section -->
-    <section class="form-section section-padding" id="section_5"
-        style="padding-top: 60px; padding-bottom: 60px; background: var(--light-gray);">
-        <div class="container">
             <div class="row">
-                <div class="col-12 mx-auto text-center">
-                    <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
-                        <h2 class="ms-3 mb-0" style="font-size: 3rem; color: var(--text-dark);">Get a Quote</h2>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-lg-12 col-12">
-                            <form id="quoteForm" class="custom-form" role="form"
-                                style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);">
-                                <!-- Web3Form Key -->
-                                <input type="hidden" name="access_key" value="3b966b20-d490-4253-8298-0b86030f62c3">
+                <div class="col-12">
+                    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <!-- Carousel Indicators -->
+                        <div class="carousel-indicators" style="bottom: -50px;">
+                            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0"
+                                class="active"
+                                style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary-color);"></button>
+                            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
+                                style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary-color);"></button>
+                            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"
+                                style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary-color);"></button>
+                        </div>
 
-                                <div class="row">
-                                    <!-- Name, WhatsApp Number, Email Address Row (3 per line on Lg, 2 on Md, 1 on Sm) -->
-                                    <div class="col-lg-4 col-md-6 col-12 mb-4">
-                                        <label for="form-name" class="form-label"
-                                            style="color: var(--text-dark); font-weight: 500;">Name</label>
-                                        <input type="text" name="name" id="form-name" class="form-control"
-                                            placeholder="Your Name" required style="border-radius: 8px;">
-                                    </div>
-
-                                    <div class="col-lg-4 col-md-6 col-12 mb-4">
-                                        <label for="form-whatsapp" class="form-label"
-                                            style="color: var(--text-dark); font-weight: 500;">WhatsApp Number</label>
-                                        <input type="text" name="whatsapp_number" id="form-whatsapp"
-                                            class="form-control" placeholder="+91XXXXXXXXXX"
-                                            style="border-radius: 8px;">
-                                    </div>
-
-                                    <div class="col-lg-4 col-md-6 col-12 mb-4">
-                                        <label for="form-email" class="form-label"
-                                            style="color: var(--text-dark); font-weight: 500;">Email Address</label>
-                                        <input type="email" name="email" id="form-email" pattern="[^ @]*@[^ @]*"
-                                            class="form-control" placeholder="your@company.com" required
-                                            style="border-radius: 8px;">
-                                    </div>
-
-                                    <!-- Type of Service (Full Width) -->
-                                    <div class="col-12 mb-4">
-                                        <label for="form-service" class="form-label"
-                                            style="color: var(--text-dark); font-weight: 500;">Type of Service</label>
-                                        <select name="service_type" id="form-service" class="form-select form-control"
-                                            required style="border-radius: 8px;">
-                                            <option value="">-- Select Service --</option>
-                                            <option value="Websites">Websites</option>
-                                            <option value="Frontend Development">Frontend Development</option>
-                                            <option value="Back-end Development">Back-end Development</option>
-                                            <option value="Project Deployment">Project Deployment</option>
-                                            <option value="Other">Other</option>
-                                        </select>
-                                    </div>
-
-                                    <!-- Address (Full Width) -->
-                                    <div class="col-12 mb-4">
-                                        <label for="form-address" class="form-label"
-                                            style="color: var(--text-dark); font-weight: 500;">Address</label>
-                                        <input type="text" name="address" id="form-address" class="form-control"
-                                            placeholder="Your Address" style="border-radius: 8px;">
-                                    </div>
-
-                                    <!-- Project Details / Message (Full Width) -->
-                                    <div class="col-12 mb-4">
-                                        <label for="form-message" class="form-label"
-                                            style="color: var(--text-dark); font-weight: 500;">Project Details /
-                                            Message</label>
-                                        <textarea name="message" rows="6" class="form-control" id="form-message"
-                                            placeholder="Describe your project or requirements..." required
-                                            style="border-radius: 8px;"></textarea>
-                                    </div>
-
-                                    <!-- Submit Button (Centered Full Width) -->
-                                    <div class="col-12 mt-3 text-center">
-                                        <button type="submit" class="form-control custom-btn btn"
-                                            style="background-color: var(--primary-color); color: white; border: none; display: block; width: 100%; max-width: 250px; margin: auto; padding: 12px 20px; font-size: 1.1rem; border-radius: 8px; cursor: pointer;">Send
-                                            Quote Request</button>
+                        <!-- Carousel Items -->
+                        <div class="carousel-inner">
+                            <!-- Testimonial 1 -->
+                            <div class="carousel-item active">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8 col-md-10 col-12">
+                                        <div class="testimonial-item p-4"
+                                            style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="ms-3">
+                                                    <h5 class="mb-1" style="color: var(--text-dark);">
+                                                        <i class="bi bi-person-circle me-2"
+                                                            style="color: var(--primary-color);"></i>Rahul Sharma
+                                                    </h5>
+                                                    <p class="mb-0" style="color: var(--text-light);">
+                                                        <i class="bi bi-shop me-2"
+                                                            style="color: var(--primary-color);"></i>Small Business
+                                                        Owner
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <p style="color: var(--text-dark); font-style: italic;">
+                                                <i class="bi bi-quote me-2"
+                                                    style="color: var(--primary-color); font-size: 1.2rem;"></i>
+                                                TechPro made my website in just 2 weeks! They understood what I wanted
+                                                and made it very easy for me. Now my customers can easily find my shop
+                                                online. Great work!
+                                            </p>
+                                            <div class="rating">
+                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </form>
-                            <p id="quoteSuccessMessage"
-                                style="display: none; color: #4caf50; margin-top: 15px; font-size: 1.1rem;">
-                                Your quote request has been sent successfully!
-                            </p>
+                            </div>
+
+                            <!-- Testimonial 2 -->
+                            <div class="carousel-item">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8 col-md-10 col-12">
+                                        <div class="testimonial-item p-4"
+                                            style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="ms-3">
+                                                    <h5 class="mb-1" style="color: var(--text-dark);">
+                                                        <i class="bi bi-person-circle me-2"
+                                                            style="color: var(--primary-color);"></i>Priya Patel
+                                                    </h5>
+                                                    <p class="mb-0" style="color: var(--text-light);">
+                                                        <i class="bi bi-cart me-2"
+                                                            style="color: var(--primary-color);"></i>Online Store Owner
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <p style="color: var(--text-dark); font-style: italic;">
+                                                <i class="bi bi-quote me-2"
+                                                    style="color: var(--primary-color); font-size: 1.2rem;"></i>
+                                                I was worried about making my shop online, but TechPro helped me a lot.
+                                                They made a beautiful website and taught me how to use it. My sales have
+                                                increased since then!
+                                            </p>
+                                            <div class="rating">
+                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial 3 -->
+                            <div class="carousel-item">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8 col-md-10 col-12">
+                                        <div class="testimonial-item p-4"
+                                            style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="ms-3">
+                                                    <h5 class="mb-1" style="color: var(--text-dark);">
+                                                        <i class="bi bi-person-circle me-2"
+                                                            style="color: var(--primary-color);"></i>Amit Kumar
+                                                    </h5>
+                                                    <p class="mb-0" style="color: var(--text-light);">
+                                                        <i class="bi bi-cup-hot me-2"
+                                                            style="color: var(--primary-color);"></i>Restaurant Owner
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <p style="color: var(--text-dark); font-style: italic;">
+                                                <i class="bi bi-quote me-2"
+                                                    style="color: var(--primary-color); font-size: 1.2rem;"></i>
+                                                TechPro made a food ordering website for my restaurant. Now customers
+                                                can order food online easily. The website looks nice and works well on
+                                                phones too. Very happy with their service!
+                                            </p>
+                                            <div class="rating">
+                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+                                                <i class="bi bi-star-half" style="color: #ffc107;"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Carousel Controls -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                            data-bs-slide="prev" style="width: 5%;">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"
+                                style="background-color: var(--primary-color); border-radius: 50%; padding: 20px;"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                            data-bs-slide="next" style="width: 5%;">
+                            <span class="carousel-control-next-icon" aria-hidden="true"
+                                style="background-color: var(--primary-color); border-radius: 50%; padding: 20px;"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Form Section Ends -->
+    <!-- Testimonials Section Ends -->
 
-    <!--Contact Us Section-->
-    <section class="contact-us section-padding" id="section_6" style="padding-top: 20px; padding-bottom: 20px;">
+    <!-- Contact Us Section-->
+    <section class="contact-us section-padding" id="section_6"
+        style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
         <div class="container">
             <div class="row">
                 <div class="col-12 mx-auto">
-                    <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4">
-                        <img src="images/contactus.png" alt="TechPro Logo"
-                            style="width: 120px; height: auto; border-radius: 50%;">
-                        <h2 class="text-white ms-3 mb-0" style="font-size: 3rem;">Contact Us</h2>
+                    <div class="section-title-wrap text-center ">
+                        <h2 class="mb-3" style="font-size: 3rem; color: white;">Get In Touch</h2>
+                        <p class="lead" style="font-size: 1.2rem; color: white; max-width: 700px; margin: 0 auto;">
+                            Have questions or need assistance? We're here to help! Reach out to us and let's discuss how
+                            we can bring your digital vision to life.
+                        </p>
                     </div>
                     <div class="row pt-lg-4">
                         <!-- Contact Info -->
-                        <div class="col-lg-6 col-12 mb-4 mt-4">
-                            <p style="font-size: 1.2rem; line-height: 1.9; text-align: justify;">
-                                Have questions or need assistance? Reach out to TechPro for all your web development and
-                                digital solutions needs. Fill out the form, and we'll get back to you promptly!
-                            </p>
-                            <!-- Form Button -->
-                            <div class="d-flex justify-content-start mt-3 mb-4">
-                                <a href="form/regform.html" target="_blank" class="btn"
-                                    style="font-size: 1.2rem; padding: 12px 20px; background-color: #14b789; color: #fff; border-radius: 8px; text-decoration: none; transition: background-color 0.3s;"
-                                    onmouseover="this.style.backgroundColor='#117a54'"
-                                    onmouseout="this.style.backgroundColor='#14b789'">
-                                    Fill the Form
-                                </a>
+                        <div class="col-lg-5 col-12 mb-4">
+                            <div class="contact-info-card"
+                                style="background: rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 40px; height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                                <h3 class="mb-4" style="font-size: 1.8rem; color: var(--text-dark);">Contact Information
+                                </h3>
+                                <p
+                                    style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light); margin-bottom: 30px;">
+                                    Fill out the form and we'll get back to you within 24 hours. Your success is our
+                                    priority!
+                                </p>
+
+                                <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
+                                    <li class="mb-4" style="display: flex; align-items: center;">
+                                        <div class="icon-wrapper"
+                                            style="width: 50px; height: 50px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                                            <i class="bi bi-geo-alt-fill"
+                                                style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h5 style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 5px;">
+                                                Our Location</h5>
+                                            <a href="https://www.google.com/maps/search/?api=1&query=Beta-1,+A+Block,+Greater+Noida,+Uttar+Pradesh,+India"
+                                                target="_blank"
+                                                style="text-decoration: none; color: var(--text-light); font-size: 1rem;">
+                                                Beta-1, A Block, Greater Noida, Uttar Pradesh, India
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="mb-4" style="display: flex; align-items: center;">
+                                        <div class="icon-wrapper"
+                                            style="width: 50px; height: 50px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                                            <i class="bi bi-envelope-fill"
+                                                style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h5 style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 5px;">
+                                                Email Us</h5>
+                                            <a href="mailto:teamtechpro0@gmail.com"
+                                                style="text-decoration: none; color: var(--text-light); font-size: 1rem;">
+                                                teamtechpro0@gmail.com
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="mb-4" style="display: flex; align-items: center;">
+                                        <div class="icon-wrapper"
+                                            style="width: 50px; height: 50px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                                            <i class="bi bi-telephone-fill"
+                                                style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h5 style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 5px;">
+                                                Call Us</h5>
+                                            <a href="tel:+919695167669"
+                                                style="text-decoration: none; color: var(--text-light); font-size: 1rem;">
+                                                +91 9695167669
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <!-- Form Button -->
+                                <div class="d-flex justify-content-start">
+                                    <a href="form.html" target="_blank" class="btn"
+                                        style="font-size: 1.1rem; padding: 12px 25px; background-color: var(--primary-color); color: #fff; border-radius: 8px; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px;"
+                                        onmouseover="this.style.backgroundColor='#117a54'; this.style.transform='translateY(-2px)'"
+                                        onmouseout="this.style.backgroundColor='#14b789'; this.style.transform='translateY(0)'">
+                                        <i class="bi bi-pencil-square"></i>
+                                        Get a Quote
+                                    </a>
+                                </div>
                             </div>
-                            <ul style="list-style: none; padding: 0; font-size: 1.2rem; line-height: 2.1;">
-                                <li style="margin-bottom: 15px;">
-                                    <i class="bi-geo-alt-fill me-2"></i>
-                                    <strong>Address:</strong>
-                                    <a href="https://www.google.com/maps/search/?api=1&query=Beta-1,+A+Block,+Greater+Noida,+Uttar+Pradesh,+India"
-                                        target="_blank" style="text-decoration: none;">
-                                        Beta-1, A Block, Greater Noida, Uttar Pradesh, India
-                                    </a>
-                                </li>
-                                <li style="margin-bottom: 15px;">
-                                    <i class="bi-envelope-fill me-2"></i>
-                                    <strong>Email:</strong>
-                                    <a href="mailto:teamtechpro0@gmail.com" style="text-decoration: none;">
-                                        teamtechpro0@gmail.com
-                                    </a>
-                                </li>
-                                <li style="margin-bottom: 15px;">
-                                    <i class="bi-telephone-fill me-2"></i>
-                                    <strong>Phone:</strong>
-                                    <a href="tel:+919695167669" style="text-decoration: none;">
-                                        +91 9695167669
-                                    </a>
-                                </li>
-                                <!-- Social Media Links -->
-                                <li style="margin-bottom: 15px;">
-                                    <strong>Follow Us:</strong>
-                                    <div>
-                                        <a href="https://twitter.com" target="_blank"
-                                            style="font-size: 1.5rem; margin-right: 15px;">
-                                            <i class="bi bi-twitter"></i> Twitter
-                                        </a>
-                                        <a href="https://instagram.com" target="_blank"
-                                            style=" font-size: 1.5rem; margin-right: 15px;">
-                                            <i class="bi bi-instagram"></i> Instagram
-                                        </a>
-                                        <a href="https://linkedin.com" target="_blank"
-                                            style=" font-size: 1.5rem; margin-right: 15px;">
-                                            <i class="bi bi-linkedin"></i> LinkedIn
-                                        </a>
-                                        <a href="https://youtube.com" target="_blank"
-                                            style=" font-size: 1.5rem; margin-right: 15px;">
-                                            <i class="bi bi-youtube"></i> YouTube
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
                         </div>
-                        <!-- Contact info ends-->
 
                         <!-- Contact Form -->
-                        <div class="col-lg-6 col-12 mb-4">
-                            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST"
-                                style="padding: 30px; border-radius: 12px;">
-                                <!-- Web3Form Key -->
-                                <input type="hidden" name="access_key" value="3b966b20-d490-4253-8298-0b86030f62c3">
+                        <div class="col-lg-7 col-12 mb-4">
+                            <div class="contact-form-card"
+                                style="background: rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                                <h3 class="mb-4" style="font-size: 1.8rem; color: var(--text-dark);">Send Us a Message
+                                </h3>
+                                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                                    <!-- Web3Form Key -->
+                                    <input type="hidden" name="access_key" value="3b966b20-d490-4253-8298-0b86030f62c3">
 
-                                <div class="mb-4">
-                                    <label for="name" class="form-label" style="color: #14b789; font-size: 1.1rem;">Your
-                                        Name</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="bi bi-person"></i></span>
-                                        <input type="text" class="form-control" id="name" name="name"
-                                            placeholder="Enter your name" required style="border-radius: 0 8px 8px 0;">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <label for="name" class="form-label"
+                                                style="color: var(--text-dark); font-size: 1rem;">Your Name</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"
+                                                    style="background: rgba(20, 183, 137, 0.1); border: none;">
+                                                    <i class="bi bi-person" style="color: var(--primary-color);"></i>
+                                                </span>
+                                                <input type="text" class="form-control" id="name" name="name"
+                                                    placeholder="Enter your name" required
+                                                    style="border: 1px solid #e0e0e0; border-radius: 0 8px 8px 0; padding: 12px;">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-4">
+                                            <label for="email" class="form-label"
+                                                style="color: var(--text-dark); font-size: 1rem;">Your Email</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"
+                                                    style="background: rgba(20, 183, 137, 0.1); border: none;">
+                                                    <i class="bi bi-envelope" style="color: var(--primary-color);"></i>
+                                                </span>
+                                                <input type="email" class="form-control" id="email" name="email"
+                                                    placeholder="Enter your email" required
+                                                    style="border: 1px solid #e0e0e0; border-radius: 0 8px 8px 0; padding: 12px;">
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="mb-4">
-                                    <label for="email" class="form-label"
-                                        style="color: #14b789; font-size: 1.1rem;">Your Email</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                                        <input type="email" class="form-control" id="email" name="email"
-                                            placeholder="Enter your email" required style="border-radius: 0 8px 8px 0;">
+                                    <div class="mb-4">
+                                        <label for="subject" class="form-label"
+                                            style="color: var(--text-dark); font-size: 1rem;">Subject</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"
+                                                style="background: rgba(20, 183, 137, 0.1); border: none;">
+                                                <i class="bi bi-chat-text" style="color: var(--primary-color);"></i>
+                                            </span>
+                                            <input type="text" class="form-control" id="subject" name="subject"
+                                                placeholder="Enter subject" required
+                                                style="border: 1px solid #e0e0e0; border-radius: 0 8px 8px 0; padding: 12px;">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="mb-4">
-                                    <label for="message" class="form-label"
-                                        style="color: #14b789; font-size: 1.1rem;">Your Message</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="bi bi-chat-text"></i></span>
-                                        <textarea class="form-control" id="message" name="message" rows="5"
-                                            placeholder="Write your message here" required
-                                            style="border-radius: 0 8px 8px 0;"></textarea>
+                                    <div class="mb-4">
+                                        <label for="message" class="form-label"
+                                            style="color: var(--text-dark); font-size: 1rem;">Your Message</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"
+                                                style="background: rgba(20, 183, 137, 0.1); border: none;">
+                                                <i class="bi bi-pencil" style="color: var(--primary-color);"></i>
+                                            </span>
+                                            <textarea class="form-control" id="message" name="message" rows="5"
+                                                placeholder="Write your message here" required
+                                                style="border: 1px solid #e0e0e0; border-radius: 0 8px 8px 0; padding: 12px;"></textarea>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <button type="submit" class="custom-btn custom-border-btn btn mt-2"
-                                    style="background-color: #14b789; color: #fff; border: none; padding: 10px 20px; font-size: 1.1rem; border-radius: 8px; cursor: pointer;">
-                                    Send Message
-                                </button>
-                            </form>
-                            <p id="successMessage"
-                                style="display: none; color: #4caf50; margin-top: 15px; font-size: 1.1rem;">
-                                Your message has been sent successfully!
-                            </p>
+                                    <button type="submit" class="btn w-100"
+                                        style="background-color: var(--primary-color); color: #fff; padding: 12px; font-size: 1.1rem; border-radius: 8px; border: none; transition: all 0.3s ease;"
+                                        onmouseover="this.style.backgroundColor='#117a54'; this.style.transform='translateY(-2px)'"
+                                        onmouseout="this.style.backgroundColor='#14b789'; this.style.transform='translateY(0)'">
+                                        <i class="bi bi-send me-2"></i>Send Message
+                                    </button>
+                                </form>
+                                <p id="successMessage" class="mt-3 text-center"
+                                    style="display: none; color: var(--primary-color); font-size: 1.1rem;">
+                                    Your message has been sent successfully! We'll get back to you soon.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1214,22 +1594,121 @@
     <!--Contact Us Section Ends-->
 
     <!--Footer Section-->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-12">
-                    <div class="copyright-text-wrap">
-                        <h6 class="mb-0">
-                            <span class="copyright-text">Copyright © 2025 Designed & Developed by :-
-                                <a href="#" style="color: black;">Team TechPro</a></span>
-                        </h6>
+    <footer class="site-footer" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 100px 0 30px; position: relative; overflow: hidden;">
+        <!-- Decorative Elements --> 
+        <div class="container position-relative">
+            <!-- Main Footer Content -->
+            <div class="row g-4">
+                <!-- Company Info -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="footer-brand mb-4">
+                        <h2 style="color: #2d3436; font-size: 2.5rem; margin-bottom: 20px; font-weight: 700; letter-spacing: -0.5px;">
+                            <i class="bi bi-code-square me-2" style="color: var(--primary-color);"></i>TechPro
+                        </h2>
+                        <p style="color: #636e72; font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
+                            We are a team of passionate developers and designers dedicated to creating innovative digital solutions that help businesses grow and succeed in the digital world.
+                        </p>
+                    </div>
+                    <div class="social-links mt-4">
+                        <a href="#" class="me-3" style="color: #2d3436; font-size: 1.5rem; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.color='#2d3436'; this.style.transform='translateY(0)'">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="me-3" style="color: #2d3436; font-size: 1.5rem; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.color='#2d3436'; this.style.transform='translateY(0)'">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="me-3" style="color: #2d3436; font-size: 1.5rem; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.color='#2d3436'; this.style.transform='translateY(0)'">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" class="me-3" style="color: #2d3436; font-size: 1.5rem; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.color='#2d3436'; this.style.transform='translateY(0)'">
+                            <i class="bi bi-instagram"></i>
+                        </a>
                     </div>
                 </div>
 
+                <!-- Quick Links -->
+                <div class="col-lg-4 col-md-6 col-12 mt-4 mt-md-0">
+                    <h5 class="mb-4" style="color: #2d3436; font-size: 1.5rem; position: relative; padding-bottom: 15px; font-weight: 600;">
+                        Quick Links
+                        <span style="position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--primary-color); border-radius: 2px;"></span>
+                    </h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-3">
+                            <a href="#section_1" style="color: #636e72; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; display: flex; align-items: center; padding: 8px 0;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateX(10px)'" onmouseout="this.style.color='#636e72'; this.style.transform='translateX(0)'">
+                                <i class="bi bi-chevron-right me-2" style="color: var(--primary-color);"></i>Home
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="aboutus.html" style="color: #636e72; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; display: flex; align-items: center; padding: 8px 0;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateX(10px)'" onmouseout="this.style.color='#636e72'; this.style.transform='translateX(0)'">
+                                <i class="bi bi-chevron-right me-2" style="color: var(--primary-color);"></i>About
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="services.html" style="color: #636e72; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; display: flex; align-items: center; padding: 8px 0;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateX(10px)'" onmouseout="this.style.color='#636e72'; this.style.transform='translateX(0)'">
+                                <i class="bi bi-chevron-right me-2" style="color: var(--primary-color);"></i>Services
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="projects.html" style="color: #636e72; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; display: flex; align-items: center; padding: 8px 0;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateX(10px)'" onmouseout="this.style.color='#636e72'; this.style.transform='translateX(0)'">
+                                <i class="bi bi-chevron-right me-2" style="color: var(--primary-color);"></i>Projects
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="contactus.html" style="color: #636e72; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; display: flex; align-items: center; padding: 8px 0;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateX(10px)'" onmouseout="this.style.color='#636e72'; this.style.transform='translateX(0)'">
+                                <i class="bi bi-chevron-right me-2" style="color: var(--primary-color);"></i>Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-4 col-md-6 col-12 mt-4 mt-lg-0">
+                    <h5 class="mb-4" style="color: #2d3436; font-size: 1.5rem; position: relative; padding-bottom: 15px; font-weight: 600;">
+                        Contact Info
+                        <span style="position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--primary-color); border-radius: 2px;"></span>
+                    </h5>
+                    <ul class="list-unstyled contact-info">
+                        <li class="mb-4" style="display: flex; align-items: center;">
+                            <div class="icon-wrapper me-3" style="width: 45px; height: 45px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(20, 183, 137, 0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(20, 183, 137, 0.1)'">
+                                <i class="bi bi-geo-alt" style="color: var(--primary-color); font-size: 1.2rem;"></i>
+                            </div>
+                            <span style="color: #636e72; font-size: 1.1rem;">Beta-1, A Block, Greater Noida, UP</span>
+                        </li>
+                        <li class="mb-4" style="display: flex; align-items: center;">
+                            <div class="icon-wrapper me-3" style="width: 45px; height: 45px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(20, 183, 137, 0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(20, 183, 137, 0.1)'">
+                                <i class="bi bi-envelope" style="color: var(--primary-color); font-size: 1.2rem;"></i>
+                            </div>
+                            <a href="mailto:teamtechpro0@gmail.com" style="color: #636e72; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='#636e72'">teamtechpro0@gmail.com</a>
+                        </li>
+                        <li class="mb-4" style="display: flex; align-items: center;">
+                            <div class="icon-wrapper me-3" style="width: 45px; height: 45px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(20, 183, 137, 0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(20, 183, 137, 0.1)'">
+                                <i class="bi bi-telephone" style="color: var(--primary-color); font-size: 1.2rem;"></i>
+                            </div>
+                            <a href="tel:+919695167669" style="color: #636e72; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='#636e72'">+91 9695167669</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <hr style="border-color: rgba(0,0,0,0.1); margin: 30px 0;">
+                    <div class="text-center">
+                        <p class="mb-0" style="color: #636e72; font-size: 1rem;">
+                            Copyright © 2025 Designed & Developed by 
+                            <a href="#" style="color: var(--primary-color); text-decoration: none; transition: all 0.3s ease; font-weight: 500;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Team TechPro</a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
     <!--Footer Section Ends-->
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="bi bi-arrow-up"></i>
+    </a>
 
     <!-- JAVASCRIPT FILES -->
     <script src="js/jquery.min.js"></script>
@@ -1348,6 +1827,170 @@
                     alert('There was an error submitting your form. Please try again.');
                 });
         });
+
+        // Statistics Counter Animation
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start) + '+';
+                }
+            }, 16);
+        }
+
+        // Intersection Observer for Statistics
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('h3');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.textContent);
+                        animateCounter(counter, target, 2000);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe statistics section
+        const statisticsSection = document.querySelector('.statistics-section');
+        if (statisticsSection) {
+            observer.observe(statisticsSection);
+        }
+
+        // Testimonial Carousel
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-item');
+
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        // Initialize testimonials
+        if (testimonials.length > 0) {
+            showTestimonial(0);
+            setInterval(() => {
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                showTestimonial(currentTestimonial);
+            }, 5000);
+        }
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Enhanced Navbar Scroll Effect
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll <= 0) {
+                navbar.classList.remove('scroll-up');
+                return;
+            }
+
+            if (currentScroll > lastScroll && !navbar.classList.contains('scroll-down')) {
+                navbar.classList.remove('scroll-up');
+                navbar.classList.add('scroll-down');
+            } else if (currentScroll < lastScroll && navbar.classList.contains('scroll-down')) {
+                navbar.classList.remove('scroll-down');
+                navbar.classList.add('scroll-up');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Smooth Scroll for All Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add Animation on Scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+
+                if (elementTop < window.innerHeight && elementBottom > 0) {
+                    element.classList.add('animated');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Enhanced Form Validation
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', function (e) {
+                if (!this.checkValidity()) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+                this.classList.add('was-validated');
+            });
+        });
+
+        // Enhanced Testimonial Carousel
+        const testimonialCarousel = document.getElementById('testimonialCarousel');
+        if (testimonialCarousel) {
+            // Auto-play with pause on hover
+            testimonialCarousel.addEventListener('mouseenter', () => {
+                testimonialCarousel.pause();
+            });
+            testimonialCarousel.addEventListener('mouseleave', () => {
+                testimonialCarousel.cycle();
+            });
+
+            // Add animation classes
+            testimonialCarousel.addEventListener('slide.bs.carousel', (e) => {
+                const activeItem = e.relatedTarget;
+                const testimonialItem = activeItem.querySelector('.testimonial-item');
+                testimonialItem.style.opacity = '0';
+                testimonialItem.style.transform = 'translateY(20px)';
+            });
+
+            testimonialCarousel.addEventListener('slid.bs.carousel', (e) => {
+                const activeItem = e.relatedTarget;
+                const testimonialItem = activeItem.querySelector('.testimonial-item');
+                testimonialItem.style.opacity = '1';
+                testimonialItem.style.transform = 'translateY(0)';
+            });
+        }
     </script>
 </body>
 

@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Team TechPro - Projects</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/magnific-popup.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #14b789;
+            --secondary-color: #535da1;
+            --light-bg: #ffffff;
+            --light-gray: #f8f9fa;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--light-bg);
+            color: var(--text-dark);
+        }
+
+        /* Preloader Animation */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--light-bg);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            position: relative;
+        }
+
+        .spinner-rotate {
+            width: 100%;
+            height: 100%;
+            border: 4px solid transparent;
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            transition: var(--transition);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            transition: var(--transition);
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Hero Section Styling */
+        .hero {
+            min-height: 80vh;
+            background: linear-gradient(135deg, var(--light-gray) 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/pattern.png');
+            opacity: 0.05;
+            animation: backgroundMove 20s linear infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-title {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-subtitle {
+            color: var(--text-dark);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        /* Project Card Styling */
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .project-description {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            margin-bottom: 20px;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--light-gray);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .project-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .project-link i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+
+        .project-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Section Styling */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            color: var(--text-dark);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        /* Footer Styling */
+        .site-footer {
+            background: var(--light-gray);
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .copyright-text {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .copyright-text a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .copyright-text a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero {
+                padding: 80px 0 40px;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 40px 0;
+            }
+
+            .project-card {
+                margin-bottom: 20px;
+            }
+
+            .project-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <section class="preloader">
+        <div class="spinner">
+            <span class="spinner-rotate"></span>
+        </div>
+    </section>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a href="index.html" class="navbar-brand mx-auto mx-lg-0">
+                <i class="bi bi-code-square me-2"></i>TechPro
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-lg-5">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house-door me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutus.html">
+                            <i class="bi bi-person me-1"></i>About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">
+                            <i class="bi bi-gear me-1"></i>Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="projects.html">
+                            <i class="bi bi-briefcase me-1"></i>Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="form.html">
+                            <i class="bi bi-file-earmark-text me-1"></i>Quote Form
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactus.html">
+                            <i class="bi bi-envelope me-1"></i>Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center hero-content">
+                    <h2 class="hero-title">Our Projects</h2>
+                    <h3 class="hero-subtitle">Showcasing Our Latest Work</h3>
+                    <div class="hero-text">
+                        <p>Explore our portfolio of innovative projects that demonstrate our expertise in web
+                            development, mobile applications, and digital solutions.</p>
+                        <a href="contactus.html" class="custom-btn mt-5">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-4">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="text-muted">Discover our most recent and impactful work</p>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Surya Prakash Singh - Portfolio</h3>
+                            <p class="project-description">A professional portfolio website showcasing personal projects, skills, and experience. Features include responsive design, project showcase, and contact information.</p>
+                            <a href="https://suryaprakashsingh.netlify.app/" class="project-link" target="_blank">View Project <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">NotesXpert</h3>
+                            <p class="project-description">A comprehensive note-taking and management platform that helps students organize their study materials, create notes, and collaborate with peers.</p>
+                            <a href="https://notesxpert.netlify.app/" class="project-link" target="_blank">View Project <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">SN GYM & FITNESS CLUB</h3>
+                            <p class="project-description">A fitness center management system with features for membership tracking, class scheduling, trainer management, and workout program customization.</p>
+                            <a href="#" class="project-link">View Project <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">WeCare -AI Hospital Management System</h3>
+                            <p class="project-description">An AI-powered hospital management system that streamlines patient care, appointment scheduling, medical records, and resource management using advanced algorithms.</p>
+                            <a href="#" class="project-link">View Project <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">MetroSuvidha</h3>
+                            <p class="project-description">A metro rail service management platform providing real-time train schedules, ticket booking, route planning, and station information for commuters.</p>
+                            <a href="#" class="project-link">View Project <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">PlanItNow - Tourist Website</h3>
+                            <p class="project-description">A comprehensive travel planning platform that helps users discover destinations, book accommodations, plan itineraries, and share travel experiences.</p>
+                            <a href="#" class="project-link">View Project <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-12">
+                    <div class="copyright-text-wrap">
+                        <h6 class="mb-0">
+                            <span class="copyright-text">Copyright © 2025 Designed & Developed by :-
+                                <a href="#" style="color: black;">Team TechPro</a></span>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        // Preloader
+        document.addEventListener('DOMContentLoaded', function() {
+            const preloader = document.querySelector('.preloader');
+            
+            // Hide preloader when page is fully loaded
+            window.addEventListener('load', function() {
+                preloader.classList.add('hidden');
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.05)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Web3Forms Quote Form Submission
+        const quoteForm = document.getElementById('quoteForm');
+        const quoteSuccessMessage = document.getElementById('quoteSuccessMessage');
+
+        quoteForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(quoteForm);
+
+            fetch('https://api.web3forms.com/submit', { // Explicitly use the Web3Forms URL
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Show success message
+                        quoteSuccessMessage.style.display = 'block';
+                        // Optionally reset the form
+                        quoteForm.reset();
+                        // Hide the message after a few seconds
+                        setTimeout(() => {
+                            quoteSuccessMessage.style.display = 'none';
+                        }, 5000); // Hide after 5 seconds
+                    } else {
+                        // Handle errors, same as Contact Us form
+                        console.error('Web3Forms submission failed:', data.message);
+                        alert('There was an error submitting your quote request: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    // Handle network errors, same as Contact Us form
+                    console.error('Error:', error);
+                    alert('There was an error submitting your quote request. Please try again.');
+                });
+        });
+
+        // Contact Us Form Submission (Existing Script)
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: this.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        successMessage.style.display = 'block';
+                        this.reset(); // Reset the form
+                        setTimeout(() => {
+                            successMessage.style.display = 'none';
+                        }, 5000); // Hide after 5 seconds
+                    } else {
+                        // Handle errors
+                        console.error('Web3Forms submission failed:', data.message);
+                        alert('There was an error submitting your form: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting your form. Please try again.');
+                });
+        });
+    </script>
+</body>
+
+</html>

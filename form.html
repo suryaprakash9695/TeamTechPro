@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Quote Form - Team TechPro</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/magnific-popup.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #14b789;
+            --secondary-color: #535da1;
+            --light-bg: #ffffff;
+            --light-gray: #f8f9fa;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #ffffff;
+            color: var(--text-dark);
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            transition: var(--transition);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            transition: var(--transition);
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Hero Section Styling */
+        .hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, var(--light-gray) 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/pattern.png');
+            opacity: 0.05;
+            animation: backgroundMove 20s linear infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-title {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-subtitle {
+            color: var(--text-dark);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .hero-text p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes backgroundMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        /* Form Section Styling */
+        .form-section {
+            padding: 40px 0 80px;
+            background: var(--light-gray);
+        }
+
+        .section-title {
+            color: var(--text-dark);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .quote-form {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 12px 15px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(20, 183, 137, 0.15);
+        }
+
+        .form-select {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 12px 15px;
+            transition: var(--transition);
+        }
+
+        .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(20, 183, 137, 0.15);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-weight: 500;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #0fa67a;
+            transform: translateY(-2px);
+        }
+
+        /* Footer Styling */
+        .site-footer {
+            background: var(--light-gray);
+            padding: 50px 0;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .form-section {
+                padding: 30px 0 70px;
+            }
+
+            .quote-form {
+                padding: 35px;
+            }
+
+            .form-label {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .navbar-expand-lg .navbar-nav .nav-link {
+                padding: 0.5rem 0 !important;
+            }
+
+            .navbar-collapse {
+                text-align: center;
+            }
+
+            .navbar .d-lg-flex {
+                display: none !important;
+            }
+
+            .form-section {
+                padding: 20px 0 60px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .quote-form {
+                padding: 30px;
+            }
+
+            .form-control,
+            .form-select {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .form-section {
+                padding: 20px 0 50px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .text-muted {
+                font-size: 1rem !important;
+                padding: 0 20px;
+            }
+
+            .quote-form {
+                padding: 25px;
+            }
+
+            .form-label {
+                font-size: 0.95rem;
+            }
+
+            .form-control,
+            .form-select {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }
+
+            .submit-btn {
+                padding: 10px 25px;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .form-section {
+                padding: 20px 0 40px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+
+            .text-muted {
+                font-size: 0.9rem !important;
+                padding: 0 15px;
+            }
+
+            .quote-form {
+                padding: 20px;
+            }
+
+            .form-label {
+                font-size: 0.9rem;
+                margin-bottom: 6px;
+            }
+
+            .form-control,
+            .form-select {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
+            .form-textarea {
+                min-height: 100px;
+            }
+
+            .submit-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .mb-4 {
+                margin-bottom: 1rem !important;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .form-section {
+                padding: 20px 0 30px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .text-muted {
+                font-size: 0.85rem !important;
+                padding: 0 10px;
+            }
+
+            .quote-form {
+                padding: 15px;
+            }
+
+            .form-label {
+                font-size: 0.85rem;
+            }
+
+            .form-control,
+            .form-select {
+                font-size: 0.8rem;
+                padding: 8px 10px;
+            }
+
+            .form-textarea {
+                min-height: 80px;
+            }
+
+            .submit-btn {
+                padding: 8px 15px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Fix for very small screens */
+        @media (max-width: 320px) {
+            .container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .quote-form {
+                padding: 12px;
+            }
+
+            .form-control,
+            .form-select {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Fix for landscape orientation on mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .form-section {
+                padding: 70px 0 30px;
+            }
+
+            .quote-form {
+                padding: 15px;
+            }
+
+            .form-textarea {
+                min-height: 60px;
+            }
+        }
+
+        /* Improve form field spacing on mobile */
+        @media (max-width: 576px) {
+            .row {
+                margin-left: -8px;
+                margin-right: -8px;
+            }
+
+            .col-md-6 {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+        }
+
+        /* Improve select dropdown appearance on mobile */
+        @media (max-width: 576px) {
+            .form-select {
+                background-position: right 8px center;
+                padding-right: 25px;
+            }
+        }
+
+        /* Improve button touch target on mobile */
+        @media (max-width: 576px) {
+            .submit-btn {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        /* Custom Alert Box Styling */
+        .custom-alert {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeIn 0.3s ease;
+        }
+        .alert-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.3s ease;
+        }
+        .alert-content i {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .alert-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+        .alert-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        .alert-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .alert-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Required field indicator */
+        .form-label.required::after {
+            content: '*';
+            color: red;
+            margin-left: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Nav bar-->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a href="index.html" class="navbar-brand mx-auto mx-lg-0">
+                <i class="bi bi-code-square me-2"></i>TechPro
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-lg-5">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house-door me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutus.html">
+                            <i class="bi bi-person me-1"></i>About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">
+                            <i class="bi bi-gear me-1"></i>Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">
+                            <i class="bi bi-briefcase me-1"></i>Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="form.html">
+                            <i class="bi bi-file-earmark-text me-1"></i>Quote Form
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactus.html">
+                            <i class="bi bi-envelope me-1"></i>Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Nav bar Ends-->
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center hero-content">
+                    <h2 class="hero-title">Get a Quote</h2>
+                    <h3 class="hero-subtitle">Let's Build Your Project Together</h3>
+                    <div class="hero-text">
+                        <p>Fill out our quote form and we'll help you bring your vision to life with our expert development services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form class="quote-form" id="quoteForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label for="name" class="form-label required">Full Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="email" class="form-label required">Email Address</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label for="phone" class="form-label required">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" required>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="service" class="form-label required">Service Required</label>
+                                <select class="form-select" id="service" required>
+                                    <option value="">Select a service</option>
+                                    <option value="frontend">Front-end Development</option>
+                                    <option value="backend">Back-end Development</option>
+                                    <option value="fullstack">Full Stack Development</option>
+                                    <option value="website">Website Development</option>
+                                    <option value="miniproject">Mini-Project Development</option>
+                                    <option value="majorproject">Major Project Development</option>
+                                    <option value="security">Security Research</option>
+                                    <option value="bug">Bug Hunting</option>
+                                    <option value="consulting">IT Consulting</option>
+                                    <option value="deployment">Website Deployment</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="budget" class="form-label required">Budget Range</label>
+                            <select class="form-select" id="budget" required>
+                                <option value="">Select budget range</option>
+                                <option value="small">₹2,000 - ₹5,000</option>
+                                <option value="medium">₹5,000 - ₹10,000</option>
+                                <option value="large">₹10,000 - ₹25,000</option>
+                                <option value="enterprise">Above ₹25,000</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="timeline" class="form-label required">Expected Timeline</label>
+                            <select class="form-select" id="timeline" required>
+                                <option value="">Select timeline</option>
+                                <option value="urgent">Urgent (0-1 weeks)</option>
+                                <option value="normal">Normal (1-4 weeks)</option>
+                                <option value="flexible">Flexible (1-3 months)</option>
+                                <option value="longterm">Long Term (3+ months)</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label required">Purpose of Request</label>
+                            <div class="d-flex gap-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="purpose" id="personal" value="personal" required>
+                                    <label class="form-check-label" for="personal">
+                                        Personal
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="purpose" id="business" value="business" required>
+                                    <label class="form-check-label" for="business">
+                                        Business
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="purpose" id="student" value="student" required>
+                                    <label class="form-check-label" for="student">
+                                        Student
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4" id="businessNameField" style="display: none;">
+                            <label for="businessName" class="form-label">Business Name</label>
+                            <input type="text" class="form-control" id="businessName">
+                        </div>
+                        <div class="mb-4" id="collegeNameField" style="display: none;">
+                            <label for="collegeName" class="form-label">College Name</label>
+                            <input type="text" class="form-control" id="collegeName">
+                        </div>
+                        <div class="mb-4" id="projectTypeField" style="display: none;">
+                            <label for="projectType" class="form-label">Project Type</label>
+                            <select class="form-select" id="projectType">
+                                <option value="">Select project type</option>
+                                <option value="portfolio">Personal Portfolio</option>
+                                <option value="blog">Personal Blog</option>
+                                <option value="ecommerce">E-commerce Store</option>
+                                <option value="social">Social Media Platform</option>
+                                <option value="utility">Utility Tool</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="form-label required">Project Details</label>
+                            <textarea class="form-control form-textarea" id="message" rows="4" required
+                                placeholder="Please describe your project requirements, goals, and any specific features you need..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="bi bi-send me-2"></i>Submit Quote Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Footer Section-->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-12">
+                    <div class="copyright-text-wrap">
+                        <h6 class="mb-0">
+                            <span class="copyright-text">Copyright © 2025 Designed & Developed by :-
+                                <a href="#" style="color: black;">Team TechPro</a></span>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Footer Section Ends-->
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/click-scroll.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/magnific-popup-options.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.05)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Form validation and submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('quoteForm');
+            const submitBtn = document.querySelector('.submit-btn');
+            
+            // Add event listeners for purpose radio buttons
+            const purposeRadios = document.getElementsByName('purpose');
+            const businessNameField = document.getElementById('businessNameField');
+            const collegeNameField = document.getElementById('collegeNameField');
+            const projectTypeField = document.getElementById('projectTypeField');
+            const businessName = document.getElementById('businessName');
+            const collegeName = document.getElementById('collegeName');
+            const projectType = document.getElementById('projectType');
+
+            purposeRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    // Hide all conditional fields first
+                    businessNameField.style.display = 'none';
+                    collegeNameField.style.display = 'none';
+                    projectTypeField.style.display = 'none';
+                    
+                    // Set required to false for all conditional inputs first
+                    businessName.required = false;
+                    collegeName.required = false;
+                    projectType.required = false;
+                    
+                    // Show relevant field based on selection and set required
+                    if (this.value === 'business') {
+                        businessNameField.style.display = 'block';
+                        businessName.required = true;
+                    } else if (this.value === 'student') {
+                        collegeNameField.style.display = 'block';
+                        collegeName.required = true;
+                    } else if (this.value === 'personal') {
+                        projectTypeField.style.display = 'block';
+                        projectType.required = true;
+                    }
+                });
+            });
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Get form elements
+                const name = document.getElementById('name');
+                const email = document.getElementById('email');
+                const phone = document.getElementById('phone');
+                const service = document.getElementById('service');
+                const budget = document.getElementById('budget');
+                const timeline = document.getElementById('timeline');
+                const message = document.getElementById('message');
+                
+                // Reset previous error states
+                resetErrors();
+                
+                // Validate all fields
+                let isValid = true;
+                
+                // Name validation
+                if (!name.value.trim()) {
+                    showError(name, 'Please enter your name');
+                    isValid = false;
+                } else if (name.value.trim().length < 2) {
+                    showError(name, 'Name must be at least 2 characters long');
+                    isValid = false;
+                }
+                
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email.value.trim()) {
+                    showError(email, 'Please enter your email');
+                    isValid = false;
+                } else if (!emailRegex.test(email.value.trim())) {
+                    showError(email, 'Please enter a valid email address');
+                    isValid = false;
+                }
+                
+                // Phone validation
+                const phoneRegex = /^[0-9]{10}$/;
+                if (!phone.value.trim()) {
+                    showError(phone, 'Please enter your phone number');
+                    isValid = false;
+                } else if (!phoneRegex.test(phone.value.trim())) {
+                    showError(phone, 'Please enter a valid 10-digit phone number');
+                    isValid = false;
+                }
+                
+                // Service validation
+                if (!service.value) {
+                    showError(service, 'Please select a service');
+                    isValid = false;
+                }
+                
+                // Budget validation
+                if (!budget.value) {
+                    showError(budget, 'Please select a budget range');
+                    isValid = false;
+                }
+                
+                // Timeline validation
+                if (!timeline.value) {
+                    showError(timeline, 'Please select a timeline');
+                    isValid = false;
+                }
+                
+                // Purpose validation
+                let purposeSelected = false;
+                let selectedPurpose = '';
+                for (const radio of purposeRadios) {
+                    if (radio.checked) {
+                        purposeSelected = true;
+                        selectedPurpose = radio.value;
+                        break;
+                    }
+                }
+                if (!purposeSelected) {
+                    // Find the parent div of the radio buttons to attach the error message
+                    const purposeContainer = document.querySelector('input[name="purpose"]').closest('div.mb-4');
+                    if (purposeContainer) {
+                        showError(purposeContainer, 'Please select a purpose');
+                    } else {
+                        // Fallback if structure changes
+                        console.error('Could not find purpose container for error message');
+                    }
+                    isValid = false;
+                }
+                
+                // Business name validation (only if business is selected and field is visible)
+                if (selectedPurpose === 'business' && businessNameField.style.display !== 'none' && !businessName.value.trim()) {
+                    showError(businessName, 'Please enter your business name');
+                    isValid = false;
+                }
+                
+                // College name validation (only if student is selected and field is visible)
+                if (selectedPurpose === 'student' && collegeNameField.style.display !== 'none' && !collegeName.value.trim()) {
+                    showError(collegeName, 'Please enter your college name');
+                    isValid = false;
+                }
+                
+                // Project type validation (only if personal is selected and field is visible)
+                if (selectedPurpose === 'personal' && projectTypeField.style.display !== 'none' && !projectType.value) {
+                    showError(projectType, 'Please select a project type');
+                    isValid = false;
+                }
+                
+                // Message validation
+                if (!message.value.trim()) {
+                    showError(message, 'Please describe your project requirements');
+                    isValid = false;
+                } else if (message.value.trim().length < 20) {
+                    showError(message, 'Please provide more details about your project (minimum 20 characters)');
+                    isValid = false;
+                }
+                
+                if (!isValid) {
+                    // Scroll to the first invalid field
+                    const firstInvalid = document.querySelector('.is-invalid');
+                    if(firstInvalid) {
+                        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                    return;
+                }
+                
+                // Show loading state
+                const originalBtnText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Submitting...';
+                submitBtn.disabled = true;
+                
+                try {
+                    // Prepare form data
+                    const formData = { ...Object.fromEntries(new FormData(form).entries()) };
+                    formData['service'] = service.options[service.selectedIndex].text;
+                    formData['budget'] = budget.options[budget.selectedIndex].text;
+                    formData['timeline'] = timeline.options[timeline.selectedIndex].text;
+                    formData['projectType'] = selectedPurpose === 'personal' ? projectType.options[projectType.selectedIndex].text : '';
+
+                    // Add Web3Forms specific fields
+                    formData.access_key = '3b966b20-d490-4253-8298-0b86030f62c3';
+                    formData.subject = 'New Quote Request from ' + name.value.trim() + ' (' + selectedPurpose + ')';
+                    formData.from_name = 'Team TechPro Website Quote Form';
+
+                    // Remove optional fields if not visible
+                    if (selectedPurpose !== 'business') delete formData.businessName;
+                    if (selectedPurpose !== 'student') delete formData.collegeName;
+                    if (selectedPurpose !== 'personal') delete formData.projectType;
+
+                    // Log form data before sending (optional)
+                    // console.log('Sending form data:', formData);
+                    
+                    // Send form data to Web3Forms
+                    const response = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        // Show success alert box
+                        const alertBox = document.createElement('div');
+                        alertBox.className = 'custom-alert';
+                        alertBox.innerHTML = `
+                            <div class="alert-content">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <h3>Thank You!</h3>
+                                <p>${result.message || 'Your quote request has been submitted successfully. We will contact you shortly.'}</p>
+                                <button class="alert-btn">OK</button>
+                            </div>
+                        `;
+                        document.body.appendChild(alertBox);
+
+                        // Handle OK button click and redirect
+                        const okButton = alertBox.querySelector('.alert-btn');
+                        okButton.addEventListener('click', () => {
+                            alertBox.remove();
+                            form.reset();
+                            // Hide conditional fields after reset
+                            businessNameField.style.display = 'none';
+                            collegeNameField.style.display = 'none';
+                            projectTypeField.style.display = 'none';
+                            // Redirect to index.html or a thank you page
+                            window.location.href = 'index.html'; // Redirect to home page
+                        });
+
+                    } else {
+                        // Handle Web3Forms specific error messages if available
+                        const errorMessage = result.message || 'Something went wrong. Please try again.';
+                        throw new Error(errorMessage);
+                    }
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    // Show error alert box
+                    const alertBox = document.createElement('div');
+                    alertBox.className = 'custom-alert';
+                    alertBox.innerHTML = `
+                        <div class="alert-content">
+                            <i class="bi bi-exclamation-circle-fill" style="color: #dc3545;"></i>
+                            <h3>Error!</h3>
+                            <p>${error.message}</p>
+                            <button class="alert-btn" style="background: #dc3545;">OK</button>
+                        </div>
+                    `;
+                    document.body.appendChild(alertBox);
+
+                    // Handle OK button click
+                    const okButton = alertBox.querySelector('.alert-btn');
+                    okButton.addEventListener('click', () => {
+                        alertBox.remove();
+                    });
+                } finally {
+                    // Reset button state regardless of success or failure
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                }
+            });
+        });
+        
+        // Helper functions for form validation
+        function showError(inputElement, message) {
+            const formGroup = inputElement.closest('.mb-4');
+            if (!formGroup) return; // Added check
+
+            // Remove existing error messages for this input
+            formGroup.querySelectorAll('.text-danger').forEach(error => error.remove());
+
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'text-danger mt-1';
+            errorDiv.style.fontSize = '0.85rem';
+            errorDiv.textContent = message;
+
+            // Append error message after the input element or its container
+            const targetElement = inputElement.classList.contains('form-check-input') ? inputElement.closest('.d-flex') : inputElement;
+            targetElement.parentElement.appendChild(errorDiv);
+
+            // Add invalid class to the input element for styling
+            if (!inputElement.classList.contains('form-check-input')) { // Avoid adding class to hidden radio input
+                inputElement.classList.add('is-invalid');
+            }
+        }
+        
+        function resetErrors() {
+            // Remove all error messages
+            document.querySelectorAll('.text-danger').forEach(error => error.remove());
+            // Remove invalid state from inputs
+            document.querySelectorAll('.is-invalid').forEach(input => input.classList.remove('is-invalid'));
+        }
+    </script>
+</body>
+
+</html>

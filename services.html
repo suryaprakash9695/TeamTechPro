@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Team TechPro - Services</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/magnific-popup.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #14b789;
+            --secondary-color: #535da1;
+            --light-bg: #ffffff;
+            --light-gray: #f8f9fa;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--light-bg);
+            color: var(--text-dark);
+        }
+
+        /* Preloader Animation */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--light-bg);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            position: relative;
+        }
+
+        .spinner-rotate {
+            width: 100%;
+            height: 100%;
+            border: 4px solid transparent;
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            transition: var(--transition);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            transition: var(--transition);
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Hero Section Styling */
+        .hero {
+            min-height: 80vh;
+            background: linear-gradient(135deg, var(--light-gray) 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/pattern.png');
+            opacity: 0.05;
+            animation: backgroundMove 20s linear infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-title {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-subtitle {
+            color: var(--text-dark);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .hero-text p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin: 0 auto 1.5rem auto;
+            /* Center the paragraph block */
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: both;
+            max-width: 500px;
+        }
+
+        .custom-btn {
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                padding: 80px 0 40px;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin: 0 auto 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Section Styling */
+        .section-padding {
+            padding: 50px 0;
+            background: var(--light-gray);
+        }
+
+        .section-padding.bg-light {
+            background: var(--light-gray);
+        }
+
+        .section-title {
+            color: var(--text-dark);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        /* Card Styling */
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card .display-4 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Service Item Styling */
+        .service-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            height: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .service-item:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-item h4 {
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .service-item p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .service-arrow {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .service-item:hover .service-arrow {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Footer Styling */
+        .site-footer {
+            background: var(--light-gray);
+            padding: 50px 0;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .navbar-expand-lg .navbar-nav .nav-link {
+                padding: 0.5rem 0 !important;
+            }
+
+            .navbar-collapse {
+                text-align: center;
+            }
+
+            .navbar .d-lg-flex {
+                display: none !important;
+            }
+
+            .section-padding {
+                padding: 40px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .service-item {
+                padding: 25px;
+                margin-bottom: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 100px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-text h2 {
+                font-size: 1.4rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            .section-padding {
+                padding: 30px 0;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+
+            .service-item {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .service-item .service-icon {
+                font-size: 2.5rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .nav-link {
+                font-size: 1rem;
+                padding: 0.5rem !important;
+            }
+
+            body {
+                font-size: 0.9rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            .contact-us ul li {
+                font-size: 1rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            h4 {
+                font-size: 1.2rem;
+            }
+
+            h5 {
+                font-size: 1.1rem;
+            }
+
+            h6 {
+                font-size: 1rem;
+            }
+
+            small {
+                font-size: 0.8rem;
+            }
+
+            strong {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-text h2 {
+                font-size: 1.1rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .custom-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+
+            body {
+                font-size: 0.85rem;
+            }
+
+            p {
+                font-size: 0.85rem;
+            }
+
+            .contact-us ul li {
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+
+            h4 {
+                font-size: 1.1rem;
+            }
+
+            h5 {
+                font-size: 1rem;
+            }
+
+            h6 {
+                font-size: 0.9rem;
+            }
+
+            small {
+                font-size: 0.75rem;
+            }
+
+            strong {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Navbar Phone Number */
+        .navbar .d-lg-flex.align-items-center.d-none.ms-auto i,
+        .navbar .d-lg-flex.align-items-center.d-none.ms-auto a {
+            color: var(--text-dark);
+        }
+
+        /* General Image Hover */
+        img {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            max-width: 100%;
+            /* Ensure images don't overflow their containers */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <!--Preloader-->
+    <section class="preloader">
+        <div class="spinner">
+            <span class="spinner-rotate"></span>
+        </div>
+    </section>
+    <!--Preloader-->
+    <!--Nav bar-->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a href="index.html" class="navbar-brand mx-auto mx-lg-0">
+                <i class="bi bi-code-square me-2"></i>TechPro
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-lg-5">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house-door me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutus.html">
+                            <i class="bi bi-person me-1"></i>About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="services.html">
+                            <i class="bi bi-gear me-1"></i>Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">
+                            <i class="bi bi-briefcase me-1"></i>Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="form.html">
+                            <i class="bi bi-file-earmark-text me-1"></i>Quote Form
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactus.html">
+                            <i class="bi bi-envelope me-1"></i>Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Nav bar Ends-->
+
+    <!-- Services Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center hero-content">
+                    <h2 class="hero-title">Our Services</h2>
+                    <h3 class="hero-subtitle">Innovative Solutions Tailored to Your Needs</h3>
+                    <div class="hero-text">
+                        <p>We offer a comprehensive range of technology services designed to help your business succeed
+                            in the digital landscape. From web development to cybersecurity, we have you covered.</p>
+                        <a href="contactus.html" class="custom-btn mt-5">Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-4">
+                    <h2 class="section-title">What We Offer</h2>
+                    <p class="text-muted">Explore our range of expert services</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="bi bi-code-slash service-icon"></i>
+                        <h4>Web Development</h4>
+                        <p>Building responsive and modern websites and web applications.</p>
+                        <a href="form.html" class="service-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="bi bi-window service-icon"></i>
+                        <h4>Front-end Development</h4>
+                        <p>Creating intuitive user interfaces for web and mobile applications.</p>
+                        <a href="form.html" class="service-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="bi bi-server service-icon"></i>
+                        <h4>Back-end Development</h4>
+                        <p>Developing robust and scalable server-side applications.</p>
+                        <a href="form.html" class="service-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="bi bi-kanban service-icon"></i>
+                        <h4>Mini-Project Development</h4>
+                        <p>Delivering focused, smaller-scale project solutions efficiently.</p>
+                        <a href="form.html" class="service-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="bi bi-graph-up service-icon"></i>
+                        <h4>Major-Project Development</h4>
+                        <p>Handling large-scale projects with comprehensive planning and execution.</p>
+                        <a href="form.html" class="service-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="bi bi-layers service-icon"></i>
+                        <h4>Full Stack Development</h4>
+                        <p>Providing end-to-end development across front-end and back-end.</p>
+                        <a href="form.html" class="service-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="bi bi-gear service-icon"></i>
+                        <h4>Custom Software Development</h4>
+                        <p>Building tailored software to meet your specific business needs.</p>
+                        <a href="form.html" class="service-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="bi bi-shield-check service-icon"></i>
+                        <h4>Security Research</h4>
+                        <p>Identifying vulnerabilities and enhancing application security.</p>
+                        <a href="form.html" class="service-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="bi bi-cloud-arrow-up service-icon"></i>
+                        <h4>Website Deployment</h4>
+                        <p>Deploying websites and web applications to live servers.</p>
+                        <a href="form.html" class="service-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="bi bi-display service-icon"></i>
+                        <h4>IT Solutions</h4>
+                        <p>Offering comprehensive technology solutions for businesses.</p>
+                        <a href="form.html" class="service-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section - Reusing the structure -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-4">
+                    <h2 class="section-title">Why Choose Team TechPro for Services</h2>
+                    <p class="text-muted">Our commitment to excellence in service delivery</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-lightbulb display-4 text-primary mb-3"></i>
+                            <h4 class="mb-3">Innovative Approach</h4>
+                            <p class="text-muted">We leverage the latest technologies and innovative strategies to
+                                provide cutting-edge solutions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-people display-4 text-primary mb-3"></i>
+                            <h4 class="mb-3">Client-Centric Solutions</h4>
+                            <p class="text-muted">We focus on understanding your unique needs to deliver tailored and
+                                effective service.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-check-circle display-4 text-primary mb-3"></i>
+                            <h4 class="mb-3">Quality and Reliability</h4>
+                            <p class="text-muted">Our commitment to quality ensures reliable and robust service delivery
+                                every time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Footer Section-->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-12">
+                    <div class="copyright-text-wrap">
+                        <h6 class="mb-0">
+                            <span class="copyright-text">Copyright © 2025 Designed & Developed by :-
+                                <a href="#" style="color: black;">Team TechPro</a></span>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Footer Section Ends-->
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/click-scroll.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/magnific-popup-options.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.05)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
