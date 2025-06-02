@@ -263,19 +263,227 @@
         /* Footer Styling */
         .site-footer {
             background: var(--light-gray);
-            padding: 50px 0;
+            padding: 80px 0 30px;
             position: relative;
             color: var(--text-dark);
+            overflow: hidden;
         }
 
-        .site-footer::before {
-            content: '';
+        .footer-wave {
             position: absolute;
-            top: 0;
+            top: -100px;
             left: 0;
             width: 100%;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+            color: var(--primary-color);
+            opacity: 0.1;
+            transform: rotate(180deg);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-logo i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .footer-title {
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .footer-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .social-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .social-link:hover .social-tooltip {
+            opacity: 1;
+            visibility: visible;
+            bottom: 120%;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .footer-contact {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(20, 183, 137, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .footer-contact i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .copyright-text-wrap {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .copyright-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .copyright-text a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .copyright-text a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .site-footer {
+                padding: 50px 0 20px;
+            }
+
+            .footer-title {
+                margin-top: 30px;
+            }
         }
 
         /* Animations */
@@ -379,11 +587,11 @@
                 height: 50px;
             }
 
-             /* Adjust Contact Info Icon Wrapper */
-             .contact-info li .icon-wrapper {
+            /* Adjust Contact Info Icon Wrapper */
+            .contact-info li .icon-wrapper {
                 width: 40px;
                 height: 40px;
-             }
+            }
         }
 
         @media (max-width: 768px) {
@@ -478,19 +686,19 @@
                 font-size: 1rem;
             }
 
-             /* Adjust About TechPro Section Images */
-             .services.section-padding#section_2 .row img {
+            /* Adjust About TechPro Section Images */
+            .services.section-padding#section_2 .row img {
                 width: 60px;
                 height: 60px;
-             }
+            }
 
-             /* Adjust Stat Item Icon Wrapper */
-             .stat-item .stat-icon-wrapper {
+            /* Adjust Stat Item Icon Wrapper */
+            .stat-item .stat-icon-wrapper {
                 width: 50px;
                 height: 50px;
-             }
+            }
 
-             /* Adjust Mission/Vision Card Icon Wrapper */
+            /* Adjust Mission/Vision Card Icon Wrapper */
             .mission-vision-card .icon-wrapper {
                 width: 40px;
                 height: 40px;
@@ -502,11 +710,11 @@
                 height: 40px;
             }
 
-             /* Adjust Contact Info Icon Wrapper */
-             .contact-info li .icon-wrapper {
+            /* Adjust Contact Info Icon Wrapper */
+            .contact-info li .icon-wrapper {
                 width: 35px;
                 height: 35px;
-             }
+            }
         }
 
         @media (max-width: 576px) {
@@ -809,6 +1017,29 @@
                 transform: translateY(0);
             }
         }
+
+        .btn-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50px;
+            box-shadow: 0 0 30px 10px rgba(20, 183, 137, 0.2);
+            z-index: -1;
+            pointer-events: none;
+            animation: glowPulse 2s infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            from {
+                box-shadow: 0 0 30px 10px rgba(20, 183, 137, 0.2);
+            }
+
+            to {
+                box-shadow: 0 0 50px 20px rgba(20, 183, 137, 0.4);
+            }
+        }
     </style>
 </head>
 
@@ -878,35 +1109,62 @@
     <!--Nav bar Ends -->
     <!--Main Page Section-->
     <main>
-        <section class="hero d-flex justify-content-center align-items-center" id="section_1">
+        <section class="hero d-flex justify-content-center align-items-center" id="section_1 mt-5">
             <div class="container">
                 <div class="row align-items-center">
                     <!-- Left Column -->
-                    <div class="col-lg-6 col-12">
-                        <div class="hero-text">
-                            <div class="d-flex align-items-center mb-4">
-                                <h1 class="hero-title mb-0 animate__animated animate__fadeInDown">
-                                    <i class="bi bi-code-slash me-2"></i>Welcome to
-                                </h1>
-                            </div>
-                            <h2 class="mb-4 animate__animated animate__fadeInUp"
-                                style="font-size: 3.5rem; font-weight: 700; color: var(--primary-color);">
-                                Team TechPro
-                            </h2>
-                            <p class="mb-4 animate__animated animate__fadeInUp"
-                                style="font-size: 1.2rem; color: var(--text-dark); line-height: 1.8;">
+                    <div class="col-lg-6 col-12 mt-5">
+                        <div class="hero-text mt-3">
+                            <!-- Main Heading with Gradient Text -->
+                            <h1 class="hero-title animate__animated animate__fadeInUp"
+                                style="font-size: 2rem; font-weight: 800; background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
+                                Transforming Ideas Into Digital Excellence
+                            </h1>
+
+                            <!-- Subheading with Modern Typography -->
+                            <p class="hero-subtitle mb-4 animate__animated animate__fadeInUp"
+                                style="font-size: 1.2rem; color: var(--text-dark); line-height: 1.8; font-weight: 500;">
                                 We are a team of passionate developers and designers dedicated to creating innovative
-                                digital solutions. From web development to mobile apps, we bring your ideas to life with
-                                cutting-edge technology and creative excellence.
+                                digital solutions that drive business growth and success. With expertise in web
+                                development,
+                                mobile applications, and custom software solutions, we transform your ideas into
+                                powerful
+                                digital experiences.
                             </p>
-                            <div class="d-flex gap-3 animate__animated animate__fadeInUp">
-                                <a class="custom-btn btn custom-link" href="form/regform.html" target="_blank">
-                                    <i class="bi bi-arrow-right-circle me-2"></i>Start Your Project
+                            <!-- CTA Buttons with Enhanced Styling -->
+                            <div class="d-flex gap-4 animate__animated animate__fadeInUp">
+                                <a class="custom-btn btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg"
+                                    href="form.html" target="_blank"
+                                    style="background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); border: none; transition: all 0.3s ease;">
+                                    <i class="bi bi-rocket-takeoff me-2"></i>Start Your Project
+                                    <span class="btn-glow"></span>
                                 </a>
-                                <a class="custom-btn btn custom-link" href="#section_3"
-                                    style="background: transparent; border: 2px solid var(--primary-color); color: var(--primary-color);">
-                                    <i class="bi bi-eye me-2"></i>Explore Services
+                                <a class="custom-btn btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg"
+                                    href="services.html" target="_blank"
+                                    style="background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); border: none; transition: all 0.3s ease;">
+                                    <i class="bi bi-rocket-takeoff me-2"></i>Explore Services
+                                    <span class="btn-glow"></span>
                                 </a>
+                            </div>
+                            <!-- Trust Indicators -->
+                            <div class="trust-indicators mt-5 animate__animated animate__fadeInUp">
+                                <div class="d-flex align-items-center gap-4">
+                                    <div class="trust-item">
+                                        <span style="font-size: 1.1rem; color: var(--text-dark);">
+                                            <i class="bi bi-star-fill text-warning me-1"></i>4.9/5 Rating
+                                        </span>
+                                    </div>
+                                    <div class="trust-item">
+                                        <span style="font-size: 1.1rem; color: var(--text-dark);">
+                                            <i class="bi bi-people-fill text-primary me-1"></i>40+ Clients
+                                        </span>
+                                    </div>
+                                    <div class="trust-item">
+                                        <span style="font-size: 1.1rem; color: var(--text-dark);">
+                                            <i class="bi bi-award-fill text-success me-1"></i>2+ Years Experience
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -914,8 +1172,8 @@
                     <!-- Right Column -->
                     <div class="col-lg-6 col-12 position-relative">
                         <div class="hero-image-container animate__animated animate__fadeInRight"
-                            style="position: relative;">
-                            <div class="hero-image-wrapper" style="position: relative; padding: 20px;">
+                            style="position: relative; margin-top: -30px;">
+                            <div class="hero-image-wrapper" style="position: relative; padding: 0px;">
                                 <img src="images/webd.avif" class="hero-image img-fluid" alt="Team TechPro"
                                     style="border-radius: 20px; box-shadow: 0 20px 40px rgba(20, 183, 137, 0.3); transform: perspective(1000px) rotateY(-5deg);">
                                 <div class="floating-icons" style="position: absolute; top: 20px; right: 20px;">
@@ -947,66 +1205,6 @@
                     </p>
                 </div>
             </div>
-
-            <!-- Stats Section -->
-            <div class="row mb-5">
-                <div class="col-12">
-                    <div class="stats-container"
-                        style="background: rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                        <div class="row text-center">
-                            <div class="col-md-3 col-6 mb-4">
-                                <div class="stat-item" style="transition: transform 0.3s ease;">
-                                    <div class="stat-icon-wrapper"
-                                        style="width: 80px; height: 80px; margin: 0 auto; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                        <i class="bi bi-code-square"
-                                            style="font-size: 2.5rem; color: var(--primary-color);"></i>
-                                    </div>
-                                    <h3 class="mt-4 mb-2"
-                                        style="font-size: 2.5rem; font-weight: 700; color: var(--text-dark);">100+</h3>
-                                    <p style="font-size: 1.1rem; color: var(--text-light);">Projects Completed</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-6 mb-4">
-                                <div class="stat-item" style="transition: transform 0.3s ease;">
-                                    <div class="stat-icon-wrapper"
-                                        style="width: 80px; height: 80px; margin: 0 auto; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                        <i class="bi bi-people"
-                                            style="font-size: 2.5rem; color: var(--primary-color);"></i>
-                                    </div>
-                                    <h3 class="mt-4 mb-2"
-                                        style="font-size: 2.5rem; font-weight: 700; color: var(--text-dark);">50+</h3>
-                                    <p style="font-size: 1.1rem; color: var(--text-light);">Happy Clients</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-6 mb-4">
-                                <div class="stat-item" style="transition: transform 0.3s ease;">
-                                    <div class="stat-icon-wrapper"
-                                        style="width: 80px; height: 80px; margin: 0 auto; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                        <i class="bi bi-award"
-                                            style="font-size: 2.5rem; color: var(--primary-color);"></i>
-                                    </div>
-                                    <h3 class="mt-4 mb-2"
-                                        style="font-size: 2.5rem; font-weight: 700; color: var(--text-dark);">5+</h3>
-                                    <p style="font-size: 1.1rem; color: var(--text-light);">Years Experience</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-6 mb-4">
-                                <div class="stat-item" style="transition: transform 0.3s ease;">
-                                    <div class="stat-icon-wrapper"
-                                        style="width: 80px; height: 80px; margin: 0 auto; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                        <i class="bi bi-trophy"
-                                            style="font-size: 2.5rem; color: var(--primary-color);"></i>
-                                    </div>
-                                    <h3 class="mt-4 mb-2"
-                                        style="font-size: 2.5rem; font-weight: 700; color: var(--text-dark);">15+</h3>
-                                    <p style="font-size: 1.1rem; color: var(--text-light);">Awards Won</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- Mission & Vision -->
             <div class="row mb-5">
                 <div class="col-lg-6 col-md-6 col-12 mb-4">
@@ -1143,7 +1341,7 @@
                     <div class="stat-item p-4"
                         style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
                         <i class="bi bi-people" style="font-size: 2.5rem; color: var(--primary-color);"></i>
-                        <h3 class="mt-3 mb-2" style="color: var(--text-dark);">50+</h3>
+                        <h3 class="mt-3 mb-2" style="color: var(--text-dark);">40+</h3>
                         <p class="mb-0" style="color: var(--text-light);">Happy Clients</p>
                     </div>
                 </div>
@@ -1151,7 +1349,7 @@
                     <div class="stat-item p-4"
                         style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
                         <i class="bi bi-award" style="font-size: 2.5rem; color: var(--primary-color);"></i>
-                        <h3 class="mt-3 mb-2" style="color: var(--text-dark);">5+</h3>
+                        <h3 class="mt-3 mb-2" style="color: var(--text-dark);">2+</h3>
                         <p class="mb-0" style="color: var(--text-light);">Years Experience</p>
                     </div>
                 </div>
@@ -1159,7 +1357,7 @@
                     <div class="stat-item p-4"
                         style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
                         <i class="bi bi-trophy" style="font-size: 2.5rem; color: var(--primary-color);"></i>
-                        <h3 class="mt-3 mb-2" style="color: var(--text-dark);">25+</h3>
+                        <h3 class="mt-3 mb-2" style="color: var(--text-dark);">14+</h3>
                         <p class="mb-0" style="color: var(--text-light);">Awards Won</p>
                     </div>
                 </div>
@@ -1189,7 +1387,7 @@
                                 <p class="mb-4">Create stunning, responsive websites that work perfectly on all devices.
                                     We focus on user experience and modern design to help your business stand out
                                     online.</p>
-                                <a href="form/regform.html" target="_blank"
+                                <a href="form.html" target="_blank"
                                     class="custom-btn custom-border-btn btn mt-3">
                                     <i class="bi bi-arrow-right-circle me-2"></i>Get Started
                                 </a>
@@ -1207,7 +1405,7 @@
                                 </div>
                                 <p class="mb-4">Build powerful, interactive user interfaces with modern frameworks. We
                                     create smooth, fast-loading applications that provide excellent user experience.</p>
-                                <a href="form/regform.html" target="_blank"
+                                <a href="form.html" target="_blank"
                                     class="custom-btn custom-border-btn btn mt-3">
                                     <i class="bi bi-arrow-right-circle me-2"></i>Get Started
                                 </a>
@@ -1226,7 +1424,7 @@
 
                                 <p class="mb-4">Develop robust backend systems with secure APIs and efficient databases.
                                     We ensure your application is scalable, secure, and performs optimally.</p>
-                                <a href="form/regform.html" target="_blank"
+                                <a href="form.html" target="_blank"
                                     class="custom-btn custom-border-btn btn mt-3">
                                     <i class="bi bi-arrow-right-circle me-2"></i>Get Started
                                 </a>
@@ -1245,7 +1443,7 @@
 
                                 <p class="mb-4">Deploy your projects securely with our professional hosting solutions.
                                     We handle everything from server setup to ongoing maintenance and monitoring.</p>
-                                <a href="form/regform.html" target="_blank"
+                                <a href="form.html" target="_blank"
                                     class="custom-btn custom-border-btn btn mt-3">
                                     <i class="bi bi-arrow-right-circle me-2"></i>Get Started
                                 </a>
@@ -1294,12 +1492,11 @@
                                                 <div class="ms-3">
                                                     <h5 class="mb-1" style="color: var(--text-dark);">
                                                         <i class="bi bi-person-circle me-2"
-                                                            style="color: var(--primary-color);"></i>Rahul Sharma
+                                                            style="color: var(--primary-color);"></i>Gaurav Singh
                                                     </h5>
                                                     <p class="mb-0" style="color: var(--text-light);">
                                                         <i class="bi bi-shop me-2"
-                                                            style="color: var(--primary-color);"></i>Small Business
-                                                        Owner
+                                                    style="color: var(--primary-color);"></i>SN GYM & FITNESS CLUB
                                                     </p>
                                                 </div>
                                             </div>
@@ -1332,20 +1529,18 @@
                                                 <div class="ms-3">
                                                     <h5 class="mb-1" style="color: var(--text-dark);">
                                                         <i class="bi bi-person-circle me-2"
-                                                            style="color: var(--primary-color);"></i>Priya Patel
+                                                            style="color: var(--primary-color);"></i>Anshul
                                                     </h5>
                                                     <p class="mb-0" style="color: var(--text-light);">
-                                                        <i class="bi bi-cart me-2"
-                                                            style="color: var(--primary-color);"></i>Online Store Owner
+                                                        <i class="bi bi-hospital me-2"
+                                                            style="color: var(--primary-color);"></i>WeCare - Hospital Management System
                                                     </p>
                                                 </div>
                                             </div>
                                             <p style="color: var(--text-dark); font-style: italic;">
                                                 <i class="bi bi-quote me-2"
                                                     style="color: var(--primary-color); font-size: 1.2rem;"></i>
-                                                I was worried about making my shop online, but TechPro helped me a lot.
-                                                They made a beautiful website and taught me how to use it. My sales have
-                                                increased since then!
+                                                TechPro developed an excellent hospital management system for us. The system has streamlined our operations, improved patient care coordination, and enhanced our overall efficiency. Their team's expertise in healthcare technology made all the difference!
                                             </p>
                                             <div class="rating">
                                                 <i class="bi bi-star-fill" style="color: #ffc107;"></i>
@@ -1593,117 +1788,74 @@
     </section>
     <!--Contact Us Section Ends-->
 
-    <!--Footer Section-->
-    <footer class="site-footer" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 100px 0 30px; position: relative; overflow: hidden;">
-        <!-- Decorative Elements --> 
-        <div class="container position-relative">
-            <!-- Main Footer Content -->
-            <div class="row g-4">
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
                 <!-- Company Info -->
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="footer-brand mb-4">
-                        <h2 style="color: #2d3436; font-size: 2.5rem; margin-bottom: 20px; font-weight: 700; letter-spacing: -0.5px;">
-                            <i class="bi bi-code-square me-2" style="color: var(--primary-color);"></i>TechPro
-                        </h2>
-                        <p style="color: #636e72; font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
-                            We are a team of passionate developers and designers dedicated to creating innovative digital solutions that help businesses grow and succeed in the digital world.
-                        </p>
-                    </div>
-                    <div class="social-links mt-4">
-                        <a href="#" class="me-3" style="color: #2d3436; font-size: 1.5rem; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.color='#2d3436'; this.style.transform='translateY(0)'">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-                        <a href="#" class="me-3" style="color: #2d3436; font-size: 1.5rem; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.color='#2d3436'; this.style.transform='translateY(0)'">
-                            <i class="bi bi-twitter"></i>
-                        </a>
-                        <a href="#" class="me-3" style="color: #2d3436; font-size: 1.5rem; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.color='#2d3436'; this.style.transform='translateY(0)'">
-                            <i class="bi bi-linkedin"></i>
-                        </a>
-                        <a href="#" class="me-3" style="color: #2d3436; font-size: 1.5rem; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.color='#2d3436'; this.style.transform='translateY(0)'">
-                            <i class="bi bi-instagram"></i>
-                        </a>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-info">
+                        <h3 class="footer-title">TechPro</h3>
+                        <p class="footer-description">Transforming ideas into digital reality. We specialize in creating innovative solutions that drive business growth and enhance user experiences.</p>
+                        <div class="social-links mt-4">
+                            <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Quick Links -->
-                <div class="col-lg-4 col-md-6 col-12 mt-4 mt-md-0">
-                    <h5 class="mb-4" style="color: #2d3436; font-size: 1.5rem; position: relative; padding-bottom: 15px; font-weight: 600;">
-                        Quick Links
-                        <span style="position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--primary-color); border-radius: 2px;"></span>
-                    </h5>
-                    <ul class="list-unstyled footer-links">
-                        <li class="mb-3">
-                            <a href="#section_1" style="color: #636e72; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; display: flex; align-items: center; padding: 8px 0;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateX(10px)'" onmouseout="this.style.color='#636e72'; this.style.transform='translateX(0)'">
-                                <i class="bi bi-chevron-right me-2" style="color: var(--primary-color);"></i>Home
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="aboutus.html" style="color: #636e72; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; display: flex; align-items: center; padding: 8px 0;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateX(10px)'" onmouseout="this.style.color='#636e72'; this.style.transform='translateX(0)'">
-                                <i class="bi bi-chevron-right me-2" style="color: var(--primary-color);"></i>About
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="services.html" style="color: #636e72; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; display: flex; align-items: center; padding: 8px 0;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateX(10px)'" onmouseout="this.style.color='#636e72'; this.style.transform='translateX(0)'">
-                                <i class="bi bi-chevron-right me-2" style="color: var(--primary-color);"></i>Services
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="projects.html" style="color: #636e72; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; display: flex; align-items: center; padding: 8px 0;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateX(10px)'" onmouseout="this.style.color='#636e72'; this.style.transform='translateX(0)'">
-                                <i class="bi bi-chevron-right me-2" style="color: var(--primary-color);"></i>Projects
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="contactus.html" style="color: #636e72; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; display: flex; align-items: center; padding: 8px 0;" onmouseover="this.style.color='var(--primary-color)'; this.style.transform='translateX(10px)'" onmouseout="this.style.color='#636e72'; this.style.transform='translateX(0)'">
-                                <i class="bi bi-chevron-right me-2" style="color: var(--primary-color);"></i>Contact
-                            </a>
-                        </li>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#section_1">Home</a></li>
+                        <li><a href="#section_2">About</a></li>
+                        <li><a href="#section_3">Services</a></li>
+                        <li><a href="#section_4">Projects</a></li>
+                        <li><a href="#section_6">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4 class="footer-title">Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">Cloud Solutions</a></li>
                     </ul>
                 </div>
 
                 <!-- Contact Info -->
-                <div class="col-lg-4 col-md-6 col-12 mt-4 mt-lg-0">
-                    <h5 class="mb-4" style="color: #2d3436; font-size: 1.5rem; position: relative; padding-bottom: 15px; font-weight: 600;">
-                        Contact Info
-                        <span style="position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--primary-color); border-radius: 2px;"></span>
-                    </h5>
-                    <ul class="list-unstyled contact-info">
-                        <li class="mb-4" style="display: flex; align-items: center;">
-                            <div class="icon-wrapper me-3" style="width: 45px; height: 45px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(20, 183, 137, 0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(20, 183, 137, 0.1)'">
-                                <i class="bi bi-geo-alt" style="color: var(--primary-color); font-size: 1.2rem;"></i>
-                            </div>
-                            <span style="color: #636e72; font-size: 1.1rem;">Beta-1, A Block, Greater Noida, UP</span>
-                        </li>
-                        <li class="mb-4" style="display: flex; align-items: center;">
-                            <div class="icon-wrapper me-3" style="width: 45px; height: 45px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(20, 183, 137, 0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(20, 183, 137, 0.1)'">
-                                <i class="bi bi-envelope" style="color: var(--primary-color); font-size: 1.2rem;"></i>
-                            </div>
-                            <a href="mailto:teamtechpro0@gmail.com" style="color: #636e72; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='#636e72'">teamtechpro0@gmail.com</a>
-                        </li>
-                        <li class="mb-4" style="display: flex; align-items: center;">
-                            <div class="icon-wrapper me-3" style="width: 45px; height: 45px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(20, 183, 137, 0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(20, 183, 137, 0.1)'">
-                                <i class="bi bi-telephone" style="color: var(--primary-color); font-size: 1.2rem;"></i>
-                            </div>
-                            <a href="tel:+919695167669" style="color: #636e72; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='#636e72'">+91 9695167669</a>
-                        </li>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="bi bi-geo-alt"></i> Beta-1, A Block, Greater Noida</li>
+                        <li><i class="bi bi-telephone"></i> +91 9695167669</li>
+                        <li><i class="bi bi-envelope"></i> teamtechpro0@gmail.com</li>
                     </ul>
                 </div>
             </div>
 
             <!-- Copyright -->
-            <div class="row mt-5">
+            <div class="row mt-4">
                 <div class="col-12">
-                    <hr style="border-color: rgba(0,0,0,0.1); margin: 30px 0;">
-                    <div class="text-center">
-                        <p class="mb-0" style="color: #636e72; font-size: 1rem;">
-                            Copyright © 2025 Designed & Developed by 
-                            <a href="#" style="color: var(--primary-color); text-decoration: none; transition: all 0.3s ease; font-weight: 500;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Team TechPro</a>
+                    <div class="copyright-text-wrap">
+                        <p class="mb-0">
+                            <span class="copyright-text">Copyright © 2025 Designed & Developed by 
+                                <a href="#" class="text-primary">Team TechPro</a>
+                            </span>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-    <!--Footer Section Ends-->
+    <!-- Footer Section Ends -->
 
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top" id="backToTop">
