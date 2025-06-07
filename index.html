@@ -7,6 +7,14 @@
 
     <title>Team TechPro</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/techpro-logo-zip-file/png/logo-no-background.png">
+    <link rel="apple-touch-icon" href="images/techpro-logo-zip-file/png/logo-no-background.png">
+    <link rel="shortcut icon" href="images/techpro-logo-zip-file/png/logo-no-background.png" type="image/x-icon">
+    <meta name="theme-color" content="#14b789">
+    <meta name="msapplication-TileImage" content="images/techpro-logo-zip-file/png/logo-no-background.png">
+    <meta name="msapplication-TileColor" content="#14b789">
+
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -21,1026 +29,8 @@
     <link href="css/magnific-popup.css" rel="stylesheet">
 
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
-    <style>
-        :root {
-            --primary-color: #14b789;
-            --secondary-color: #535da1;
-            --light-bg: #ffffff;
-            --light-gray: #f8f9fa;
-            --text-dark: #2d3436;
-            --text-light: #636e72;
-            --transition: all 0.3s ease;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--light-bg);
-            color: var(--text-dark);
-        }
-
-        /* Preloader Animation */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--light-bg);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .spinner {
-            width: 60px;
-            height: 60px;
-            position: relative;
-        }
-
-        .spinner-rotate {
-            width: 100%;
-            height: 100%;
-            border: 4px solid transparent;
-            border-top-color: var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Navbar Styling */
-        .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            transition: var(--transition);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .navbar-brand {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color) !important;
-            transition: var(--transition);
-        }
-
-        .navbar-brand:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-link {
-            color: var(--text-dark) !important;
-            font-weight: 500;
-            padding: 0.5rem 1rem !important;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: var(--transition);
-            transform: scaleX(0);
-            transform-origin: bottom right;
-        }
-
-        .nav-link:hover {
-            color: var(--primary-color) !important;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--light-gray) 0%, #ffffff 100%);
-            position: relative;
-            overflow: hidden;
-            padding-top: 80px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('images/pattern.png');
-            opacity: 0.05;
-            animation: backgroundMove 20s linear infinite;
-        }
-
-        @keyframes backgroundMove {
-            0% {
-                background-position: 0 0;
-            }
-
-            100% {
-                background-position: 100% 100%;
-            }
-        }
-
-        .hero-title {
-            color: var(--primary-color);
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-text h2 {
-            color: var(--text-dark);
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease 0.2s;
-            animation-fill-mode: both;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .hero-text p.mb-4 {
-            margin-bottom: 2rem;
-        }
-
-        .custom-btn {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            font-family: 'DM Sans', sans-serif;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        .custom-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
-            opacity: 0;
-            transition: var(--transition);
-            z-index: -1;
-        }
-
-        .custom-btn:hover::before {
-            opacity: 1;
-        }
-
-        .custom-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            color: white;
-        }
-
-        /* Section Styling */
-        .section-padding {
-            padding: 100px 0;
-            background: var(--light-gray);
-        }
-
-        .section-title {
-            color: var(--text-dark);
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--primary-color);
-        }
-
-        /* Card Styling */
-        .card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-            border: none;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Footer Styling */
-        .site-footer {
-            background: var(--light-gray);
-            padding: 80px 0 30px;
-            position: relative;
-            color: var(--text-dark);
-            overflow: hidden;
-        }
-
-        .footer-wave {
-            position: absolute;
-            top: -100px;
-            left: 0;
-            width: 100%;
-            color: var(--primary-color);
-            opacity: 0.1;
-            transform: rotate(180deg);
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .footer-logo i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .footer-title {
-            color: var(--text-dark);
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .footer-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 30px;
-            height: 2px;
-            background: var(--primary-color);
-        }
-
-        .footer-description {
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border-radius: 50%;
-            color: var(--text-dark);
-            font-size: 1.2rem;
-            transition: var(--transition);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .social-link:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .social-tooltip {
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary-color);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            white-space: nowrap;
-        }
-
-        .social-link:hover .social-tooltip {
-            opacity: 1;
-            visibility: visible;
-            bottom: 120%;
-        }
-
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-color);
-            transform: translateX(5px);
-        }
-
-        .footer-contact {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-contact li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(20, 183, 137, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .footer-contact i {
-            color: var(--primary-color);
-            margin-right: 10px;
-            font-size: 1.1rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border-radius: 50%;
-            color: var(--text-dark);
-            font-size: 1.2rem;
-            transition: var(--transition);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .social-link:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .copyright-text-wrap {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .copyright-text {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        .copyright-text a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .copyright-text a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            .site-footer {
-                padding: 50px 0 20px;
-            }
-
-            .footer-title {
-                margin-top: 30px;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Services Section */
-        .services-thumb {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .services-thumb:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Services Icon Hover */
-        .services-thumb .services-icon-wrap i {
-            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-        }
-
-        .services-thumb .services-icon-wrap i:hover {
-            transform: scale(1.2);
-            color: var(--primary-color);
-        }
-
-        /* Contact Form */
-        #contactForm {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .form-control {
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 12px;
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(20, 183, 137, 0.1);
-        }
-
-        /* Floating Icons */
-        .floating-icons i {
-            color: var(--primary-color);
-            text-shadow: 0 2px 10px rgba(20, 183, 137, 0.2);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .navbar-expand-lg .navbar-nav .nav-link {
-                padding: 0.5rem 0 !important;
-            }
-
-            .navbar-collapse {
-                text-align: center;
-            }
-
-            .navbar .d-lg-flex {
-                display: none !important;
-            }
-
-            /* Adjust About TechPro Section Images */
-            .services.section-padding#section_2 .row img {
-                width: 80px;
-                height: 80px;
-            }
-
-            /* Adjust Stat Item Icon Wrapper */
-            .stat-item .stat-icon-wrapper {
-                width: 60px;
-                height: 60px;
-            }
-
-            /* Adjust Mission/Vision Card Icon Wrapper */
-            .mission-vision-card .icon-wrapper {
-                width: 50px;
-                height: 50px;
-            }
-
-            /* Adjust Value Card Icon Wrapper */
-            .value-card .icon-wrapper {
-                width: 50px;
-                height: 50px;
-            }
-
-            /* Adjust Contact Info Icon Wrapper */
-            .contact-info li .icon-wrapper {
-                width: 40px;
-                height: 40px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding-top: 100px;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .hero-text h2 {
-                font-size: 1.4rem;
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-            }
-
-            .section-padding {
-                padding: 60px 0;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-                margin-bottom: 2rem;
-            }
-
-            .services-thumb,
-            #contactForm {
-                padding: 20px;
-            }
-
-            .services-thumb .services-icon-wrap {
-                width: 80px;
-                height: 80px;
-                font-size: 2.5rem;
-            }
-
-            .navbar-brand {
-                font-size: 1.5rem;
-            }
-
-            .nav-link {
-                font-size: 1rem;
-                padding: 0.5rem !important;
-            }
-
-            body {
-                font-size: 0.9rem;
-            }
-
-            p {
-                font-size: 0.9rem;
-            }
-
-            .services-thumb p {
-                font-size: 0.9rem;
-            }
-
-            .contact-us ul li {
-                font-size: 1rem;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            h3 {
-                font-size: 1.5rem;
-            }
-
-            h4 {
-                font-size: 1.2rem;
-            }
-
-            h5 {
-                font-size: 1.1rem;
-            }
-
-            h6 {
-                font-size: 1rem;
-            }
-
-            small {
-                font-size: 0.8rem;
-            }
-
-            strong {
-                font-size: 1rem;
-            }
-
-            /* Adjust About TechPro Section Images */
-            .services.section-padding#section_2 .row img {
-                width: 60px;
-                height: 60px;
-            }
-
-            /* Adjust Stat Item Icon Wrapper */
-            .stat-item .stat-icon-wrapper {
-                width: 50px;
-                height: 50px;
-            }
-
-            /* Adjust Mission/Vision Card Icon Wrapper */
-            .mission-vision-card .icon-wrapper {
-                width: 40px;
-                height: 40px;
-            }
-
-            /* Adjust Value Card Icon Wrapper */
-            .value-card .icon-wrapper {
-                width: 40px;
-                height: 40px;
-            }
-
-            /* Adjust Contact Info Icon Wrapper */
-            .contact-info li .icon-wrapper {
-                width: 35px;
-                height: 35px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 1.8rem;
-            }
-
-            .hero-text h2 {
-                font-size: 1.1rem;
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .custom-btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .navbar-brand {
-                font-size: 1.2rem;
-            }
-
-            body {
-                font-size: 0.85rem;
-            }
-
-            p {
-                font-size: 0.85rem;
-            }
-
-            .services-thumb p {
-                font-size: 0.85rem;
-            }
-
-            .contact-us ul li {
-                font-size: 0.9rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.6rem;
-            }
-
-            h3 {
-                font-size: 1.3rem;
-            }
-
-            h4 {
-                font-size: 1.1rem;
-            }
-
-            h5 {
-                font-size: 1rem;
-            }
-
-            h6 {
-                font-size: 0.9rem;
-            }
-
-            small {
-                font-size: 0.75rem;
-            }
-
-            strong {
-                font-size: 0.9rem;
-            }
-
-            /* Adjust About TechPro Section Images */
-            .services.section-padding#section_2 .row img {
-                width: 50px;
-                height: 50px;
-            }
-
-            /* Adjust Stat Item Icon Wrapper */
-            .stat-item .stat-icon-wrapper {
-                width: 40px;
-                height: 40px;
-            }
-
-            /* Adjust Mission/Vision Card Icon Wrapper */
-            .mission-vision-card .icon-wrapper {
-                width: 35px;
-                height: 35px;
-            }
-
-            /* Adjust Value Card Icon Wrapper */
-            .value-card .icon-wrapper {
-                width: 35px;
-                height: 35px;
-            }
-
-            /* Adjust Contact Info Icon Wrapper */
-            .contact-info li .icon-wrapper {
-                width: 30px;
-                height: 30px;
-            }
-        }
-
-        /* Navbar Phone Number */
-        .navbar .d-lg-flex.align-items-center.d-none.ms-auto i,
-        .navbar .d-lg-flex.align-items-center.d-none.ms-auto a {
-            color: var(--text-dark);
-        }
-
-        /* About Section Image Hover */
-        .about-image {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .about-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* About TechPro Logo Hover */
-        .services.section-padding#section_2 .section-title-wrap img {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .services.section-padding#section_2 .section-title-wrap img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Project Image Hover */
-        .projects-image {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .projects-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* General Image Hover */
-        img {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            max-width: 100%;
-            /* Ensure images don't overflow their containers */
-            height: auto;
-            /* Maintain aspect ratio */
-        }
-
-        img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* About TechPro Section Images */
-        .services.section-padding#section_2 .row img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            /* Ensure images cover the fixed size without distortion */
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: var(--secondary-color);
-            transform: translateY(-5px);
-            color: white;
-        }
-
-        /* Enhanced Card Hover Effects */
-        .services-thumb,
-        .testimonial-item,
-        .stat-item {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .services-thumb:hover,
-        .testimonial-item:hover,
-        .stat-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Enhanced Button Styles */
-        .custom-btn {
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .custom-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-            z-index: -1;
-        }
-
-        .custom-btn:hover::before {
-            left: 100%;
-        }
-
-        /* Enhanced Section Transitions */
-        .section-padding {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section-padding::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(20, 183, 137, 0.05) 0%, rgba(83, 93, 161, 0.05) 100%);
-            z-index: -1;
-        }
-
-        /* Testimonial Carousel Styles */
-        .carousel-control-prev,
-        .carousel-control-next {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .carousel:hover .carousel-control-prev,
-        .carousel:hover .carousel-control-next {
-            opacity: 1;
-        }
-
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            background-color: var(--primary-color);
-            border-radius: 50%;
-            padding: 20px;
-            background-size: 50%;
-        }
-
-        .carousel-indicators button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            opacity: 0.5;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-indicators button.active {
-            opacity: 1;
-            transform: scale(1.2);
-        }
-
-        .testimonial-item {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .carousel-item.active .testimonial-item {
-            animation: fadeInUp 0.5s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .btn-glow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 50px;
-            box-shadow: 0 0 30px 10px rgba(20, 183, 137, 0.2);
-            z-index: -1;
-            pointer-events: none;
-            animation: glowPulse 2s infinite alternate;
-        }
-
-        @keyframes glowPulse {
-            from {
-                box-shadow: 0 0 30px 10px rgba(20, 183, 137, 0.2);
-            }
-
-            to {
-                box-shadow: 0 0 50px 20px rgba(20, 183, 137, 0.4);
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -1195,7 +185,7 @@
             <div class="row mb-5">
                 <div class="col-12 text-center">
                     <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4">
-                        <h2 class="mb-0" style="font-size: 3.5rem; color: var(--text-dark);">About TechPro</h2>
+                        <h2 class="mb-0" style="font-size: 3.5rem; color: #ffffff;">About TechPro</h2>
                     </div>
                     <p class="lead"
                         style="font-size: 1.4rem; max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--text-dark);">
@@ -1387,8 +377,7 @@
                                 <p class="mb-4">Create stunning, responsive websites that work perfectly on all devices.
                                     We focus on user experience and modern design to help your business stand out
                                     online.</p>
-                                <a href="form.html" target="_blank"
-                                    class="custom-btn custom-border-btn btn mt-3">
+                                <a href="form.html" target="_blank" class="custom-btn custom-border-btn btn mt-3">
                                     <i class="bi bi-arrow-right-circle me-2"></i>Get Started
                                 </a>
                             </div>
@@ -1405,8 +394,7 @@
                                 </div>
                                 <p class="mb-4">Build powerful, interactive user interfaces with modern frameworks. We
                                     create smooth, fast-loading applications that provide excellent user experience.</p>
-                                <a href="form.html" target="_blank"
-                                    class="custom-btn custom-border-btn btn mt-3">
+                                <a href="form.html" target="_blank" class="custom-btn custom-border-btn btn mt-3">
                                     <i class="bi bi-arrow-right-circle me-2"></i>Get Started
                                 </a>
                             </div>
@@ -1424,8 +412,7 @@
 
                                 <p class="mb-4">Develop robust backend systems with secure APIs and efficient databases.
                                     We ensure your application is scalable, secure, and performs optimally.</p>
-                                <a href="form.html" target="_blank"
-                                    class="custom-btn custom-border-btn btn mt-3">
+                                <a href="form.html" target="_blank" class="custom-btn custom-border-btn btn mt-3">
                                     <i class="bi bi-arrow-right-circle me-2"></i>Get Started
                                 </a>
                             </div>
@@ -1443,8 +430,7 @@
 
                                 <p class="mb-4">Deploy your projects securely with our professional hosting solutions.
                                     We handle everything from server setup to ongoing maintenance and monitoring.</p>
-                                <a href="form.html" target="_blank"
-                                    class="custom-btn custom-border-btn btn mt-3">
+                                <a href="form.html" target="_blank" class="custom-btn custom-border-btn btn mt-3">
                                     <i class="bi bi-arrow-right-circle me-2"></i>Get Started
                                 </a>
                             </div>
@@ -1496,7 +482,8 @@
                                                     </h5>
                                                     <p class="mb-0" style="color: var(--text-light);">
                                                         <i class="bi bi-shop me-2"
-                                                    style="color: var(--primary-color);"></i>SN GYM & FITNESS CLUB
+                                                            style="color: var(--primary-color);"></i>SN GYM & FITNESS
+                                                        CLUB
                                                     </p>
                                                 </div>
                                             </div>
@@ -1533,14 +520,18 @@
                                                     </h5>
                                                     <p class="mb-0" style="color: var(--text-light);">
                                                         <i class="bi bi-hospital me-2"
-                                                            style="color: var(--primary-color);"></i>WeCare - Hospital Management System
+                                                            style="color: var(--primary-color);"></i>WeCare - Hospital
+                                                        Management System
                                                     </p>
                                                 </div>
                                             </div>
                                             <p style="color: var(--text-dark); font-style: italic;">
                                                 <i class="bi bi-quote me-2"
                                                     style="color: var(--primary-color); font-size: 1.2rem;"></i>
-                                                TechPro developed an excellent hospital management system for us. The system has streamlined our operations, improved patient care coordination, and enhanced our overall efficiency. Their team's expertise in healthcare technology made all the difference!
+                                                TechPro developed an excellent hospital management system for us. The
+                                                system has streamlined our operations, improved patient care
+                                                coordination, and enhanced our overall efficiency. Their team's
+                                                expertise in healthcare technology made all the difference!
                                             </p>
                                             <div class="rating">
                                                 <i class="bi bi-star-fill" style="color: #ffc107;"></i>
@@ -1620,10 +611,7 @@
                 <div class="col-12 mx-auto">
                     <div class="section-title-wrap text-center ">
                         <h2 class="mb-3" style="font-size: 3rem; color: white;">Get In Touch</h2>
-                        <p class="lead" style="font-size: 1.2rem; color: white; max-width: 700px; margin: 0 auto;">
-                            Have questions or need assistance? We're here to help! Reach out to us and let's discuss how
-                            we can bring your digital vision to life.
-                        </p>
+
                     </div>
                     <div class="row pt-lg-4">
                         <!-- Contact Info -->
@@ -1789,54 +777,129 @@
     <!--Contact Us Section Ends-->
 
     <!-- Footer Section -->
-    <footer class="site-footer">
+    <footer class="site-footer"
+        style="background: linear-gradient(135deg, #17bf92 0%, #4a72d1 100%); color: #fff; padding: 60px 0 30px; box-shadow: 0 -5px 20px rgba(0,0,0,0.1);">
         <div class="container">
             <div class="row">
                 <!-- Company Info -->
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="footer-info">
-                        <h3 class="footer-title">TechPro</h3>
-                        <p class="footer-description">Transforming ideas into digital reality. We specialize in creating innovative solutions that drive business growth and enhance user experiences.</p>
-                        <div class="social-links mt-4">
-                            <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
-                            <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
-                            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                    <div class="footer-info" style="padding-left: 50px">
+                        <h3 class="footer-title"
+                            style="color: #000; margin-bottom: 20px; font-weight: 700; font-size: 1.8rem;margin-left: 35px;">TechPro</h3>
+                        <p class="footer-description" style="color: #000; line-height: 1.8; font-size: 1.05rem;">
+                            Transforming ideas into digital reality. We specialize in creating innovative solutions that
+                            drive business growth and enhance user experiences.</p>
+                        <div class="social-links mt-4" style="padding-left: 50px;">
+                            <!-- Facebook -->
+                            <a href="https://facebook.com" target="_blank" class="social-link"
+                                style="display: inline-flex; justify-content: center; align-items: center; width: 40px; height: 40px; background-color: #fff; border-radius: 50%; margin-right: 15px; transition: all 0.3s ease;"
+                                onmouseover="this.style.transform='scale(1.1)'"
+                                onmouseout="this.style.transform='scale(1)'"><i class="bi bi-facebook"
+                                    style="color: #3b5998; font-size: 1.3rem;"></i></a>
+
+                            <!-- Github -->
+                            <a href="https://github.com/teamtechpro0" target="_blank" class="social-link"
+                                style="display: inline-flex; justify-content: center; align-items: center; width: 40px; height: 40px; background-color: #fff; border-radius: 50%; margin-right: 15px; transition: all 0.3s ease;"
+                                onmouseover="this.style.transform='scale(1.1)'"
+                                onmouseout="this.style.transform='scale(1)'"><i class="bi bi-github"
+                                    style="color: #1da1f2; font-size: 1.3rem;"></i></a>
+
+                            <!-- LinkedIn -->
+                            <a href="https://linkedin.com" target="_blank" class="social-link"
+                                style="display: inline-flex; justify-content: center; align-items: center; width: 40px; height: 40px; background-color: #fff; border-radius: 50%; margin-right: 15px; transition: all 0.3s ease;"
+                                onmouseover="this.style.transform='scale(1.1)'"
+                                onmouseout="this.style.transform='scale(1)'"><i class="bi bi-linkedin"
+                                    style="color: #0077b5; font-size: 1.3rem;"></i></a>
+
+                            <!-- Instagram -->
+                            <a href="https://instagram.com" target="_blank" class="social-link"
+                                style="display: inline-flex; justify-content: center; align-items: center; width: 40px; height: 40px; background-color: #fff; border-radius: 50%; transition: all 0.3s ease;"
+                                onmouseover="this.style.transform='scale(1.1)'"
+                                onmouseout="this.style.transform='scale(1)'"><i class="bi bi-instagram"
+                                    style="color: #e1306c; font-size: 1.3rem;"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Quick Links -->
                 <div class="col-lg-2 col-md-6 mb-4">
-                    <h4 class="footer-title">Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#section_1">Home</a></li>
-                        <li><a href="#section_2">About</a></li>
-                        <li><a href="#section_3">Services</a></li>
-                        <li><a href="#section_4">Projects</a></li>
-                        <li><a href="#section_6">Contact</a></li>
+                    <h4 class="footer-title"
+                        style="color: #000; margin-bottom: 20px; font-weight: 600; font-size: 1.3rem;">Quick Links</h4>
+                    <ul class="footer-links" style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px;"><a href="index.html"
+                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
+                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Home</a></li>
+                        <li style="margin-bottom: 12px;"><a href="aboutus.html"
+                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
+                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">About</a>
+                        </li>
+                        <li style="margin-bottom: 12px;"><a href="services.html"
+                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
+                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Services</a>
+                        </li>
+                        <li style="margin-bottom: 12px;"><a href="projects.html"
+                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
+                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Projects</a>
+                        </li>
+                        <li style="margin-bottom: 12px;"><a href="contactus.html"
+                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
+                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Contact</a>
+                        </li>
                     </ul>
                 </div>
 
                 <!-- Services -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h4 class="footer-title">Our Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Mobile Apps</a></li>
-                        <li><a href="#">UI/UX Design</a></li>
-                        <li><a href="#">Digital Marketing</a></li>
-                        <li><a href="#">Cloud Solutions</a></li>
+                    <h4 class="footer-title"
+                        style="color: #000; margin-bottom: 20px; font-weight: 600; font-size: 1.3rem;">Our Services</h4>
+                    <ul class="footer-links" style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px;"><a href="services.html#web-development"
+                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
+                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Web
+                                Development</a></li>
+                        <li style="margin-bottom: 12px;"><a href="services.html#mobile-apps"
+                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
+                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Mobile
+                                Apps</a></li>
+                        <li style="margin-bottom: 12px;"><a href="services.html#ui-ux-design"
+                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
+                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">UI/UX
+                                Design</a></li>
+                        <li style="margin-bottom: 12px;"><a href="services.html#digital-marketing"
+                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
+                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Digital
+                                Marketing</a></li>
+                        <li style="margin-bottom: 12px;"><a href="services.html#cloud-solutions"
+                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
+                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Cloud
+                                Solutions</a></li>
                     </ul>
                 </div>
 
                 <!-- Contact Info -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h4 class="footer-title">Contact Us</h4>
-                    <ul class="footer-contact">
-                        <li><i class="bi bi-geo-alt"></i> Beta-1, A Block, Greater Noida</li>
-                        <li><i class="bi bi-telephone"></i> +91 9695167669</li>
-                        <li><i class="bi bi-envelope"></i> teamtechpro0@gmail.com</li>
+                    <h4 class="footer-title"
+                        style="color: #000; margin-bottom: 20px; font-weight: 600; font-size: 1.3rem;">Contact Us</h4>
+                    <ul class="footer-contact" style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 15px; display: flex; align-items: start;">
+                            <i class="bi bi-geo-alt"
+                                style="color: #000; margin-right: 5px; margin-top: 5px; font-size: 1.2rem;"></i>
+                            <span style="color: #000; font-size: 1.05rem;">Beta-1, A Block, Greater Noida,
+                                 Uttar Pradesh, India</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center;">
+                            <i class="bi bi-telephone" style="color: #000; margin-right: 10px; font-size: 1.2rem;"></i>
+                            <a href="tel:+919695167669" style="color: #000; text-decoration: none; font-size: 1.05rem;"
+                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">+91
+                                9695167669</a>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center;">
+                            <i class="bi bi-envelope" style="color: #000; margin-right: 10px; font-size: 1.2rem;"></i>
+                            <a href="mailto:teamtechpro0@gmail.com"
+                                style="color: #000; text-decoration: none; font-size: 1.05rem;"
+                                onmouseover="this.style.color='#333'"
+                                onmouseout="this.style.color='#000'">teamtechpro0@gmail.com</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -1844,11 +907,14 @@
             <!-- Copyright -->
             <div class="row mt-4">
                 <div class="col-12">
-                    <div class="copyright-text-wrap">
-                        <p class="mb-0">
-                            <span class="copyright-text">Copyright © 2025 Designed & Developed by 
-                                <a href="#" class="text-primary">Team TechPro</a>
-                            </span>
+                    <div class="copyright-text-wrap"
+                        style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                        <p class="mb-0 text-center" style="color: #ffffff; font-size: 1.05rem;">
+                            Copyright © 2024 Designed & Developed by -
+                            <a href="index.html"
+                                style="color: #ffffff; text-decoration: none; transition: all 0.3s ease; font-weight: 500;"
+                                onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#ffffff'">Team
+                                TechPro</a>
                         </p>
                     </div>
                 </div>
