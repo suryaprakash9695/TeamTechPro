@@ -16,6 +16,9 @@
     <link href="css/magnific-popup.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
 
+    <!-- hCaptcha Script -->
+    
+
     <style>
         :root {
             --primary-color: #14b789;
@@ -38,7 +41,7 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 0;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
         }
 
@@ -46,7 +49,7 @@
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary-color) !important;
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
 
         .navbar-brand:hover {
@@ -57,7 +60,7 @@
             color: var(--text-dark) !important;
             font-weight: 500;
             padding: 0.5rem 1rem !important;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             position: relative;
         }
 
@@ -69,7 +72,7 @@
             width: 0;
             height: 2px;
             background: var(--primary-color);
-            transition: var(--transition);
+            transition: all 0.3s ease;
             transform: scaleX(0);
             transform-origin: bottom right;
         }
@@ -84,13 +87,134 @@
             transform-origin: bottom left;
         }
 
+        /* Responsive Navbar Styles */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: rgba(255, 255, 255, 0.98);
+                padding: 1rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                margin-top: 1rem;
+            }
+
+            .navbar-nav {
+                padding: 0.5rem 0;
+            }
+
+            .nav-item {
+                margin: 0.5rem 0;
+            }
+
+            .nav-link {
+                padding: 0.75rem 1rem !important;
+                border-radius: 6px;
+            }
+
+            .nav-link:hover {
+                background: var(--light-gray);
+            }
+
+            .navbar-toggler {
+                padding: 0.5rem;
+                border: none;
+                background: transparent;
+            }
+
+            .navbar-toggler:focus {
+                box-shadow: none;
+            }
+
+            .navbar-toggler-icon {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .navbar-collapse {
+                margin-top: 0.5rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .navbar {
+                padding: 0.75rem 0;
+            }
+
+            .navbar-brand {
+                font-size: 1.3rem;
+            }
+
+            .nav-link {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Improve form field spacing on mobile */
+        @media (max-width: 576px) {
+            .row {
+                margin-left: -5px;
+                margin-right: -5px;
+            }
+            .col-md-6 {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+            .mb-4 {
+                margin-bottom: 0.75rem !important;
+            }
+        }
+
+        /* Improve select dropdown appearance on mobile */
+        @media (max-width: 576px) {
+            .form-select {
+                background-position: right 8px center;
+                padding-right: 25px;
+            }
+        }
+
+        /* Improve button touch target on mobile */
+        @media (max-width: 576px) {
+            .submit-btn {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        /* Improve alert box on mobile */
+        @media (max-width: 576px) {
+            .alert-content {
+                width: 95%;
+                padding: 15px;
+            }
+            .alert-content i {
+                font-size: 36px;
+            }
+            .alert-content h3 {
+                font-size: 18px;
+            }
+            .alert-content p {
+                font-size: 0.9rem;
+            }
+            .alert-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
         /* Hero Section Styling */
         .hero {
             min-height: 60vh;
             background: linear-gradient(135deg, var(--light-gray) 0%, #ffffff 100%);
             position: relative;
             overflow: hidden;
-            padding: 80px 0 30px;
+            padding: 90px 0 30px;
             display: flex;
             align-items: center;
         }
@@ -305,6 +429,17 @@
             .form-select {
                 font-size: 0.95rem;
             }
+
+            .hero {
+                min-height: 45vh;
+                padding: 80px 0 20px;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -339,6 +474,21 @@
             .submit-btn {
                 padding: 10px 25px;
                 font-size: 0.95rem;
+            }
+
+            .hero {
+                min-height: 40vh;
+                padding: 70px 0 15px;
+            }
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            .hero-text p {
+                font-size: 0.9rem;
+                padding: 0 15px;
             }
         }
 
@@ -384,6 +534,34 @@
             .mb-4 {
                 margin-bottom: 1rem !important;
             }
+
+            .hero {
+                min-height: 35vh;
+                padding: 60px 0 15px;
+            }
+            .hero-title {
+                font-size: 1.4rem;
+            }
+            .hero-subtitle {
+                font-size: 1.0rem;
+            }
+            .hero-text p {
+                font-size: 0.85rem;
+                padding: 0 10px;
+            }
+            .alert-content {
+                padding: 20px;
+            }
+            .alert-content h3 {
+                font-size: 20px;
+            }
+            .alert-content p {
+                font-size: 0.9rem;
+            }
+            .alert-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
         }
 
         @media (max-width: 375px) {
@@ -411,7 +589,7 @@
             .form-control,
             .form-select {
                 font-size: 0.8rem;
-                padding: 8px 10px;
+                padding: 6px 10px;
             }
 
             .form-textarea {
@@ -422,17 +600,31 @@
                 padding: 8px 15px;
                 font-size: 0.85rem;
             }
+
+            .hero {
+                min-height: 30vh;
+                padding: 50px 0 10px;
+            }
+            .hero-title {
+                font-size: 1.2rem;
+            }
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            .hero-text p {
+                font-size: 0.8rem;
+            }
         }
 
         /* Fix for very small screens */
         @media (max-width: 320px) {
             .container {
-                padding-left: 10px;
-                padding-right: 10px;
+                padding-left: 8px;
+                padding-right: 8px;
             }
 
             .quote-form {
-                padding: 12px;
+                padding: 10px;
             }
 
             .form-control,
@@ -453,6 +645,11 @@
 
             .form-textarea {
                 min-height: 60px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 40px 0;
             }
         }
 
@@ -554,6 +751,228 @@
             color: red;
             margin-left: 4px;
         }
+
+        /* Additional Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .hero-subtitle {
+                font-size: 1.6rem;
+            }
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                min-height: 50vh;
+                padding: 60px 0 20px;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            .quote-form {
+                padding: 25px;
+            }
+            .form-label {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 40vh;
+                padding: 50px 0 15px;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            .hero-text p {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+            .quote-form {
+                padding: 20px;
+            }
+            .form-control, .form-select {
+                font-size: 0.9rem;
+            }
+            .submit-btn {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                min-height: 35vh;
+                padding: 40px 0 10px;
+            }
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            .hero-text p {
+                font-size: 0.9rem;
+                padding: 0 10px;
+            }
+            .quote-form {
+                padding: 15px;
+            }
+            .form-label {
+                font-size: 0.9rem;
+            }
+            .form-control, .form-select {
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
+            .form-textarea {
+                min-height: 100px;
+            }
+            .submit-btn {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+            .alert-content {
+                padding: 20px;
+            }
+            .alert-content h3 {
+                font-size: 20px;
+            }
+            .alert-content p {
+                font-size: 0.9rem;
+            }
+            .alert-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .hero {
+                min-height: 30vh;
+            }
+            .hero-title {
+                font-size: 1.4rem;
+            }
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            .hero-text p {
+                font-size: 0.85rem;
+            }
+            .quote-form {
+                padding: 12px;
+            }
+            .form-label {
+                font-size: 0.85rem;
+            }
+            .form-control, .form-select {
+                font-size: 0.8rem;
+                padding: 6px 10px;
+            }
+            .form-textarea {
+                min-height: 80px;
+            }
+            .submit-btn {
+                font-size: 0.85rem;
+                padding: 8px 15px;
+            }
+        }
+
+        /* Fix for very small screens */
+        @media (max-width: 320px) {
+            .container {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            .quote-form {
+                padding: 10px;
+            }
+            .form-control, .form-select {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Fix for landscape orientation on mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                min-height: auto;
+                padding: 30px 0;
+            }
+            .form-section {
+                padding: 20px 0;
+            }
+            .quote-form {
+                padding: 15px;
+            }
+            .form-textarea {
+                min-height: 60px;
+            }
+        }
+
+        /* Improve form field spacing on mobile */
+        @media (max-width: 576px) {
+            .row {
+                margin-left: -5px;
+                margin-right: -5px;
+            }
+            .col-md-6 {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+            .mb-4 {
+                margin-bottom: 0.75rem !important;
+            }
+        }
+
+        /* Improve select dropdown appearance on mobile */
+        @media (max-width: 576px) {
+            .form-select {
+                background-position: right 8px center;
+                padding-right: 25px;
+            }
+        }
+
+        /* Improve button touch target on mobile */
+        @media (max-width: 576px) {
+            .submit-btn {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        /* Improve alert box on mobile */
+        @media (max-width: 576px) {
+            .alert-content {
+                width: 95%;
+                padding: 15px;
+            }
+            .alert-content i {
+                font-size: 36px;
+            }
+            .alert-content h3 {
+                font-size: 18px;
+            }
+            .alert-content p {
+                font-size: 0.9rem;
+            }
+            .alert-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 
@@ -609,8 +1028,8 @@
     <!--Nav bar Ends-->
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
+    <section class="hero" >
+        <div class="container" style="margin-top: 100px;">
             <div class="row align-items-center">
                 <div class="col-lg-8 mx-auto text-center hero-content">
                     <h2 class="hero-title">Get a Quote</h2>
@@ -632,21 +1051,21 @@
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <label for="name" class="form-label required">Full Name</label>
-                                <input type="text" class="form-control" id="name" required>
+                                <input type="text" class="form-control" id="name" name="name" required>
                             </div>
                             <div class="col-md-6 mb-4">
                                 <label for="email" class="form-label required">Email Address</label>
-                                <input type="email" class="form-control" id="email" required>
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <label for="phone" class="form-label required">Phone Number</label>
-                                <input type="tel" class="form-control" id="phone" required>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
                             </div>
                             <div class="col-md-6 mb-4">
                                 <label for="service" class="form-label required">Service Required</label>
-                                <select class="form-select" id="service" required>
+                                <select class="form-select" id="service" name="service" required>
                                     <option value="">Select a service</option>
                                     <option value="frontend">Front-end Development</option>
                                     <option value="backend">Back-end Development</option>
@@ -662,18 +1081,8 @@
                             </div>
                         </div>
                         <div class="mb-4">
-                            <label for="budget" class="form-label required">Budget Range</label>
-                            <select class="form-select" id="budget" required>
-                                <option value="">Select budget range</option>
-                                <option value="small">₹2,000 - ₹5,000</option>
-                                <option value="medium">₹5,000 - ₹10,000</option>
-                                <option value="large">₹10,000 - ₹25,000</option>
-                                <option value="enterprise">Above ₹25,000</option>
-                            </select>
-                        </div>
-                        <div class="mb-4">
-                            <label for="timeline" class="form-label required">Expected Timeline</label>
-                            <select class="form-select" id="timeline" required>
+                            <label for="timeline" class="form-label">Expected Timeline <small class="text-muted">(for reference)</small></label>
+                            <select class="form-select" id="timeline" name="timeline">
                                 <option value="">Select timeline</option>
                                 <option value="urgent">Urgent (0-1 weeks)</option>
                                 <option value="normal">Normal (1-4 weeks)</option>
@@ -681,54 +1090,22 @@
                                 <option value="longterm">Long Term (3+ months)</option>
                             </select>
                         </div>
-                        <div class="mb-4">
-                            <label class="form-label required">Purpose of Request</label>
-                            <div class="d-flex gap-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="purpose" id="personal" value="personal" required>
-                                    <label class="form-check-label" for="personal">
-                                        Personal
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="purpose" id="business" value="business" required>
-                                    <label class="form-check-label" for="business">
-                                        Business
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="purpose" id="student" value="student" required>
-                                    <label class="form-check-label" for="student">
-                                        Student
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-4" id="businessNameField" style="display: none;">
-                            <label for="businessName" class="form-label">Business Name</label>
-                            <input type="text" class="form-control" id="businessName">
-                        </div>
-                        <div class="mb-4" id="collegeNameField" style="display: none;">
-                            <label for="collegeName" class="form-label">College Name</label>
-                            <input type="text" class="form-control" id="collegeName">
-                        </div>
-                        <div class="mb-4" id="projectTypeField" style="display: none;">
-                            <label for="projectType" class="form-label">Project Type</label>
-                            <select class="form-select" id="projectType">
-                                <option value="">Select project type</option>
-                                <option value="portfolio">Personal Portfolio</option>
-                                <option value="blog">Personal Blog</option>
-                                <option value="ecommerce">E-commerce Store</option>
-                                <option value="social">Social Media Platform</option>
-                                <option value="utility">Utility Tool</option>
-                                <option value="other">Other</option>
-                            </select>
+                        <div class="mb-4" id="estimatedPriceContainer" style="display: none;">
+                            <label class="form-label">Estimated Price</label>
+                            <h4 id="estimatedPrice" class="text-primary"></h4>
+                            <small class="text-muted">*This is an estimated price and subject to change based on detailed project scope.</small>
                         </div>
                         <div class="mb-4">
                             <label for="message" class="form-label required">Project Details</label>
-                            <textarea class="form-control form-textarea" id="message" rows="4" required
+                            <textarea class="form-control form-textarea" id="message" name="message" rows="4" required
                                 placeholder="Please describe your project requirements, goals, and any specific features you need..."></textarea>
                         </div>
+                        
+                        <!-- hCaptcha Widget -->
+                        <div class="mb-4">
+                            <div class="h-captcha" data-captcha="true"></div>
+                        </div>
+
                         <button type="submit" class="submit-btn">
                             <i class="bi bi-send me-2"></i>Submit Quote Request
                         </button>
@@ -763,6 +1140,7 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/magnific-popup-options.js"></script>
     <script src="js/custom.js"></script>
+    <script src="https://web3forms.com/client/script.js" async defer></script>
 
     <script>
         // Navbar scroll effect
@@ -782,41 +1160,60 @@
             const form = document.getElementById('quoteForm');
             const submitBtn = document.querySelector('.submit-btn');
             
-            // Add event listeners for purpose radio buttons
-            const purposeRadios = document.getElementsByName('purpose');
-            const businessNameField = document.getElementById('businessNameField');
-            const collegeNameField = document.getElementById('collegeNameField');
-            const projectTypeField = document.getElementById('projectTypeField');
-            const businessName = document.getElementById('businessName');
-            const collegeName = document.getElementById('collegeName');
-            const projectType = document.getElementById('projectType');
+            // Price calculation elements
+            const serviceSelect = document.getElementById('service');
+            const timelineSelect = document.getElementById('timeline');
+            const estimatedPriceContainer = document.getElementById('estimatedPriceContainer');
+            const estimatedPrice = document.getElementById('estimatedPrice');
 
-            purposeRadios.forEach(radio => {
-                radio.addEventListener('change', function() {
-                    // Hide all conditional fields first
-                    businessNameField.style.display = 'none';
-                    collegeNameField.style.display = 'none';
-                    projectTypeField.style.display = 'none';
-                    
-                    // Set required to false for all conditional inputs first
-                    businessName.required = false;
-                    collegeName.required = false;
-                    projectType.required = false;
-                    
-                    // Show relevant field based on selection and set required
-                    if (this.value === 'business') {
-                        businessNameField.style.display = 'block';
-                        businessName.required = true;
-                    } else if (this.value === 'student') {
-                        collegeNameField.style.display = 'block';
-                        collegeName.required = true;
-                    } else if (this.value === 'personal') {
-                        projectTypeField.style.display = 'block';
-                        projectType.required = true;
+            // Define pricing structure (you can adjust these values)
+            const servicePrices = {
+                'frontend': 8500,
+                'backend': 9800,
+                'fullstack': 13000,
+                'website': 7100,
+                'miniproject': 5300,
+                'majorproject': 10700,
+                'security': 6200,
+                'bug': 3900,
+                'consulting': 4800,
+                'deployment': 3000,
+            };
+
+            const timelineMultipliers = {
+                'urgent': 1.5,     // 50% increase for urgent
+                'normal': 1.0,     // Base price
+                'flexible': 0.8,   // 20% discount for flexible
+                'longterm': 0.7,   // 30% discount for long term
+            };
+
+            function calculateEstimatedPrice() {
+                const selectedService = serviceSelect.value;
+                const selectedTimeline = timelineSelect.value;
+
+                if (selectedService && selectedTimeline) {
+                    const basePrice = servicePrices[selectedService];
+                    const multiplier = timelineMultipliers[selectedTimeline];
+
+                    if (basePrice !== undefined && multiplier !== undefined) {
+                        const price = basePrice * multiplier;
+                        estimatedPrice.textContent = `₹${price.toLocaleString('en-IN')}`; // Format as Indian Rupee
+                        estimatedPriceContainer.style.display = 'block';
+                    } else {
+                        estimatedPriceContainer.style.display = 'none';
                     }
-                });
-            });
+                } else {
+                    estimatedPriceContainer.style.display = 'none';
+                }
+            }
 
+            // Add event listeners to service and timeline dropdowns
+            serviceSelect.addEventListener('change', calculateEstimatedPrice);
+            timelineSelect.addEventListener('change', calculateEstimatedPrice);
+
+            // Initial calculation on page load
+            calculateEstimatedPrice();
+            
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
@@ -825,7 +1222,6 @@
                 const email = document.getElementById('email');
                 const phone = document.getElementById('phone');
                 const service = document.getElementById('service');
-                const budget = document.getElementById('budget');
                 const timeline = document.getElementById('timeline');
                 const message = document.getElementById('message');
                 
@@ -864,63 +1260,8 @@
                     isValid = false;
                 }
                 
-                // Service validation
-                if (!service.value) {
-                    showError(service, 'Please select a service');
-                    isValid = false;
-                }
-                
-                // Budget validation
-                if (!budget.value) {
-                    showError(budget, 'Please select a budget range');
-                    isValid = false;
-                }
-                
                 // Timeline validation
-                if (!timeline.value) {
-                    showError(timeline, 'Please select a timeline');
-                    isValid = false;
-                }
-                
-                // Purpose validation
-                let purposeSelected = false;
-                let selectedPurpose = '';
-                for (const radio of purposeRadios) {
-                    if (radio.checked) {
-                        purposeSelected = true;
-                        selectedPurpose = radio.value;
-                        break;
-                    }
-                }
-                if (!purposeSelected) {
-                    // Find the parent div of the radio buttons to attach the error message
-                    const purposeContainer = document.querySelector('input[name="purpose"]').closest('div.mb-4');
-                    if (purposeContainer) {
-                        showError(purposeContainer, 'Please select a purpose');
-                    } else {
-                        // Fallback if structure changes
-                        console.error('Could not find purpose container for error message');
-                    }
-                    isValid = false;
-                }
-                
-                // Business name validation (only if business is selected and field is visible)
-                if (selectedPurpose === 'business' && businessNameField.style.display !== 'none' && !businessName.value.trim()) {
-                    showError(businessName, 'Please enter your business name');
-                    isValid = false;
-                }
-                
-                // College name validation (only if student is selected and field is visible)
-                if (selectedPurpose === 'student' && collegeNameField.style.display !== 'none' && !collegeName.value.trim()) {
-                    showError(collegeName, 'Please enter your college name');
-                    isValid = false;
-                }
-                
-                // Project type validation (only if personal is selected and field is visible)
-                if (selectedPurpose === 'personal' && projectTypeField.style.display !== 'none' && !projectType.value) {
-                    showError(projectType, 'Please select a project type');
-                    isValid = false;
-                }
+                // Removed as it's now optional and used for price calculation
                 
                 // Message validation
                 if (!message.value.trim()) {
@@ -930,7 +1271,10 @@
                     showError(message, 'Please provide more details about your project (minimum 20 characters)');
                     isValid = false;
                 }
-                
+
+                // hCaptcha validation
+                // Removed custom hCaptcha validation, Web3Forms handles this automatically
+
                 if (!isValid) {
                     // Scroll to the first invalid field
                     const firstInvalid = document.querySelector('.is-invalid');
@@ -949,19 +1293,18 @@
                     // Prepare form data
                     const formData = { ...Object.fromEntries(new FormData(form).entries()) };
                     formData['service'] = service.options[service.selectedIndex].text;
-                    formData['budget'] = budget.options[budget.selectedIndex].text;
                     formData['timeline'] = timeline.options[timeline.selectedIndex].text;
-                    formData['projectType'] = selectedPurpose === 'personal' ? projectType.options[projectType.selectedIndex].text : '';
+                    
+                    // Add the estimated price to the form data
+                    if (estimatedPriceContainer.style.display === 'block') {
+                        formData['estimatedPrice'] = estimatedPrice.textContent;
+                    }
+                    // formData['h-captcha-response'] = hcaptcha.getResponse(); // Removed as Web3Forms script handles this automatically
 
                     // Add Web3Forms specific fields
                     formData.access_key = '3b966b20-d490-4253-8298-0b86030f62c3';
-                    formData.subject = 'New Quote Request from ' + name.value.trim() + ' (' + selectedPurpose + ')';
+                    formData.subject = 'New Quote Request from ' + name.value.trim();
                     formData.from_name = 'Team TechPro Website Quote Form';
-
-                    // Remove optional fields if not visible
-                    if (selectedPurpose !== 'business') delete formData.businessName;
-                    if (selectedPurpose !== 'student') delete formData.collegeName;
-                    if (selectedPurpose !== 'personal') delete formData.projectType;
 
                     // Log form data before sending (optional)
                     // console.log('Sending form data:', formData);
@@ -997,10 +1340,7 @@
                         okButton.addEventListener('click', () => {
                             alertBox.remove();
                             form.reset();
-                            // Hide conditional fields after reset
-                            businessNameField.style.display = 'none';
-                            collegeNameField.style.display = 'none';
-                            projectTypeField.style.display = 'none';
+                            
                             // Redirect to index.html or a thank you page
                             window.location.href = 'index.html'; // Redirect to home page
                         });
