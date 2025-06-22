@@ -31,6 +31,352 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
+    <style>
+        /* Animated Gradient Background */
+        .hero-bg {
+            background: linear-gradient(120deg, #14b789 0%, #535da1 100%);
+            animation: gradientMove 8s ease-in-out infinite alternate;
+            filter: blur(0px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* Floating Blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.13;
+            z-index: 1;
+            filter: blur(8px);
+            animation: floatBlob 8s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        .blob1 {
+            width: 220px;
+            height: 220px;
+            background: #14b789;
+            top: 8%;
+            left: 3%;
+            animation-delay: 0s;
+        }
+
+        .blob2 {
+            width: 180px;
+            height: 180px;
+            background: #535da1;
+            bottom: 6%;
+            right: 6%;
+            animation-delay: 2s;
+        }
+
+        .blob3 {
+            width: 120px;
+            height: 120px;
+            background: #14b789;
+            top: 60%;
+            left: 60%;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatBlob {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+
+            100% {
+                transform: translateY(-30px) scale(1.08);
+            }
+        }
+
+        /* Hero Section Layout */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0;
+        }
+
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-row {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 3rem 2.5rem;
+            max-width: 480px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Typography */
+        .hero-animate-text {
+            background: linear-gradient(90deg, #14b789, #535da1);
+            background-size: 200% auto;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineText 3s linear infinite alternate;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes shineText {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .glass-card .lead {
+            color: var(--text-dark);
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Buttons */
+        .hero-section .custom-btn {
+            font-size: 1.1rem;
+            padding: 0.85rem 2.2rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.10);
+            transition: transform 0.18s, box-shadow 0.18s;
+        }
+
+        .hero-section .custom-btn:active,
+        .hero-section .custom-btn:focus {
+            transform: scale(0.97);
+            box-shadow: 0 1px 6px 0 rgba(31, 38, 135, 0.10);
+        }
+
+        .hero-section .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .hero-section .btn-outline-primary:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .hero-section .btn-primary {
+            background: linear-gradient(90deg, #4f8cff 0%, #a259ff 100%);
+            border: none;
+        }
+
+        /* Trusted By Logos */
+        .trusted-by {
+            margin-top: 2rem;
+            width: 100%;
+        }
+
+        .trusted-by span {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-align: center;
+        }
+
+        .trusted-by .logo-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .trusted-by img {
+            height: 32px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .trusted-by img:hover {
+            opacity: 1;
+        }
+
+        /* Tech Illustration */
+        .tech-illustration {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-width: 320px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .tech-illustration svg {
+            width: 100%;
+            max-width: 340px;
+            height: auto;
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 1199.98px) {
+            .tech-illustration {
+                min-width: 220px;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .tech-illustration {
+                display: none !important;
+            }
+
+            .glass-card {
+                max-width: 100%;
+                padding: 2.2rem 1.2rem;
+            }
+
+            .hero-row {
+                flex-direction: column-reverse;
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .glass-card {
+                padding: 1.2rem 0.5rem;
+            }
+
+            .hero-section {
+                min-height: 80vh;
+            }
+
+            .hero-animate-text {
+                font-size: 1.5rem;
+            }
+
+            .trusted-by .logo-row {
+                gap: 1rem;
+            }
+        }
+
+        .hero-gradient-btn,
+        .hero-gradient-btn span,
+        .hero-gradient-btn i {
+            background: linear-gradient(90deg, #14b789 0%, #535da1 100%) !important;
+            color: #fff !important;
+            -webkit-background-clip: initial !important;
+            -webkit-text-fill-color: #fff !important;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            font-weight: 800;
+            border-radius: 2.5rem !important;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18), 0 2px 16px 0 rgba(20, 183, 137, 0.18);
+            border: none !important;
+        }
+
+        /* Base heading sizes for desktop */
+        h1,
+        .display-1,
+        .display-3 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        h3 {
+            font-size: 2rem;
+        }
+
+        h4 {
+            font-size: 1.5rem;
+        }
+
+        /* Tablet adjustments */
+        @media (max-width: 991.98px) {
+
+            h1,
+            .display-1,
+            .display-3 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+            }
+
+            h4 {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 575.98px) {
+
+            h1,
+            .display-1,
+            .display-3 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            h3 {
+                font-size: 1rem;
+            }
+
+            h4 {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
@@ -97,101 +443,104 @@
         </div>
     </nav>
     <!--Nav bar Ends -->
-    <!--Main Page Section-->
-    <main>
-        <section class="hero d-flex justify-content-center align-items-center" id="section_1 mt-5">
-            <div class="container">
-                <div class="row align-items-center">
-                    <!-- Left Column -->
-                    <div class="col-lg-6 col-12 mt-5">
-                        <div class="hero-text mt-3">
-                            <!-- Main Heading with Gradient Text -->
-                            <h1 class="hero-title animate__animated animate__fadeInUp"
-                                style="background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
-                                Transforming Ideas Into Digital Excellence
-                            </h1>
 
-                            <!-- Subheading with Modern Typography -->
-                            <p class="hero-subtitle mb-4 animate__animated animate__fadeInUp"
-                                style="color: var(--text-dark); line-height: 1.8;">
-                                We are a team of passionate developers and designers dedicated to creating innovative
-                                digital solutions that drive business growth and success. With expertise in web
-                                development,
-                                mobile applications, and custom software solutions, we transform your ideas into
-                                powerful
-                                digital experiences.
-                            </p>
-                            <!-- CTA Buttons with Enhanced Styling -->
-                            <div class="d-flex gap-4 animate__animated animate__fadeInUp">
-                                <a class="custom-btn btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg"
-                                    href="form.html" target="_blank"
-                                    style="background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); border: none; transition: all 0.3s ease;">
-                                    <i class="bi bi-rocket-takeoff me-2"></i>Start Your Project
-                                    <span class="btn-glow"></span>
-                                </a>
-                                <a class="custom-btn btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg"
-                                    href="services.html" target="_blank"
-                                    style="background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); border: none; transition: all 0.3s ease;">
-                                    <i class="bi bi-rocket-takeoff me-2"></i>Explore Services
-                                    <span class="btn-glow"></span>
-                                </a>
-                            </div>
-                            <!-- Trust Indicators -->
-                            <div class="trust-indicators mt-5 animate__animated animate__fadeInUp">
-                                <div class="d-flex align-items-center gap-4">
-                                    <div class="trust-item">
-                                        <span style="font-size: 1.1rem; color: var(--text-dark);">
-                                            <i class="bi bi-star-fill text-warning me-1"></i>4.9/5 Rating
-                                        </span>
-                                    </div>
-                                    <div class="trust-item">
-                                        <span style="font-size: 1.1rem; color: var(--text-dark);">
-                                            <i class="bi bi-people-fill text-primary me-1"></i>40+ Clients
-                                        </span>
-                                    </div>
-                                    <div class="trust-item">
-                                        <span style="font-size: 1.1rem; color: var(--text-dark);">
-                                            <i class="bi bi-award-fill text-success me-1"></i>2+ Years Experience
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right Column -->
-                    <div class="col-lg-6 col-12 d-flex justify-content-center align-items-center">
-                        <div class="hero-graphic-wrapper w-100 d-flex justify-content-center align-items-center">
-                            <!-- Example SVG: Modern Tech Illustration -->
-                            <svg class="hero-graphic" width="100%" height="auto" viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:320px;">
-                                <rect x="20" y="40" width="280" height="160" rx="20" fill="#E0F7FA"/>
-                                <rect x="60" y="80" width="200" height="40" rx="10" fill="#80DEEA"/>
-                                <circle cx="100" cy="160" r="16" fill="#26C6DA"/>
-                                <circle cx="220" cy="160" r="16" fill="#26C6DA"/>
-                                <rect x="140" y="120" width="40" height="20" rx="5" fill="#00ACC1"/>
-                                <text x="160" y="110" text-anchor="middle" fill="#00838F" font-size="18" font-family="Arial" font-weight="bold">Tech</text>
-                            </svg>
-                        </div>
-                    </div>
+    <!-- Hero Section (Main Content) -->
+    <section class="main-hero-section position-relative d-flex align-items-center justify-content-center"
+        style="min-height: 90vh; background: linear-gradient(120deg, #14b789 0%, #535da1 100%); overflow: hidden; padding-top: 90px; padding-bottom: 60px;">
+        <!-- Animated Blobs -->
+        <div class="blob blob1 position-absolute"
+            style="width: 320px; height: 320px; background: #14b789; top: -80px; left: -80px; opacity: 0.18; filter: blur(32px); animation: floatBlob 8s ease-in-out infinite alternate;">
+        </div>
+        <div class="blob blob2 position-absolute"
+            style="width: 220px; height: 220px; background: #535da1; bottom: -60px; right: -60px; opacity: 0.15; filter: blur(24px); animation: floatBlob 10s 2s ease-in-out infinite alternate;">
+        </div>
+        <div class="container position-relative z-2">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-6 col-md-7 text-center text-lg-start mb-5 mb-lg-0">
+                    <h1 class="display-3 fw-bold mb-3"
+                        style="color: #fff; letter-spacing: -2px; text-shadow: 0 4px 24px rgba(31,38,135,0.18);">
+                        Transforming Ideas<br>Into Digital Excellence</h1>
+                    <p class="lead mb-4" style="color: #e0f7f4; max-width: 500px;">We build
+                        innovative websites, web apps, and digital solutions that help your business grow and stand out
+                        online. Let's create your success story together.</p>
+                    <a href="form.html" class="btn btn-lg btn-primary px-5 py-3 shadow custom-btn"
+                        style="border: none; border-radius: 2rem; font-weight: 600;">Get a Free Quote</a>
+                </div>
+                <div class="col-lg-6 col-md-5 d-flex justify-content-center align-items-center">
+                    <img src="images/techpro-high-resolution-logo.png" alt="TechPro Logo" class="img-fluid hero-logo"
+                        style="max-width: 380px; filter: drop-shadow(0 8px 32px rgba(31,38,135,0.18)); animation: heroLogoFloat 4s ease-in-out infinite alternate;">
                 </div>
             </div>
-        </section>
-    </main>
-    <!--Main Page Section-->
+        </div>
+        <!-- SVG Wave Divider -->
+        <div style="position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; line-height: 0; z-index: 2;">
+            <svg viewBox="0 0 1440 90" width="100%" height="90" preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,60 C360,120 1080,0 1440,60 L1440,90 L0,90 Z" fill="#f8f9fa" />
+            </svg>
+        </div>
+        <style>
+            @keyframes floatBlob {
+                0% {
+                    transform: translateY(0) scale(1);
+                }
+
+                100% {
+                    transform: translateY(-30px) scale(1.08);
+                }
+            }
+
+            @keyframes heroLogoFloat {
+                0% {
+                    transform: translateY(0);
+                }
+
+                100% {
+                    transform: translateY(-18px);
+                }
+            }
+
+            @media (max-width: 991.98px) {
+                .main-hero-section {
+                    min-height: 60vh;
+                    padding-top: 90px !important;
+                    padding-bottom: 60px !important;
+                }
+
+                .hero-logo {
+                    max-width: 220px !important;
+                }
+            }
+
+            @media (max-width: 575.98px) {
+                .main-hero-section {
+                    min-height: 40vh;
+                    padding-top: 120px !important;
+                    padding-bottom: 80px !important;
+                }
+
+                .display-3 {
+                    font-size: 2rem !important;
+                }
+            }
+        </style>
+    </section>
     <!--About Tech Pro Section-->
-    <section class="about-section" id="techpro" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+    <section class="about-section" id="techpro"
+        style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding-top: 0;">
         <div class="container">
             <!-- Hero Section -->
             <div class="row mb-5">
                 <div class="col-12 text-center">
-                    <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4">
-                        <h2 class="mb-0" style="font-size: 3.5rem; color: #ffffff;">About TechPro</h2>
+                    <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4"
+                        style="background: none; box-shadow: none; border-radius: 0; padding: 0;">
+                        <h2 class="mb-0"
+                            style="font-size: 3.5rem; color: #535da1; font-weight: 800; background: none; margin-top: 40px;">
+                            About TechPro</h2>
                     </div>
-                    <p class="lead"
-                        style="font-size: 1.4rem; max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--text-dark);">
+                    <p class="lead services-section-lead">
                         Transforming ideas into digital excellence through innovative technology solutions and creative
-                        expertise.
-                        We're not just developers; we're digital architects crafting your success story.
+                        expertise. We're not just developers; we're digital architects crafting your success story.
                     </p>
                 </div>
             </div>
@@ -357,84 +706,90 @@
     <!-- Statistics Section Ends -->
 
     <!--Services Section-->
-    <section class="services section-padding" id="section_3" style="padding-top: 20px; padding-bottom: 20px;">
+    <section class="services section-padding" id="section_3">
         <div class="container">
             <div class="row">
-                <div class="col-12 mx-auto">
-                    <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
-                        <h2 class="text-white mb-0" style="font-size: 3rem;">Our Services</h2>
+                <div class="col-12 text-center">
+                    <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4"
+                        style="background: none; box-shadow: none; border-radius: 0; padding: 0;">
+                        <h2 class="services-section-title mb-0"
+                            style="color: #535da1; font-weight: 800; background: none; margin-top: 40px;">
+                            Our Services</h2>
                     </div>
-                    <div class="row pt-lg-5">
-                        <div class="col-lg-6 col-12 mb-4">
-                            <div class="services-thumb"
-                                style="height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                                <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                    <h3 class="mb-0">
-                                        <i class="bi bi-globe me-2" style="color: var(--primary-color);"></i>
-                                        Website Development
-                                    </h3>
-                                </div>
-                                <p class="mb-4">Create stunning, responsive websites that work perfectly on all devices.
-                                    We focus on user experience and modern design to help your business stand out
-                                    online.</p>
-                                <a href="form.html" target="_blank" class="custom-btn custom-border-btn btn mt-3">
-                                    <i class="bi bi-arrow-right-circle me-2"></i>Get Started
-                                </a>
+                    <p class="lead services-section-lead">
+                        Explore our range of digital solutions designed to help your business thrive online. From web
+                        development to deployment, we deliver excellence at every step.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12 mb-4">
+                    <div class="services-thumb h-100 d-flex flex-column justify-content-between">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-wrapper d-flex align-items-center justify-content-center me-3"
+                                style="width:60px;height:60px;background:rgba(20,183,137,0.1);border-radius:50%;">
+                                <i class="bi bi-globe" style="color: var(--primary-color); font-size:2rem;"></i>
                             </div>
+                            <h3 class="mb-0" style="font-size:1.5rem; color:var(--text-dark);">Website Development</h3>
                         </div>
-
-                        <div class="col-lg-6 col-12 mb-4">
-                            <div class="services-thumb"
-                                style="height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                                <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                    <h3 class="mb-0">
-                                        <i class="bi bi-code-square me-2" style="color: var(--primary-color);"></i>
-                                        Frontend Development
-                                    </h3>
-                                </div>
-                                <p class="mb-4">Build powerful, interactive user interfaces with modern frameworks. We
-                                    create smooth, fast-loading applications that provide excellent user experience.</p>
-                                <a href="form.html" target="_blank" class="custom-btn custom-border-btn btn mt-3">
-                                    <i class="bi bi-arrow-right-circle me-2"></i>Get Started
-                                </a>
+                        <p class="mb-4 flex-grow-1">Create stunning, responsive websites that work perfectly on all
+                            devices. We focus on user experience and modern design to help your business stand out
+                            online.</p>
+                        <a href="form.html" target="_blank"
+                            class="custom-btn custom-border-btn btn mt-3 align-self-start">
+                            <i class="bi bi-arrow-right-circle me-2"></i>Get Started
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 mb-4">
+                    <div class="services-thumb h-100 d-flex flex-column justify-content-between">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-wrapper d-flex align-items-center justify-content-center me-3"
+                                style="width:60px;height:60px;background:rgba(20,183,137,0.1);border-radius:50%;">
+                                <i class="bi bi-code-square" style="color: var(--primary-color); font-size:2rem;"></i>
                             </div>
+                            <h3 class="mb-0" style="font-size:1.5rem; color:var(--text-dark);">Frontend Development</h3>
                         </div>
-
-                        <div class="col-lg-6 col-12 mb-4">
-                            <div class="services-thumb"
-                                style="height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                                <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                    <h3 class="mb-0">
-                                        <i class="bi bi-server me-2" style="color: var(--primary-color);"></i>
-                                        Backend Development
-                                    </h3>
-                                </div>
-
-                                <p class="mb-4">Develop robust backend systems with secure APIs and efficient databases.
-                                    We ensure your application is scalable, secure, and performs optimally.</p>
-                                <a href="form.html" target="_blank" class="custom-btn custom-border-btn btn mt-3">
-                                    <i class="bi bi-arrow-right-circle me-2"></i>Get Started
-                                </a>
+                        <p class="mb-4 flex-grow-1">Build powerful, interactive user interfaces with modern frameworks.
+                            We create smooth, fast-loading applications that provide excellent user experience.</p>
+                        <a href="form.html" target="_blank"
+                            class="custom-btn custom-border-btn btn mt-3 align-self-start">
+                            <i class="bi bi-arrow-right-circle me-2"></i>Get Started
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 mb-4">
+                    <div class="services-thumb h-100 d-flex flex-column justify-content-between">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-wrapper d-flex align-items-center justify-content-center me-3"
+                                style="width:60px;height:60px;background:rgba(20,183,137,0.1);border-radius:50%;">
+                                <i class="bi bi-server" style="color: var(--primary-color); font-size:2rem;"></i>
                             </div>
+                            <h3 class="mb-0" style="font-size:1.5rem; color:var(--text-dark);">Backend Development</h3>
                         </div>
-
-                        <div class="col-lg-6 col-12 mb-4">
-                            <div class="services-thumb"
-                                style="height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                                <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                    <h3 class="mb-0">
-                                        <i class="bi bi-cloud-upload me-2" style="color: var(--primary-color);"></i>
-                                        Project Deployment
-                                    </h3>
-                                </div>
-
-                                <p class="mb-4">Deploy your projects securely with our professional hosting solutions.
-                                    We handle everything from server setup to ongoing maintenance and monitoring.</p>
-                                <a href="form.html" target="_blank" class="custom-btn custom-border-btn btn mt-3">
-                                    <i class="bi bi-arrow-right-circle me-2"></i>Get Started
-                                </a>
+                        <p class="mb-4 flex-grow-1">Develop robust backend systems with secure APIs and efficient
+                            databases. We ensure your application is scalable, secure, and performs optimally.</p>
+                        <a href="form.html" target="_blank"
+                            class="custom-btn custom-border-btn btn mt-3 align-self-start">
+                            <i class="bi bi-arrow-right-circle me-2"></i>Get Started
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 mb-4">
+                    <div class="services-thumb h-100 d-flex flex-column justify-content-between">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-wrapper d-flex align-items-center justify-content-center me-3"
+                                style="width:60px;height:60px;background:rgba(20,183,137,0.1);border-radius:50%;">
+                                <i class="bi bi-cloud-upload" style="color: var(--primary-color); font-size:2rem;"></i>
                             </div>
+                            <h3 class="mb-0" style="font-size:1.5rem; color:var(--text-dark);">Project Deployment</h3>
                         </div>
+                        <p class="mb-4 flex-grow-1">Deploy your projects securely with our professional hosting
+                            solutions. We handle everything from server setup to ongoing maintenance and monitoring.</p>
+                        <a href="form.html" target="_blank"
+                            class="custom-btn custom-border-btn btn mt-3 align-self-start">
+                            <i class="bi bi-arrow-right-circle me-2"></i>Get Started
+                        </a>
                     </div>
                 </div>
             </div>
@@ -443,146 +798,105 @@
     <!--Services Section Ends -->
 
     <!-- Testimonials Section -->
-    <section class="testimonials-section section-padding" style="background: var(--light-gray);">
+    <section class="testimonials-section section-padding"
+        style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding-top: 0;">
         <div class="container">
-            <div class="row">
-                <div class="col-12 mx-auto text-center mb-5">
-                    <div class="section-title-wrap d-flex justify-content-center align-items-center">
-                        <h2 class="text-white ms-3 mb-0" style="font-size: 3rem;">Client Testimonials</h2>
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4"
+                        style="background: none; box-shadow: none; border-radius: 0; padding: 0;">
+                        <h2 class="mb-0 contact-modern-title">Client Testimonials</h2>
                     </div>
+                    <p class="lead testimonials-section-lead">
+                        Hear from our clients about their experience working with TechPro and how our solutions made a
+                        difference for their business.
+                    </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-12">
                     <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
                         <!-- Carousel Indicators -->
-                        <div class="carousel-indicators" style="bottom: -50px;">
+                        <div class="carousel-indicators" style="bottom: -30px;">
                             <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0"
-                                class="active"
-                                style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary-color);"></button>
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
-                                style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary-color);"></button>
+                                aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"
-                                style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary-color);"></button>
+                                aria-label="Slide 3"></button>
                         </div>
-
                         <!-- Carousel Items -->
                         <div class="carousel-inner">
-                            <!-- Testimonial 1 -->
                             <div class="carousel-item active">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-8 col-md-10 col-12">
-                                        <div class="testimonial-item p-4"
-                                            style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                                            <div class="d-flex align-items-center mb-3">
-                                                <div class="ms-3">
-                                                    <h5 class="mb-1" style="color: var(--text-dark);">
-                                                        <i class="bi bi-person-circle me-2"
-                                                            style="color: var(--primary-color);"></i>Gaurav Singh
-                                                    </h5>
-                                                    <p class="mb-0" style="color: var(--text-light);">
-                                                        <i class="bi bi-shop me-2"
-                                                            style="color: var(--primary-color);"></i>SN GYM & FITNESS
-                                                        CLUB
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <p style="color: var(--text-dark); font-style: italic;">
-                                                <i class="bi bi-quote me-2"
-                                                    style="color: var(--primary-color); font-size: 1.2rem;"></i>
-                                                TechPro made my website in just 2 weeks! They understood what I wanted
-                                                and made it very easy for me. Now my customers can easily find my shop
-                                                online. Great work!
-                                            </p>
-                                            <div class="rating">
-                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
-                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
-                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
-                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
-                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
-                                            </div>
+                                <div class="testimonial-card"
+                                    style="background: white; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); padding: 40px; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="icon-wrapper d-flex align-items-center justify-content-center me-3"
+                                            style="width:60px;height:60px;background:rgba(20,183,137,0.1);border-radius:50%;">
+                                            <i class="bi bi-person-circle"
+                                                style="color: var(--primary-color); font-size:2rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-1" style="color: var(--text-dark); font-size: 1.3rem;">Gaurav
+                                                Singh</h5>
+                                            <p class="mb-0" style="color: var(--text-light); font-size: 1rem;">SN GYM &
+                                                FITNESS CLUB</p>
                                         </div>
                                     </div>
+                                    <p
+                                        style="color: var(--text-dark); font-style: italic; font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                                        TechPro delivered my website quickly and exactly as I wanted. The process was
+                                        smooth, and their team was always available for support. My customers now find
+                                        us easily online. Highly recommended!</p>
                                 </div>
                             </div>
-
-                            <!-- Testimonial 2 -->
                             <div class="carousel-item">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-8 col-md-10 col-12">
-                                        <div class="testimonial-item p-4"
-                                            style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                                            <div class="d-flex align-items-center mb-3">
-                                                <div class="ms-3">
-                                                    <h5 class="mb-1" style="color: var(--text-dark);">
-                                                        <i class="bi bi-person-circle me-2"
-                                                            style="color: var(--primary-color);"></i>Anshul
-                                                    </h5>
-                                                    <p class="mb-0" style="color: var(--text-light);">
-                                                        <i class="bi bi-hospital me-2"
-                                                            style="color: var(--primary-color);"></i>WeCare - Hospital
-                                                        Management System
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <p style="color: var(--text-dark); font-style: italic;">
-                                                <i class="bi bi-quote me-2"
-                                                    style="color: var(--primary-color); font-size: 1.2rem;"></i>
-                                                TechPro developed an excellent hospital management system for us. The
-                                                system has streamlined our operations, improved patient care
-                                                coordination, and enhanced our overall efficiency. Their team's
-                                                expertise in healthcare technology made all the difference!
-                                            </p>
-                                            <div class="rating">
-                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
-                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
-                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
-                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
-                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
-                                            </div>
+                                <div class="testimonial-card"
+                                    style="background: white; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); padding: 40px; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="icon-wrapper d-flex align-items-center justify-content-center me-3"
+                                            style="width:60px;height:60px;background:rgba(20,183,137,0.1);border-radius:50%;">
+                                            <i class="bi bi-person-circle"
+                                                style="color: var(--primary-color); font-size:2rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-1" style="color: var(--text-dark); font-size: 1.3rem;">Anshul
+                                            </h5>
+                                            <p class="mb-0" style="color: var(--text-light); font-size: 1rem;">WeCare -
+                                                Hospital Management System</p>
                                         </div>
                                     </div>
+                                    <p
+                                        style="color: var(--text-dark); font-style: italic; font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                                        The hospital management system by TechPro has made our daily operations
+                                        seamless. Their expertise and support have been outstanding. We are very
+                                        satisfied with the results and recommend them to others.</p>
                                 </div>
                             </div>
-
-                            <!-- Testimonial 3 -->
                             <div class="carousel-item">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-8 col-md-10 col-12">
-                                        <div class="testimonial-item p-4"
-                                            style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                                            <div class="d-flex align-items-center mb-3">
-                                                <div class="ms-3">
-                                                    <h5 class="mb-1" style="color: var(--text-dark);">
-                                                        <i class="bi bi-person-circle me-2"
-                                                            style="color: var(--primary-color);"></i>Amit Kumar
-                                                    </h5>
-                                                    <p class="mb-0" style="color: var(--text-light);">
-                                                        <i class="bi bi-cup-hot me-2"
-                                                            style="color: var(--primary-color);"></i>Restaurant Owner
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <p style="color: var(--text-dark); font-style: italic;">
-                                                <i class="bi bi-quote me-2"
-                                                    style="color: var(--primary-color); font-size: 1.2rem;"></i>
-                                                TechPro made a food ordering website for my restaurant. Now customers
-                                                can order food online easily. The website looks nice and works well on
-                                                phones too. Very happy with their service!
-                                            </p>
-                                            <div class="rating">
-                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
-                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
-                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
-                                                <i class="bi bi-star-fill" style="color: #ffc107;"></i>
-                                                <i class="bi bi-star-half" style="color: #ffc107;"></i>
-                                            </div>
+                                <div class="testimonial-card"
+                                    style="background: white; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); padding: 40px; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="icon-wrapper d-flex align-items-center justify-content-center me-3"
+                                            style="width:60px;height:60px;background:rgba(20,183,137,0.1);border-radius:50%;">
+                                            <i class="bi bi-person-circle"
+                                                style="color: var(--primary-color); font-size:2rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-1" style="color: var(--text-dark); font-size: 1.3rem;">Amit
+                                                Kumar</h5>
+                                            <p class="mb-0" style="color: var(--text-light); font-size: 1rem;">
+                                                Restaurant Owner</p>
                                         </div>
                                     </div>
+                                    <p
+                                        style="color: var(--text-dark); font-style: italic; font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                                        Thanks to TechPro, my restaurant now has a modern food ordering website. The
+                                        site works perfectly on all devices, and the team was responsive throughout. My
+                                        business has grown since launch!</p>
                                 </div>
                             </div>
                         </div>
-
                         <!-- Carousel Controls -->
                         <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
                             data-bs-slide="prev" style="width: 5%;">
@@ -603,326 +917,149 @@
     </section>
     <!-- Testimonials Section Ends -->
 
-    <!-- Contact Us Section-->
-    <section class="contact-us section-padding" id="section_6"
-        style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+    <!-- Modern Contact Us Section Start -->
+    <section class="contact-modern-section section-padding" id="contact">
         <div class="container">
-            <div class="row">
-                <div class="col-12 mx-auto">
-                    <div class="section-title-wrap text-center ">
-                        <h2 class="mb-3" style="font-size: 3rem; color: white;">Get In Touch</h2>
-
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4"
+                        style="background: none; box-shadow: none; border-radius: 0; padding: 0;">
+                        <h2 class="mb-0 contact-modern-title"
+                            style="font-size: 3.5rem; color: #535da1; font-weight: 800; background: none; margin-top: 40px;">
+                            Contact Us</h2>
                     </div>
-                    <div class="row pt-lg-4">
-                        <!-- Contact Info -->
-                        <div class="col-lg-5 col-12 mb-4">
-                            <div class="contact-info-card"
-                                style="background: rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 40px; height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                                <h3 class="mb-4" style="font-size: 1.8rem; color: var(--text-dark);">Contact Information
-                                </h3>
-                                <p
-                                    style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light); margin-bottom: 30px;">
-                                    Fill out the form and we'll get back to you within 24 hours. Your success is our
-                                    priority!
-                                </p>
-
-                                <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
-                                    <li class="mb-4" style="display: flex; align-items: center;">
-                                        <div class="icon-wrapper"
-                                            style="width: 50px; height: 50px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
-                                            <i class="bi bi-geo-alt-fill"
-                                                style="color: var(--primary-color); font-size: 1.5rem;"></i>
-                                        </div>
-                                        <div>
-                                            <h5 style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 5px;">
-                                                Our Location</h5>
-                                            <a href="https://www.google.com/maps/search/?api=1&query=Beta-1,+A+Block,+Greater+Noida,+Uttar+Pradesh,+India"
-                                                target="_blank"
-                                                style="text-decoration: none; color: var(--text-light); font-size: 1rem;">
-                                                Beta-1, A Block, Greater Noida, Uttar Pradesh, India
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="mb-4" style="display: flex; align-items: center;">
-                                        <div class="icon-wrapper"
-                                            style="width: 50px; height: 50px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
-                                            <i class="bi bi-envelope-fill"
-                                                style="color: var(--primary-color); font-size: 1.5rem;"></i>
-                                        </div>
-                                        <div>
-                                            <h5 style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 5px;">
-                                                Email Us</h5>
-                                            <a href="mailto:teamtechpro0@gmail.com"
-                                                style="text-decoration: none; color: var(--text-light); font-size: 1rem;">
-                                                teamtechpro0@gmail.com
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="mb-4" style="display: flex; align-items: center;">
-                                        <div class="icon-wrapper"
-                                            style="width: 50px; height: 50px; background: rgba(20, 183, 137, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
-                                            <i class="bi bi-telephone-fill"
-                                                style="color: var(--primary-color); font-size: 1.5rem;"></i>
-                                        </div>
-                                        <div>
-                                            <h5 style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 5px;">
-                                                Call Us</h5>
-                                            <a href="tel:+919695167669"
-                                                style="text-decoration: none; color: var(--text-light); font-size: 1rem;">
-                                                +91 9695167669
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-
-                                <!-- Form Button -->
-                                <div class="d-flex justify-content-start">
-                                    <a href="form.html" target="_blank" class="btn"
-                                        style="font-size: 1.1rem; padding: 12px 25px; background-color: var(--primary-color); color: #fff; border-radius: 8px; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px;"
-                                        onmouseover="this.style.backgroundColor='#117a54'; this.style.transform='translateY(-2px)'"
-                                        onmouseout="this.style.backgroundColor='#14b789'; this.style.transform='translateY(0)'">
-                                        <i class="bi bi-pencil-square"></i>
-                                        Get a Quote
-                                    </a>
+                    <p class="lead">We'd love to hear from you! Reach out for project inquiries, collaborations, or just
+                        to say hello.</p>
+                </div>
+            </div>
+            <div class="row g-4 align-items-stretch">
+                <!-- Contact Info Cards -->
+                <div class="col-md-4">
+                    <div class="contact-modern-card h-100 text-center p-4">
+                        <div class="contact-modern-icon mb-3"><i class="bi bi-geo-alt"></i></div>
+                        <h5 class="mb-2">Our Location</h5>
+                        <p class="mb-0"><a href="https://maps.google.com/?q=Beta+1+Greater+Noida+Uttar+Pradesh"
+                                target="_blank">Beta 1, Greater Noida, UP</a></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-modern-card h-100 text-center p-4">
+                        <div class="contact-modern-icon mb-3"><i class="bi bi-telephone"></i></div>
+                        <h5 class="mb-2">Phone</h5>
+                        <p class="mb-0">
+                            <a href="tel:+919695167669" class="contact-modern-link">+91 9695167669</a><br>
+                            <a href="tel:+918765432100" class="contact-modern-link">+91 9793711154</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-modern-card h-100 text-center p-4">
+                        <div class="contact-modern-icon mb-3"><i class="bi bi-envelope"></i></div>
+                        <h5 class="mb-2">Email</h5>
+                        <p class="mb-0"><a href="mailto:teamtechpro0@gmail.com"
+                                class="contact-modern-link">teamtechpro0@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-8">
+                    <div class="contact-modern-form-wrapper p-4 p-md-5">
+                        <form id="contactModernForm" autocomplete="off">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control contact-modern-input" placeholder="Your Name"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control contact-modern-input"
+                                        placeholder="Your Email" required>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Contact Form -->
-                        <div class="col-lg-7 col-12 mb-4">
-                            <div class="contact-form-card"
-                                style="background: rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                                <h3 class="mb-4" style="font-size: 1.8rem; color: var(--text-dark);">Send Us a Message
-                                </h3>
-                                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-                                    <!-- Web3Form Key -->
-                                    <input type="hidden" name="access_key" value="3b966b20-d490-4253-8298-0b86030f62c3">
-
-                                    <div class="row">
-                                        <div class="col-md-6 mb-4">
-                                            <label for="name" class="form-label"
-                                                style="color: var(--text-dark); font-size: 1rem;">Your Name</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text"
-                                                    style="background: rgba(20, 183, 137, 0.1); border: none;">
-                                                    <i class="bi bi-person" style="color: var(--primary-color);"></i>
-                                                </span>
-                                                <input type="text" class="form-control" id="name" name="name"
-                                                    placeholder="Enter your name" required
-                                                    style="border: 1px solid #e0e0e0; border-radius: 0 8px 8px 0; padding: 12px;">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6 mb-4">
-                                            <label for="email" class="form-label"
-                                                style="color: var(--text-dark); font-size: 1rem;">Your Email</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text"
-                                                    style="background: rgba(20, 183, 137, 0.1); border: none;">
-                                                    <i class="bi bi-envelope" style="color: var(--primary-color);"></i>
-                                                </span>
-                                                <input type="email" class="form-control" id="email" name="email"
-                                                    placeholder="Enter your email" required
-                                                    style="border: 1px solid #e0e0e0; border-radius: 0 8px 8px 0; padding: 12px;">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label for="subject" class="form-label"
-                                            style="color: var(--text-dark); font-size: 1rem;">Subject</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"
-                                                style="background: rgba(20, 183, 137, 0.1); border: none;">
-                                                <i class="bi bi-chat-text" style="color: var(--primary-color);"></i>
-                                            </span>
-                                            <input type="text" class="form-control" id="subject" name="subject"
-                                                placeholder="Enter subject" required
-                                                style="border: 1px solid #e0e0e0; border-radius: 0 8px 8px 0; padding: 12px;">
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label for="message" class="form-label"
-                                            style="color: var(--text-dark); font-size: 1rem;">Your Message</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"
-                                                style="background: rgba(20, 183, 137, 0.1); border: none;">
-                                                <i class="bi bi-pencil" style="color: var(--primary-color);"></i>
-                                            </span>
-                                            <textarea class="form-control" id="message" name="message" rows="5"
-                                                placeholder="Write your message here" required
-                                                style="border: 1px solid #e0e0e0; border-radius: 0 8px 8px 0; padding: 12px;"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <button type="submit" class="btn w-100"
-                                        style="background-color: var(--primary-color); color: #fff; padding: 12px; font-size: 1.1rem; border-radius: 8px; border: none; transition: all 0.3s ease;"
-                                        onmouseover="this.style.backgroundColor='#117a54'; this.style.transform='translateY(-2px)'"
-                                        onmouseout="this.style.backgroundColor='#14b789'; this.style.transform='translateY(0)'">
-                                        <i class="bi bi-send me-2"></i>Send Message
-                                    </button>
-                                </form>
-                                <p id="successMessage" class="mt-3 text-center"
-                                    style="display: none; color: var(--primary-color); font-size: 1.1rem;">
-                                    Your message has been sent successfully! We'll get back to you soon.
-                                </p>
-                            </div>
-                        </div>
+                            <input type="text" class="form-control contact-modern-input mt-3" placeholder="Subject"
+                                required>
+                            <textarea class="form-control contact-modern-input mt-3" rows="4" placeholder="Your Message"
+                                required></textarea>
+                            <button type="submit" class="custom-btn mt-4 w-100"><i class="bi bi-send me-2"></i>Send
+                                Message</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--Contact Us Section Ends-->
+    <!-- Modern Contact Us Section End -->
 
-    <!-- Footer Section -->
-    <footer class="site-footer"
-        style="background: linear-gradient(135deg, #17bf92 0%, #4a72d1 100%); color: #fff; padding: 60px 0 30px; box-shadow: 0 -5px 20px rgba(0,0,0,0.1);">
-        <div class="container">
-            <div class="row">
-                <!-- Company Info -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="footer-info" style="padding-left: 50px">
-                        <h3 class="footer-title"
-                            style="color: #000; margin-bottom: 20px; font-weight: 700; font-size: 1.8rem;margin-left: 35px;">
-                            TechPro</h3>
-                        <p class="footer-description" style="color: #000; line-height: 1.8; font-size: 1.05rem;">
-                            Transforming ideas into digital reality. We specialize in creating innovative solutions that
-                            drive business growth and enhance user experiences.</p>
-                        <div class="social-links mt-4" style="padding-left: 50px;">
-                            <!-- Facebook -->
-                            <a href="https://facebook.com" target="_blank" class="social-link"
-                                style="display: inline-flex; justify-content: center; align-items: center; width: 40px; height: 40px; background-color: #fff; border-radius: 50%; margin-right: 15px; transition: all 0.3s ease;"
-                                onmouseover="this.style.transform='scale(1.1)'"
-                                onmouseout="this.style.transform='scale(1)'"><i class="bi bi-facebook"
-                                    style="color: #3b5998; font-size: 1.3rem;"></i></a>
+    <!-- Modern Visually Rich Footer Start -->
+    <footer class="modern-footer-rich pt-0">
+        <!-- Wave Divider -->
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 90" fill="none" xmlns="http://www.w3.org/2000/svg"
+                style="display: block; width: 100%; height: 90px;">
+                <path d="M0,60 C360,120 1080,0 1440,60 L1440,90 L0,90 Z" fill="#232946" />
+            </svg>
+        </div>
+        <div class="container pb-4 pt-0">
+            <div class="row gy-5 align-items-start justify-content-between">
+                <!-- About & Logo -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-brand d-flex align-items-center mb-3">
+                        <img src="images/techpro-logo-zip-file/png/logo-no-background.png" alt="TechPro Logo"
+                            style="height: 52px; width: auto; margin-right: 14px;">
 
-                            <!-- Github -->
-                            <a href="https://github.com/teamtechpro0" target="_blank" class="social-link"
-                                style="display: inline-flex; justify-content: center; align-items: center; width: 40px; height: 40px; background-color: #fff; border-radius: 50%; margin-right: 15px; transition: all 0.3s ease;"
-                                onmouseover="this.style.transform='scale(1.1)'"
-                                onmouseout="this.style.transform='scale(1)'"><i class="bi bi-github"
-                                    style="color: #1da1f2; font-size: 1.3rem;"></i></a>
-
-                            <!-- LinkedIn -->
-                            <a href="https://linkedin.com" target="_blank" class="social-link"
-                                style="display: inline-flex; justify-content: center; align-items: center; width: 40px; height: 40px; background-color: #fff; border-radius: 50%; margin-right: 15px; transition: all 0.3s ease;"
-                                onmouseover="this.style.transform='scale(1.1)'"
-                                onmouseout="this.style.transform='scale(1)'"><i class="bi bi-linkedin"
-                                    style="color: #0077b5; font-size: 1.3rem;"></i></a>
-
-                            <!-- Instagram -->
-                            <a href="https://instagram.com" target="_blank" class="social-link"
-                                style="display: inline-flex; justify-content: center; align-items: center; width: 40px; height: 40px; background-color: #fff; border-radius: 50%; transition: all 0.3s ease;"
-                                onmouseover="this.style.transform='scale(1.1)'"
-                                onmouseout="this.style.transform='scale(1)'"><i class="bi bi-instagram"
-                                    style="color: #e1306c; font-size: 1.3rem;"></i></a>
-                        </div>
                     </div>
+                    <p class="footer-about mb-0">Transforming ideas into digital reality. We create innovative solutions
+                        for business growth and user experience.</p>
                 </div>
-
                 <!-- Quick Links -->
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h4 class="footer-title"
-                        style="color: #000; margin-bottom: 20px; font-weight: 600; font-size: 1.3rem;">Quick Links</h4>
-                    <ul class="footer-links" style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 12px;"><a href="index.html"
-                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
-                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Home</a></li>
-                        <li style="margin-bottom: 12px;"><a href="aboutus.html"
-                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
-                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">About</a>
-                        </li>
-                        <li style="margin-bottom: 12px;"><a href="services.html"
-                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
-                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Services</a>
-                        </li>
-                        <li style="margin-bottom: 12px;"><a href="projects.html"
-                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
-                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Projects</a>
-                        </li>
-                        <li style="margin-bottom: 12px;"><a href="contactus.html"
-                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
-                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Contact</a>
-                        </li>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h6 class="footer-title mb-3">Quick Links</h6>
+                    <ul class="footer-links list-unstyled mb-0">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutus.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contactus.html">Contact</a></li>
                     </ul>
                 </div>
-
-                <!-- Services -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h4 class="footer-title"
-                        style="color: #000; margin-bottom: 20px; font-weight: 600; font-size: 1.3rem;">Our Services</h4>
-                    <ul class="footer-links" style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 12px;"><a href="services.html#web-development"
-                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
-                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Web
-                                Development</a></li>
-                        <li style="margin-bottom: 12px;"><a href="services.html#mobile-apps"
-                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
-                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Mobile
-                                Apps</a></li>
-                        <li style="margin-bottom: 12px;"><a href="services.html#ui-ux-design"
-                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
-                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">UI/UX
-                                Design</a></li>
-                        <li style="margin-bottom: 12px;"><a href="services.html#digital-marketing"
-                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
-                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Digital
-                                Marketing</a></li>
-                        <li style="margin-bottom: 12px;"><a href="services.html#cloud-solutions"
-                                style="color: #000; text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;"
-                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">Cloud
-                                Solutions</a></li>
-                    </ul>
-                </div>
-
                 <!-- Contact Info -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h4 class="footer-title"
-                        style="color: #000; margin-bottom: 20px; font-weight: 600; font-size: 1.3rem;">Contact Us</h4>
-                    <ul class="footer-contact" style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 15px; display: flex; align-items: start;">
-                            <i class="bi bi-geo-alt"
-                                style="color: #000; margin-right: 5px; margin-top: 5px; font-size: 1.2rem;"></i>
-                            <span style="color: #000; font-size: 1.05rem;">Beta-1, A Block, Greater Noida,
-                                Uttar Pradesh, India</span>
-                        </li>
-                        <li style="margin-bottom: 15px; display: flex; align-items: center;">
-                            <i class="bi bi-telephone" style="color: #000; margin-right: 10px; font-size: 1.2rem;"></i>
-                            <a href="tel:+919695167669" style="color: #000; text-decoration: none; font-size: 1.05rem;"
-                                onmouseover="this.style.color='#333'" onmouseout="this.style.color='#000'">+91
-                                9695167669</a>
-                        </li>
-                        <li style="margin-bottom: 15px; display: flex; align-items: center;">
-                            <i class="bi bi-envelope" style="color: #000; margin-right: 10px; font-size: 1.2rem;"></i>
-                            <a href="mailto:teamtechpro0@gmail.com"
-                                style="color: #000; text-decoration: none; font-size: 1.05rem;"
-                                onmouseover="this.style.color='#333'"
-                                onmouseout="this.style.color='#000'">teamtechpro0@gmail.com</a>
-                        </li>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h6 class="footer-title mb-3">Contact</h6>
+                    <ul class="footer-contact list-unstyled mb-0">
+                        <li><i class="bi bi-geo-alt me-2"></i><a
+                                href="https://maps.google.com/?q=Beta+1+Greater+Noida+Uttar+Pradesh"
+                                target="_blank">Beta 1, Greater Noida, UP</a></li>
+                        <li><i class="bi bi-telephone me-2"></i><a href="tel:+919695167669">+91 9695167669</a></li>
+                        <li><i class="bi bi-telephone me-2"></i><a href="tel:+919793711154">+91 9793711154</a></li>
+                        <li><i class="bi bi-envelope me-2"></i><a
+                                href="mailto:teamtechpro0@gmail.com">teamtechpro0@gmail.com</a></li>
                     </ul>
+                </div>
+                <!-- Social Icons -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="footer-title mb-3">Follow Us</h6>
+                    <div class="footer-social d-flex gap-3">
+                        <a href="https://facebook.com/teamtechpro" target="_blank" class="footer-social-link"><i
+                                class="bi bi-facebook"></i></a>
+                        <a href="https://github.com/teamtechpro0" target="_blank" class="footer-social-link"><i
+                                class="bi bi-github"></i></a>
+                        <a href="https://linkedin.com/company/teamtechpro" target="_blank" class="footer-social-link"><i
+                                class="bi bi-linkedin"></i></a>
+                        <a href="https://instagram.com/teamtechpro" target="_blank" class="footer-social-link"><i
+                                class="bi bi-instagram"></i></a>
+                    </div>
                 </div>
             </div>
-
-            <!-- Copyright -->
-            <div class="row mt-4">
-                <div class="col-12">
-                    <div class="copyright-text-wrap"
-                        style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
-                        <p class="mb-0 text-center" style="color: #ffffff; font-size: 1.05rem;">
-                            Copyright © 2024 Designed & Developed by -
-                            <a href="index.html"
-                                style="color: #ffffff; text-decoration: none; transition: all 0.3s ease; font-weight: 500;"
-                                onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#ffffff'">Team
-                                TechPro</a>
-                        </p>
-                    </div>
+            <hr class="my-4" style="border-color: #393e46; opacity: 0.2;">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0 copyright-bar">&copy; 2025 Team TechPro. Designed & Developed by <a
+                            href="https://teamtechpro.netlify.app"
+                            style="color: #14b789; text-decoration: underline;">Team TechPro</a>.</p>
                 </div>
             </div>
         </div>
     </footer>
-    <!-- Footer Section Ends -->
+    <!-- Modern Visually Rich Footer End -->
 
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top" id="backToTop">
